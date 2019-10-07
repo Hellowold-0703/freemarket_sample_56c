@@ -1,0 +1,20 @@
+.top-page_header
+  .header-top
+    = link_to root_path do
+      = image_tag "mercari.png", class:"header-top__logo"
+    %form
+      %textarea{placeholder: "何かお探しですか？"}
+    =fa_icon "search"
+  .header-bottom
+    .header-bottom__search-menu
+      .header-bottom__search-menu__category
+        .header-bottom__search-menu__category__icon
+          =fa_icon "list"
+          %span カテゴリーから探す
+        .header-bottom__search-menu__category__wrapper
+          %i.fa.fa-tag
+        .header-bottom__search-menu__brand
+        .header-bottom__search-menu__brand__icon
+          =fa_icon "tag"
+          %span ブランドから探す
+.footer

@@ -1,23 +1,41 @@
 .top-page_header{
   height:100px;
+  
 
   .header-top{
-     .header-top__logo{
-
-     }
+    display:flex;
+    .header-top__logo{
+      width: 140px;
+      height: 38px;
+    }
     textarea{
-
+      height:35px;
+      width: 800px;
+      line-height: 35px;
+      font-size: 15px;
+      padding-left: 8px; 
+      border-color: rgb(190, 187, 187);
+      border-radius: 5px;
+      background-color: rgb(245, 243, 243);
+      resize: none;
     }
   }
 
   .header-bottom{
+    display:flex;
     .header-bottom__search-menu{
+      display:flex;
+      span{
+        font-size: 13px;
+        letter-spacing: 1px;
+        font-family: 'HiraKakuPro-W6';
+        color: black;
+      }
+      i{
+        color: red;
+      }
       .header-bottom__search-menu__category{
         .header-bottom__search-menu__category__icon{
-          color: red;
-          span{
-            color: black;
-          }
         }
         .header-bottom__search-menu__category__wrapper{
 
@@ -26,10 +44,43 @@
 
         }
         .header-bottom__search-menu__brand__icon{
-          color: red;
-          span{
-            color: black;
+        }
+      }
+    }
+    .header-bottom__user-menu{
+      display:flex;
+
+      i{
+        color: rgb(216, 209, 209);
+      }
+      span{
+        font-size: 15px;
+        font-family: 'YuGothic';
+      } 
+      li{
+        list-style: none;
+      }
+      .header-bottom__user-menu__good{
+      }
+      .header-bottom__user-menu__good__icon{
+      }
+      .header-bottom__user-menu__notice{
+        .header-bottom__user-menu__notice__icon{
+          .header-bottom__user-menu__notice__icon__count{
           }
+        }
+      }
+      .header-bottom__user-menu__todolist{
+        .header-bottom__user-menu__todolist__icon{
+        }
+        .header-bottom__user-menu__todolist__content{
+          .header-bottom__user-menu__todolist__content__view{
+          }
+        }
+      }
+      .header-bottom__user-menu__mypage{
+        .header-bottom__user-menu__mypage__icon{
+          font-size: 10px;
         }
       }
     }

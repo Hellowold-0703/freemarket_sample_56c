@@ -1,30 +1,50 @@
 .top-page_header{
   height:100px;
+  padding: 0 202px;
   
 
   .header-top{
     display:flex;
+    position: relative;
+    height:40px;
+    
     .header-top__logo{
-      width: 140px;
-      height: 38px;
+      width: 134px;
+      height: 36px;
+      padding-top: 2px;
     }
     textarea{
-      height:35px;
-      width: 800px;
-      line-height: 35px;
-      font-size: 15px;
-      padding-left: 8px; 
+      margin-left:45px;
+      height:34px;
+      width: 827px;
+      line-height: 33px;
+      font-size: 16px;
+      font-family: 'YuGothic';
+      padding-left: 10px; 
       border-color: rgb(190, 187, 187);
       border-radius: 5px;
       background-color: rgb(245, 243, 243);
       resize: none;
     }
+    i{
+      cursor: pointer;
+      position: absolute;
+      height: 34px;
+      line-height: 38px;
+      width: 27px; 
+      right: 0;
+      font-size: 14px;
+    }
   }
 
   .header-bottom{
     display:flex;
+    margin-top: 8px;
+    height: 44px;
     .header-bottom__search-menu{
+      cursor: pointer;
       display:flex;
+      line-height: 35px;
       span{
         font-size: 13px;
         letter-spacing: 1px;
@@ -38,39 +58,50 @@
         .header-bottom__search-menu__category__icon{
         }
         .header-bottom__search-menu__category__wrapper{
-
         }
-        .header-bottom__search-menu__brand{
-
-        }
+      }
+      .header-bottom__search-menu__brand{
+          padding-left: 27px;
         .header-bottom__search-menu__brand__icon{
+
         }
       }
     }
     .header-bottom__user-menu{
+      cursor: pointer;
       display:flex;
-
+      margin-left: 195px;
       i{
-        color: rgb(216, 209, 209);
+        color: rgb(204, 204, 204);
+        font-size: 19px;
+        line-height: 31px;
       }
       span{
-        font-size: 15px;
+        font-family: sans-serif;
+        padding-left: 4px;
+        font-size: 14px;
         font-family: 'YuGothic';
+        vertical-align: middle;
       } 
       li{
         list-style: none;
+        
       }
       .header-bottom__user-menu__good{
+        padding-right: 14px; 
+        
       }
       .header-bottom__user-menu__good__icon{
       }
       .header-bottom__user-menu__notice{
+        padding: 0 14px;
         .header-bottom__user-menu__notice__icon{
           .header-bottom__user-menu__notice__icon__count{
           }
         }
       }
       .header-bottom__user-menu__todolist{
+        padding: 0 14px;
         .header-bottom__user-menu__todolist__icon{
         }
         .header-bottom__user-menu__todolist__content{
@@ -79,8 +110,18 @@
         }
       }
       .header-bottom__user-menu__mypage{
+        padding-left: 14px;
         .header-bottom__user-menu__mypage__icon{
+          text-decoration: none;
+          color: black;
           font-size: 10px;
+          img{
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            vertical-align: middle;
+            padding-right: 3px;
+          }
         }
       }
     }

@@ -4,7 +4,7 @@
       = image_tag "mercari.png", class:"header-top__logo"
     %form
       %textarea{placeholder: "何かお探しですか？"}
-    =fa_icon "search"
+    %i.fa.fa-search 
   .header-bottom
     .header-bottom__search-menu
       .header-bottom__search-menu__category
@@ -12,9 +12,9 @@
           %i.fa.fa-list
           %span カテゴリーから探す
       .header-bottom__search-menu__brand
-      .header-bottom__search-menu__brand__icon
-        %i.fa.fa-tag
-        %span ブランドから探す
+        .header-bottom__search-menu__brand__icon
+          %i.fa.fa-tag
+          %span ブランドから探す
     .header-bottom__user-menu
       %li.header-bottom__user-menu__good
         .header-bottom__user-menu__good__icon

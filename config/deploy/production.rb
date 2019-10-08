@@ -4,6 +4,9 @@
 # You can define all roles on a single server, or split them:
 
 server '18.176.15.195', user: 'ec2-user', roles: %w{app db web}
+
+set :rails_env, "production"
+set :unicorn_rack_env, "production"
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 

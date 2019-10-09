@@ -1,0 +1,37 @@
+.top-page_header
+  .top_header__wrapper
+    .header-top
+      = link_to root_path do
+        = image_tag "mercari.png", class:"header-top__logo"
+      %form
+        %textarea{placeholder: "何かお探しですか？"}
+      %i.fa.fa-search 
+    .header-bottom
+      .header-bottom__search-menu
+        .header-bottom__search-menu__category
+          .header-bottom__search-menu__category__icon
+            %i.fa.fa-list
+            %span カテゴリーから探す
+        .header-bottom__search-menu__brand
+          .header-bottom__search-menu__brand__icon
+            %i.fa.fa-tag
+            %span ブランドから探す
+      .header-bottom__user-menu
+        %li.header-bottom__user-menu__good
+          .header-bottom__user-menu__good__icon
+            %i.fa.fa-heart
+            %span いいね！一覧
+        %li.header-bottom__user-menu__notice
+          .header-bottom__user-menu__notice__icon
+            %i.fa.fa-bell
+            %span お知らせ
+            .header-bottom__user-menu__notice__icon__count
+        %li.header-bottom__user-menu__todolist
+          .header-bottom__user-menu__todolist__icon
+            %i.fa.fa-check
+            %span やることリスト
+          %ul.header-bottom__user-menu__todolist__content
+        %li.header-bottom__user-menu__mypage
+          =link_to "", class:'header-bottom__user-menu__mypage__icon' do
+            =image_tag "user_photo_noimage.png"
+            %span マイページ

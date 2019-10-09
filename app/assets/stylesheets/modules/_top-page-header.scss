@@ -2,125 +2,131 @@
   height:100px;
   padding: 0 202px;
   
+  .top_header__wrapper{
+    width: 1020px;
+    margin: auto;
+    padding-top: 8px; 
 
-  .header-top{
-    display:flex;
-    position: relative;
-    height:40px;
-    
-    .header-top__logo{
-      width: 134px;
-      height: 36px;
-      padding-top: 2px;
-    }
-    textarea{
-      margin-left:45px;
-      height:34px;
-      width: 827px;
-      line-height: 33px;
-      font-size: 16px;
-      font-family: 'YuGothic';
-      padding-left: 10px; 
-      border-color: rgb(190, 187, 187);
-      border-radius: 5px;
-      background-color: rgb(245, 243, 243);
-      resize: none;
-    }
-    i{
-      cursor: pointer;
-      position: absolute;
-      height: 34px;
-      line-height: 38px;
-      width: 27px; 
-      right: 0;
-      font-size: 14px;
-    }
-  }
-
-  .header-bottom{
-    display:flex;
-    margin-top: 8px;
-    height: 44px;
-    .header-bottom__search-menu{
-      cursor: pointer;
+    .header-top{
       display:flex;
-      line-height: 35px;
-      span{
-        font-size: 13px;
-        letter-spacing: 1px;
-        font-family: 'HiraKakuPro-W6';
-        color: black;
+      position: relative;
+      height:40px;
+      
+      .header-top__logo{
+        width: 134px;
+        height: 36px;
+        padding-top: 2px;
       }
-      i{
-        color: red;
-      }
-      .header-bottom__search-menu__category{
-        .header-bottom__search-menu__category__icon{
-        }
-        .header-bottom__search-menu__category__wrapper{
-        }
-      }
-      .header-bottom__search-menu__brand{
-          padding-left: 27px;
-        .header-bottom__search-menu__brand__icon{
-
-        }
-      }
-    }
-    .header-bottom__user-menu{
-      cursor: pointer;
-      display:flex;
-      margin-left: 195px;
-      i{
-        color: rgb(204, 204, 204);
-        font-size: 19px;
-        line-height: 31px;
-      }
-      span{
-        font-family: sans-serif;
-        padding-left: 4px;
-        font-size: 14px;
+      textarea{
+        margin-left:45px;
+        height:38px;
+        width: 829px;
+        line-height: 36px;
+        font-size: 16px;
         font-family: 'YuGothic';
-        vertical-align: middle;
-      } 
-      li{
-        list-style: none;
-        
+        padding-left: 10px; 
+        border-color: rgb(190, 187, 187);
+        border-radius: 5px;
+        background-color: rgb(245, 243, 243);
+        resize: none;
       }
-      .header-bottom__user-menu__good{
-        padding-right: 14px; 
-        
+      i{
+        cursor: pointer;
+        position: absolute;
+        height: 34px;
+        line-height: 38px;
+        width: 27px; 
+        right: 0;
+        font-size: 14px;
       }
-      .header-bottom__user-menu__good__icon{
-      }
-      .header-bottom__user-menu__notice{
-        padding: 0 14px;
-        .header-bottom__user-menu__notice__icon{
-          .header-bottom__user-menu__notice__icon__count{
-          }
-        }
-      }
-      .header-bottom__user-menu__todolist{
-        padding: 0 14px;
-        .header-bottom__user-menu__todolist__icon{
-        }
-        .header-bottom__user-menu__todolist__content{
-          .header-bottom__user-menu__todolist__content__view{
-          }
-        }
-      }
-      .header-bottom__user-menu__mypage{
-        padding-left: 14px;
-        .header-bottom__user-menu__mypage__icon{
-          text-decoration: none;
+    }
+  
+    .header-bottom{
+      display:flex;
+      margin-top: 8px;
+      height: 44px;
+      .header-bottom__search-menu{
+        cursor: pointer;
+        display:flex;
+        line-height: 35px;
+        span{
+          font-size: 13px;
+          letter-spacing: 1px;
+          font-weight: 600;
+          font-family:  inherit;
           color: black;
-          font-size: 10px;
-          img{
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            vertical-align: middle;
-            padding-right: 3px;
+        }
+        i{
+          color: red;
+        }
+        .header-bottom__search-menu__category{
+          .header-bottom__search-menu__category__icon{
+          }
+          .header-bottom__search-menu__category__wrapper{
+          }
+        }
+        .header-bottom__search-menu__brand{
+            padding-left: 27px;
+          .header-bottom__search-menu__brand__icon{
+  
+          }
+        }
+      }
+      .header-bottom__user-menu{
+        cursor: pointer;
+        display:flex;
+        margin-left: 195px;
+        i{
+          color: rgb(204, 204, 204);
+          font-size: 19px;
+          line-height: 31px;
+        }
+        span{
+          font-family: sans-serif;
+          padding-left: 4px;
+          font-size: 14px;
+          font-family: 'YuGothic';
+          vertical-align: middle;
+        } 
+        li{
+          list-style: none;
+          
+        }
+        .header-bottom__user-menu__good{
+          padding-right: 14px; 
+          
+        }
+        .header-bottom__user-menu__good__icon{
+        }
+        .header-bottom__user-menu__notice{
+          padding: 0 14px;
+          .header-bottom__user-menu__notice__icon{
+            .header-bottom__user-menu__notice__icon__count{
+            }
+          }
+        }
+        .header-bottom__user-menu__todolist{
+          padding: 0 14px;
+          .header-bottom__user-menu__todolist__icon{
+          }
+          .header-bottom__user-menu__todolist__content{
+            .header-bottom__user-menu__todolist__content__view{
+            }
+          }
+        }
+        .header-bottom__user-menu__mypage{
+          padding-left: 14px;
+          .header-bottom__user-menu__mypage__icon{
+            text-decoration: none;
+            color: black;
+            font-size: 10px;
+            img{
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              vertical-align: middle;
+              padding-right: 3px;
+            }
           }
         }
       }

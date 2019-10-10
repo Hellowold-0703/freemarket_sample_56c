@@ -269,6 +269,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  mini_magick
   mysql2 (>= 0.3.18, < 0.6.0)
   puma (~> 3.0)
   rails (~> 5.0.7, >= 5.0.7.2)

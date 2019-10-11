@@ -8,7 +8,7 @@
 
       .app-banner__pc__inner__icon.clearfix
         %figure.merucari
-          = link_to image_tag('footer-mercari-icon.png',:alt => "/")
+          = image_tag 'footer-mercari-icon.png'
 
         %ul.icon
           %li
@@ -19,8 +19,9 @@
         = link_to image_tag('download_app_pc.png',:alt => "/")
 %footer.global-footer
   %nav.info
-    .footer-cell
-      %h2.footer-head メルカリについて
+    .footer-box
+      %h2.footer-head 
+        メルカリについて
       %ul
         %li
           会社概要（運営会社）
@@ -36,8 +37,9 @@
           %i.fa.fa-twitter
           %i.fa.fa-facebook-square
 
-    .footer-cell
-      %h2.footer-head ヘルプ＆ガイド
+    .footer-box
+      %h2.footer-head 
+        ヘルプ＆ガイド
       %ul
         %li
           メルカリガイド
@@ -56,41 +58,44 @@
         %li
           メルカリボックス
     
-    .footer-cell.full-width
-      %h2.footer-head プライバシーと利用規約
+    .footer-box.full-width
+      %h2.footer-head 
+        プライバシーと利用規約
       .inner-footer
-        .inner-footer-cell
+        .inner-footer-box
           %ul
             %li
               プライバシーポリシー
             %li
               メルカリ利用規約
             %li
-              あんしんスマホサポート制度に関
-              %br する利用特約
+              %p
+                あんしんスマホサポート制度に関
+                %br する利用特約
             %li
               コンプライアンスポリシー
 
-        .inner-footer-cell
+        .inner-footer-box
           %ul
             %li
-              個人データの安全管理に係る基本方針
+              %p
+                個人データの安全管理に係る基本
+                %br 方針
             %li
               特定商取引に関する表記
             %li
               資金決済法に基づく表示
             %li
               法令順守と犯罪抑止のために
-            %li
-              返品・返金ポリシー
-    .footer-cell.footer-nav-lang
-      %h2.footer-head 国
+    .footer-box.footer-nav-lang
+      %h2.footer-head 
+        国
       %ul
         %li
           日本
         %li
           United States
   .footer-bottom
-    = link_to image_tag('footer-logo-white.svg',:alt => "/")
-    %span.footer-copyright
-      %small © 2019 Mercari
+    = image_tag 'footer-logo-white.svg'
+    .footer-bottom__copyright
+      © 2019 Mercari

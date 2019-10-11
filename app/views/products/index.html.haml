@@ -1,2 +1,96 @@
 = render "top-page/header"
-.footer
+.contents
+%aside.app-banner
+  .app-banner__pc
+    .app-banner__pc__inner
+      %h2 スマホでかんたんフリマアプリ
+      %p 今すぐ無料ダウンロード！
+
+      .app-banner__pc__inner__icon.clearfix
+        %figure.merucari
+          = link_to image_tag('footer-mercari-icon.png',:alt => "/")
+
+        %ul.icon
+          %li
+            = link_to image_tag('app-store.svg',:alt => "/")
+          %li
+            = link_to image_tag('google-play.svg',:alt => "/")
+      %li.figure
+        = link_to image_tag('download_app_pc.png',:alt => "/")
+%footer.global-footer
+  %nav.info
+    .footer-cell
+      %h2.footer-head メルカリについて
+      %ul
+        %li
+          会社概要（運営会社）
+        %li
+          採用情報
+        %li
+          プレスリリース
+        %li
+          公式ブログ
+        %li
+          メルカリロゴ利用ガイドライン
+        %li.footer-social-link
+          %i.fa.fa-twitter
+          %i.fa.fa-facebook-square
+
+    .footer-cell
+      %h2.footer-head ヘルプ＆ガイド
+      %ul
+        %li
+          メルカリガイド
+        %li
+          らくらくメルカリ便
+        %li
+          ゆうゆうメルカリ便
+        %li
+          大型メルカリ便
+        %li
+          車体取引ガイド
+        %li
+          メルカリあんしん・あんぜん宣言！
+        %li
+          偽ブランド品撲滅への取り組み
+        %li
+          メルカリボックス
+    
+    .footer-cell.full-width
+      %h2.footer-head プライバシーと利用規約
+      .inner-footer
+        .inner-footer-cell
+          %ul
+            %li
+              プライバシーポリシー
+            %li
+              メルカリ利用規約
+            %li
+              あんしんスマホサポート制度に関
+              %br する利用特約
+            %li
+              コンプライアンスポリシー
+
+        .inner-footer-cell
+          %ul
+            %li
+              個人データの安全管理に係る基本方針
+            %li
+              特定商取引に関する表記
+            %li
+              資金決済法に基づく表示
+            %li
+              法令順守と犯罪抑止のために
+            %li
+              返品・返金ポリシー
+    .footer-cell.footer-nav-lang
+      %h2.footer-head 国
+      %ul
+        %li
+          日本
+        %li
+          United States
+  .footer-bottom
+    = link_to image_tag('footer-logo-white.svg',:alt => "/")
+    %span.footer-copyright
+      %small © 2019 Mercari

@@ -1,0 +1,79 @@
+body {
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体',
+  'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+.payment-method {
+  width: 700px;
+  box-sizing: border-box;
+  &__container {
+    box-sizing: border-box;
+  }
+  &__head {
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  &__inner {
+    padding: 64px;
+  }
+}
+
+.payment-list {
+  max-width: 320px;
+  height: 16px;
+  margin: 0 auto;
+  &__head {
+    line-height: 16px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.add-credit-card {
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;
+  &__content {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  &__btn {
+    margin-bottom: 8px;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+.fa-credit-card {
+  margin-right: 16px;
+  right: 0;
+}
+
+.payment-footer {
+  margin: 40px 0 0;
+  text-align: right;
+}
+span {
+  font-size: 14px;
+  color: #0099e8;
+}
+.fa-angle-right {
+  position: relative;
+  margin: 0 0 0 8px;
+  vertical-align: middle;
+  font-size: 25px;
+  color: #0099e8;
+  bottom: 1px;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}

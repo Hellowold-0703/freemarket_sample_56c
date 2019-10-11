@@ -2,4 +2,204 @@
   height:200vh;
   background-color: gray;
 }
+.app-banner{
+  background-image: url("footer_bg_pc.jpg");
+  background-position: center;
+  background-size: cover;
+  border-style: solid;
+  border-width: 0;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  &__pc {
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+    display: flex;
+    font-size: inherit;
+    line-height: inherit;
+    box-sizing: inherit;
+    position: relative;
+    width: 750px;
+    list-style: none;
+    margin: 0 auto;
+      &__inner {
+        left: 0;
+        top: 50%;
+        left: 16px;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        padding: 0;
+    
+        h2 {
+          font-size: 24px;
+          line-height: 1.4;
+          margin: 50px 0 0 0;
+        }
+        p {
+          font-size: 35px;
+          margin: 0 0 0;
+        }
+        &__icon.clearfix {
+          width: 420px;
+          height: 68px;
+          text-align: left;
+          line-height: 68px;
+          display: inline-block;
+          display: flex;
+          margin: 20px 0 0;
+          overflow: hidden;
+          
+          .merucari {
+            margin: 0;
+            img {
+              margin: 0;
+              width: 67px;
+            }
+          }
+
+          .icon {
+            margin: 0;
+            img {
+              margin: 15px 0 0 24px;
+              padding: 0;
+            }
+          }
+
+          ul {
+            list-style: none;
+            display: flex;
+            margin: 30px;
+          }
+          .googleplay {
+            margin-left: 20px;
+          }
+        }
+      }
+  }
+}
+.figure {
+img {position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 100%;
+}
+}
+
+.global-footer {
+background: #212121;
+color: #fff;
+text-align: center;
+line-height: 1.5em;
+padding: 0 20px 10px 20px;
+
+.info {
+  width: 1020px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  .footer-cell{
+    float: left;
+    display: inline-block;
+    font-size: 12px;
+    vertical-align: top;
+    white-space: nowrap;
+    text-align: left;
+    margin: 18px 0 0 0;
+
+    .footer-head {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 100;
+    }
+  
+    .footer-social-link {
+      display:block;
+      width:20px;
+      height:40px;
+      font-size: 30px;
+      i {
+        margin: 16px 18px 0 0;
+      }
+    }
+
+      .inner-footer {
+        // float: left;
+        display: flex;
+        font-size: 12px;
+        width: 20%;
+        vertical-align: top;
+        padding: 0 20px 0 0;
+        white-space: nowrap;
+      }
+
+    ul {
+      list-style: none;
+      font-size: 12px;
+      text-align: left;
+      overflow: hidden;
+    }
+  }
+
+      li {
+        margin: 14px 0;
+        &:first-child {
+        margin: 24px 0 0;
+        text-align: left;
+        }
+      }
+  }
+}
+
+.footer-nav-lang {
+  a{
+    opacity: .3;
+    &.activate{
+        opacity: 1.0;
+    }
+  }
+}
+.footer-cell.full-width {
+  padding: 0 40px 0 0;
+}
+
+
+
+.footer-bottom {
+  margin: 30px auto 20px;
+  width: 1020px;
+  height: 33px;
+  clear: both;
+  text-align: left;
+
+  .footer-copyright {
+    width: 745px;
+    height: 14px;
+    margin: 8px 0 0;
+    display: inline-block;
+    text-align: center;
+    font-size: 11px;
+    vertical-align: sub;
+  }
+}
+
+
+.footer-cell:nth-child(1) {
+    width: 20%;
+    padding: 0 20px 0 0;
+  }
+
+.footer-cell:nth-child(2) {
+width: 20%;
+padding: 0 40px 0 0;
+}
+
+.inner-footer-cell:nth-child(1) {
+padding: 0 10px 0 0;
+}
+
+.inner-footer-cell:nth-child(2) {
+padding: 0 0 0 10px;
+}
+
+
 

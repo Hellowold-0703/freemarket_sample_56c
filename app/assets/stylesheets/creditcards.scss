@@ -49,7 +49,6 @@ body {
     background-color: #ea352d;
     border: 1px solid #ea352d;
     color: #fff;
-    text-decoration: none;
   }
 }
 .fa-credit-card {
@@ -76,4 +75,5 @@ span {
 
 *, *:before, *:after {
   box-sizing: border-box;
+  text-decoration: none;
 }

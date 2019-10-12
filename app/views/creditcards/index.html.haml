@@ -8,10 +8,11 @@
         %ul.payment-list__content
       %section.add-credit-card
         .add-credit-card__content
-          .add-credit-card__btn
-            = fa_icon 'credit-card'
-            %span<>
-            クレジットカードを追加する
+          = link_to root_path, class: 'btn-red submit_button' do
+            .add-credit-card__btn
+              = fa_icon 'credit-card'
+              %span<>
+              クレジットカードを追加する
       .payment-footer
         .payment-foorer__content
           %span 支払い方法について

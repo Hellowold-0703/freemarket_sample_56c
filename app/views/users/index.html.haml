@@ -2,4 +2,5 @@
   .logout-page__container
     .logout-page__inner   
       .logout-page__content
-        %button.btn-red{ type:'submit'} ログアウト
+        = form_tag(root_path, method: :get) do
+          %button.btn-red{ type:'submit'} ログアウト

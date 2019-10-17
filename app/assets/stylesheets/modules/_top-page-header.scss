@@ -55,6 +55,8 @@
           font-weight: 600;
           font-family:  inherit;
           color: black;
+          vertical-align: 1px;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
         }
         i{
           color: red;
@@ -83,7 +85,7 @@
           padding-left: 4px;
           font-size: 14px;
           font-family: 'YuGothic';
-          vertical-align: middle;
+          vertical-align: 2px;
         } 
         li{
           list-style: none;
@@ -95,9 +97,22 @@
           }
         }
         .header-bottom__user-menu__notice{
+          position: relative;
           padding: 0 14px;
           &__icon{
             &__count{
+              position: absolute;
+              top: -3px;
+              left: 20px;
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              background: #ea352d;
+              text-align: center;
+              line-height: 20px;
+              font-size: 12px;
+              color: #fff;
+              font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
             }
           }
         }
@@ -122,6 +137,9 @@
               border-radius: 50%;
               vertical-align: middle;
               padding-right: 3px;
+            }
+            span{
+              vertical-align: middle;
             }
           }
         }

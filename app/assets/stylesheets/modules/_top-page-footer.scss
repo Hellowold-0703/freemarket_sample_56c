@@ -107,14 +107,13 @@ padding: 0 20px 10px 20px;
     }
   
     .footer-social-link {
-      display:block;
-      width:20px;
-      height:40px;
+      display: inline;
       font-size: 30px;
+      text-decoration: none;
       i {
         color:white;
-        margin: 19px 10px 0 0;
-        font-size: 32px;
+        margin: 17px 10px 0 1px;
+        font-size: 30px;
       }
     }
 
@@ -136,9 +135,9 @@ padding: 0 20px 10px 20px;
   }
 
       li {
-        line-height: 23px;
+        line-height: 24px;
         color: rgba(255, 255, 255, 0.7);
-        margin: 8px 0;
+        margin: 6px 0 8px;
         font-size: 12px;
         font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
         p{

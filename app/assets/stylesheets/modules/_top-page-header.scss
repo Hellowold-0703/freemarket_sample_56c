@@ -1,11 +1,15 @@
 .top-page-header{
   height:100px;
   padding: 0 202px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  position: relative;
+  z-index: 3;
   
   .top-page-header__wrapper{
     width: 1020px;
     margin: auto;
     padding-top: 8px; 
+    
 
     .header-top{
       display:flex;
@@ -91,12 +95,12 @@
           list-style: none;
           
         }
-        .header-bottom__user-menu__good{
+        &__good{
           padding-right: 14px;  
           &__icon{
           }
         }
-        .header-bottom__user-menu__notice{
+        &__notice{
           position: relative;
           padding: 0 14px;
           &__icon{
@@ -116,7 +120,7 @@
             }
           }
         }
-        .header-bottom__user-menu__todolist{
+        &__todolist{
           padding: 0 14px;
           &__icon{
           }
@@ -125,7 +129,7 @@
             }
           }
         }
-        .header-bottom__user-menu__mypage{
+        &__mypage{
           padding-left: 14px;
           &__icon{
             text-decoration: none;

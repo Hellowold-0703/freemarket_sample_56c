@@ -2,7 +2,8 @@
   float: left;
   margin: 0 40px 0 0;
   position: relative;
-  & li {
+  color: #333;
+  li {
     border: solid 1px #eeeeee;
     box-sizing: border-box;
     white-space: nowrap;
@@ -14,7 +15,9 @@
     color: #333;
   }
 }
-
+.mypage-nav-list-item{
+  color: #333;
+}
 .icon-arrow-right {
   float: right;
 }

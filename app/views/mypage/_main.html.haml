@@ -1,8 +1,8 @@
 .l-content
   %section.mypage-user-icon
-    = link_to do
+    = link_to "" , class: "mypage-detail" do
       %figure
-        = image_tag 'https://static.mercdn.net/members/163773134.jpg?1561016110', alt: '', height: '60', width: '60', class: ''
+        = image_tag 'https://static.mercdn.net/members/163773134.jpg?1561016110', alt: '', height: '60', width: '60', class: 'user-no-img'
       %h2.bold
         user name
       .mypage-number
@@ -18,11 +18,9 @@
   %section.mypage-tab-container-notification-todo
     %ul.mypage-tabs
       %li.active
-        %h3
-          = link_to 'お知らせ' ,href: "#mypage-tab-notification", data: {toggle: "tab"}
+        = link_to 'お知らせ' , href: "#mypage-tab-notification", data: {toggle: "tab"}
       %li
-        %h3
-          = link_to 'やることリスト' ,href: "#maypage-tab-todo", data: {toggle: "tab"} 
+        = link_to 'やることリスト' , href: "#maypage-tab-todo", data: {toggle: "tab"} 
     .tab-content
       %ul#mypage-tab-notification.maypage-itemlist.tabpane
         %li.mypage-item-not-found.bold お知らせの商品はありません

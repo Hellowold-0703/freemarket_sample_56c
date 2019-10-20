@@ -17,9 +17,8 @@
 @import 'font-awesome-sprockets';
 @import "font-awesome";
 @import "reset";
+@import "./mypage-main";
+@import "./mypage-side";
 @import "./modules/top-page-header";
 @import "./modules/top-page-contents";
 @import "./modules/top-page-footer";
-
-@import "./mypage-main";
-@import "./mypage-side";

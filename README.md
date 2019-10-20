@@ -21,6 +21,8 @@
 - has_one :users_address
 - has_many :products
 - has_many :comments
+- has_many :likes
+- has_many :reviews
 
 
 ## users_addressテーブル
@@ -61,6 +63,8 @@
 - belongs_to :small_category
 - belongs_to :brand
 - belongs_to :size
+- has_many :comments
+- has_many :reviews
 
 ## brandsテーブル
 
@@ -82,11 +86,12 @@
 - has_many :sizes, though: :large_categorys
 - has_many :small_categorys
 
+
 ## sizesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-
+|value|string|null: false|
 
 ### Association
 - has_many :middle_categorys, though: :large_categorys
@@ -96,7 +101,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string||
 |middle_category_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, foreign_key: true|
 
@@ -136,7 +141,20 @@
 |product_id|references|null: false, foreign_key: true|
 
 ### Association
-
 - belongs_to :user
 - belongs_to :product
 
+
+## reviewsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|rate|integer|null: false|
+|comment|text||
+|user_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :user
+- belongs_to :product

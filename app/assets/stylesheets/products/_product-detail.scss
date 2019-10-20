@@ -287,6 +287,33 @@ td {
   margin: 24px auto;
   padding: 32px 0 24px;
   background-color: #fff;
+  .fa-facebook-square {
+    width: 44px;
+    height: 44px;
+    color: #fff;
+    background-color: #385185;
+    font-size: 30px;
+    border-radius: 4px;
+    line-height: 44px;
+  }
+  .fa-twitter {
+    width: 44px;
+    height: 44px;
+    color: #fff;
+    background-color: #5d9dc9;
+    font-size: 35px;
+    border-radius: 4px;
+    line-height: 44px;
+  }
+  .fa-pinterest {
+    width: 44px;
+    height: 44px;
+    color: #fff;
+    background-color: #aa262a;
+    font-size: 20px;
+    border-radius: 4px;
+    line-height: 44px;
+  }
   &__text {
     text-align: center;
   }
@@ -302,37 +329,7 @@ td {
   vertical-align: middle;
   text-align: center;
 }
-.fa-facebook-square {
-  i{
-  width: 44px;
-  height: 44px;
-  color: #fff;
-  background-color: #385185;
-  font-size: 30px;
-  border-radius: 4px;
-  line-height: 44px;
-  }
-}
-.fa-twitter {
-  i{
-  width: 44px;
-  height: 44px;
-  color: #fff;
-  background-color: #5d9dc9;
-  font-size: 35px;
-  border-radius: 4px;
-  line-height: 44px;
-  }
-}
-.fa-pinterest {
-  width: 44px;
-  height: 44px;
-  color: #fff;
-  background-color: #aa262a;
-  font-size: 20px;
-  border-radius: 4px;
-  line-height: 44px;
-}
+
 
 .user-profile {
   width: 700px;

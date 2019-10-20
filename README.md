@@ -95,6 +95,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
+|category_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :sizes, though: :sizes_genres
@@ -130,6 +131,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|genre_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :genre

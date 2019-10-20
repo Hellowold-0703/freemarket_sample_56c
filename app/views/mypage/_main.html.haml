@@ -1,6 +1,6 @@
 .l-content
   %section.mypage-user-icon
-    %a{href: ""}
+    = link_to do
       %figure
         = image_tag 'https://static.mercdn.net/members/163773134.jpg?1561016110', alt: '', height: '60', width: '60', class: ''
       %h2.bold
@@ -19,10 +19,10 @@
     %ul.mypage-tabs
       %li.active
         %h3
-          %a{href: "#mypage-tab-notification", data: {toggle: "tab"}} お知らせ
+          = link_to 'お知らせ' ,href: "#mypage-tab-notification", data: {toggle: "tab"}
       %li
         %h3
-          %a{href: "#maypage-tab-todo", data: {toggle: "tab"}} やることリスト
+          = link_to 'やることリスト' ,href: "#maypage-tab-todo", data: {toggle: "tab"} 
     .tab-content
       %ul#mypage-tab-notification.maypage-itemlist.tabpane
         %li.mypage-item-not-found.bold お知らせの商品はありません
@@ -35,10 +35,10 @@
     %ul.mypage-tabs
       %li.active
         %h3
-          %a{href: "#mypage-tab-transaction-now", data: {toggle: "tab"}} 取引中
+          = link_to '取引中' ,href: "#mypage-tab-transaction-now", data: {toggle: "tab"}
       %li
         %h3
-          %a{href: "#mypage-tab-transaction-old", data: {toggle: "tab"}} 過去の取引
+          = link_to '過去の取引' ,href: "#mypage-tab-transaction-old", data: {toggle: "tab"}
     .tab-content
       %ul#mypage-tab-transaction-now.mypage-item-list.tabpane
         %li.mypage-item-not-found.bold 取引中の商品はありません

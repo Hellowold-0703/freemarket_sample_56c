@@ -38,13 +38,14 @@
 ### Association
 - belongs_to :user
 
+
 ## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|middle_category_id|references|null: false, foreign_key: true|
-|small_category_id|references|null: false, foreign_key: true|
+|middle_genre_id|references|null: false, foreign_key: true|
+|small_genre_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, foreign_key: true|
 |image|text|null: false, index: true|
@@ -59,12 +60,14 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :middle_category
-- belongs_to :small_category
+- belongs_to :middle_genre
+- belongs_to :small_genre
 - belongs_to :brand
+- belongs_to :category
 - belongs_to :size
 - has_many :comments
 - has_many :reviews
+
 
 ## brandsテーブル
 
@@ -76,15 +79,25 @@
 - has_many :products
 
 
-## middle_categorysテーブル
+### categorysテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
 
 ### Association
-- has_many :sizes, though: :large_categorys
-- has_many :small_categorys
+- has_many :products
+
+
+## middle_genresテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+
+### Association
+- has_many :sizes, though: :large_genres
+- has_many :small_genres
 
 
 ## sizesテーブル
@@ -94,30 +107,30 @@
 |value|string|null: false|
 
 ### Association
-- has_many :middle_categorys, though: :large_categorys
+- has_many :middle_genres, though: :large_genres
 
 
-## large_categorysテーブル
+## large_genresテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-|middle_category_id|references|null: false, foreign_key: true|
+|middle_genre_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :middle_category
+- belongs_to :middle_genre
 - belongs_to :size
 
 
-## small_categorysテーブル
+## small_genresテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
 ### Association
-- belongs_to :middle_category
+- belongs_to :middle_genre
 
 
 ## commentsテーブル

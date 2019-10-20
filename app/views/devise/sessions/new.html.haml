@@ -1,17 +1,29 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+
+.rogin_wrapper
+  .rogin_center_wrapper
+    
+    .rogin_bottom_wrapper
+      .new_bottom_wrapper
+        %p アカウントをお持ちでない方はこちら
+          
+        - if devise_mapping.registerable? && controller_name != 'registrations'
+          = link_to "新規会員登録", new_registration_path(resource_name),class: "new_bottom"
+          %br/
+      .sume_bottom_wrapper
+        .oauth_bottom
+          = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, class: 'rogin_facebook_bottom'
+          = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path,class: 'rogin_google_bottom'
+        .form_wrapper
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .form_1
+              = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: 'メールアドレス'
+            .form_2
+              = f.password_field :password, autocomplete: "current-password",placeholder: 'パスワード'
+          
+            .recaptcha_wrapper
+              = recaptcha_tags 
+     
+              = f.submit "ログイン"
+      - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+        = link_to "パスワードをお忘れの方", new_password_path(resource_name),class: "forget_path"
+           

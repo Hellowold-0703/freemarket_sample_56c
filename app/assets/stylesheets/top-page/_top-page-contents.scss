@@ -14,7 +14,7 @@
       background: #f5f5f5; 
       padding-bottom: 65px; 
       &__header{
-        height: 85px;
+        height: 170px;
         line-height: 90px;
         padding: 30px 0 56px;
         background: white;
@@ -29,6 +29,7 @@
           a{
           margin: 10px 0px 0px 10px;
           background-color: rgb(239, 239, 239); 
+          color: black;
           padding: 8px 16px;
           border-radius: 15px;
           cursor: pointer;
@@ -83,6 +84,7 @@
               position: absolute;
               bottom: 20px;
               left: 10px;
+              color: black;
             }
           }
         }

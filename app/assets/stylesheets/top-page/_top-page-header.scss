@@ -4,6 +4,7 @@
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   position: relative;
   z-index: 3;
+  background-color: #fff;
   
   &__wrapper{
     width: 1020px;
@@ -90,13 +91,14 @@
           font-size: 14px;
           font-family: 'YuGothic';
           vertical-align: 2px;
+          color: black;
         } 
         li{
           list-style: none;
           
         }
         &__good{
-          padding-right: 14px;  
+          padding-right: 14px; 
           &__icon{
           }
         }

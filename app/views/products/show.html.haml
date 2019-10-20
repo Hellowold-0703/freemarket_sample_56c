@@ -10,7 +10,7 @@
                 = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_1.jpg?1571141929',{class: 'owl-lazy-active'}
             .owl-product
               .owl-product-inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_1.jpg?1571141929',{class: 'owl-lazy',style: 'opacity: 1;'}
+                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_1.jpg?1571141929',{class: 'owl-lazy-first'}
             .owl-product
               .owl-product-inner
                 = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_2.jpg?1571141929',{class: 'owl-lazy'}
@@ -141,12 +141,12 @@
 %ul.product-link
   %li.product-link__prev
     = link_to do
-      %i.fa.fa-angle-left{style: 'font-size: 24px;'}
+      %i.fa.fa-angle-left
       アディダス
   %li.product-link__next
     = link_to do
       スタンスミス
-      %i.fa.fa-angle-right{style: 'font-size: 24px'}
+      %i.fa.fa-angle-right
 .social-media
   .social-media__text
     .fb-save.fb_iframe_wedget
@@ -189,18 +189,6 @@
               .products-box__body__num__icon
                 %i.fa.fa-heart-o 
                 %span 22
-      %section.products-box{style: 'margin: 0;'}
-        = link_to do
-          %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m68697493164_1.jpg?1569380239'
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
       %section.products-box
         = link_to do
           %figure.products-box__photo
@@ -225,7 +213,19 @@
               .products-box__body__num__icon
                 %i.fa.fa-heart-o 
                 %span 22
-      %section.products-box{style: 'margin: 0;'}
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag 'https://static.mercdn.net/thumb/photos/m68697493164_1.jpg?1569380239'
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
         = link_to do
           %figure.products-box__photo
             = image_tag 'https://static.mercdn.net/thumb/photos/m68697493164_1.jpg?1569380239'
@@ -266,18 +266,6 @@
               .products-box__body__num__icon
                 %i.fa.fa-heart-o 
                 %span 22
-      %section.products-box{style: 'margin: 0;'}
-        = link_to do
-          %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
       %section.products-box
         = link_to do
           %figure.products-box__photo
@@ -302,7 +290,19 @@
               .products-box__body__num__icon
                 %i.fa.fa-heart-o 
                 %span 22
-      %section.products-box{style: 'margin: 0;'}
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
         = link_to do
           %figure.products-box__photo
             = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'

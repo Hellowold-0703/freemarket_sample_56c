@@ -71,6 +71,17 @@ body {
   vertical-align: bottom;
   opacity: 1;
 }
+.owl-lazy-first {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  max-height: none;
+  opacity: .4;
+  cursor: pointer;
+  opacity: 1;
+}
 .owl-lazy {
   display: inline-block;
   position: relative;
@@ -246,6 +257,13 @@ td {
   font-family: inherit;
 }
 
+.fa.fa-angle-left {
+  font-size: 24px;
+}
+.fa-angle-right {
+  font-size: 24px;
+}
+
 .product-link {
   width: 700px;
   margin: 24px auto 0;
@@ -377,6 +395,9 @@ td {
       }
     }
   }
+}
+.products-box:nth-child(3n) {
+  margin-right: 0;
 }
 .products-box__photo img {
   position: absolute;

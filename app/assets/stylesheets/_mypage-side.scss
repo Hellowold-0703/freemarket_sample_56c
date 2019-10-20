@@ -1,0 +1,30 @@
+.l-side {
+  float: left;
+  margin: 0 40px 0 0;
+  position: relative;
+  & li {
+    border: solid 1px #eeeeee;
+    box-sizing: border-box;
+    white-space: nowrap;
+    padding: 16px 16px;
+    width: 280px;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+    color: #333;
+  }
+}
+
+.icon-arrow-right {
+  float: right;
+}
+
+.mypage-nav-head {
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+.mypage-nav-list-item.active {
+  background-color: #eee;
+  font-weight: bold;
+}

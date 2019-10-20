@@ -45,7 +45,7 @@
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |genre_id|references|null: false, foreign_key: true|
-|small_genre_id|references|null: false, foreign_key: true|
+|small-genre_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, foreign_key: true|
 |image|text|null: false, index: true|
@@ -61,7 +61,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :genre
-- belongs_to :small_genre
+- belongs_to :small-genre
 - belongs_to :brand
 - belongs_to :category
 - belongs_to :size
@@ -98,8 +98,7 @@
 |category_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :sizes, though: :sizes_genres
-- has_many :small_genres
+- has_many :small-genres
 - belongs_to :category
 
 
@@ -110,23 +109,10 @@
 |value|string|null: false|
 
 ### Association
-- has_many :genres, though: :sizes_genres
+- has_many :genres, though: :sizes_small-genres
 
 
-## sizes_genresテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string||
-|genre_id|references|null: false, foreign_key: true|
-|size_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :genre
-- belongs_to :size
-
-
-## small_genresテーブル
+## small-genresテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -135,6 +121,20 @@
 
 ### Association
 - belongs_to :genre
+has_many :sizes, throuh: :sizes_small-genres
+
+
+## sizes_small-genresテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
+|genre_id|references|null: false, foreign_key: true|
+|size_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :small-genre
+- belongs_to :size
 
 
 ## commentsテーブル

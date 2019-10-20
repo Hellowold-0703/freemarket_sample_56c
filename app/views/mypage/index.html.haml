@@ -1,0 +1,21 @@
+-# .pc-header
+-#   = render 'shared/top_bar'
+
+%nav.bread-crumbs
+  %ul
+    %li
+      = link_to 'メルカリ ', ''
+      %i.icon-arrow-right
+      
+    %li
+      マイページ
+
+%main.l-container.clearfix
+  .l-container-box
+    = render 'mypage/main'
+
+    .l-side
+      = render 'mypage/side'
+
+-# .global-footer
+-#   = render 'shared/footer-bottom'

@@ -308,6 +308,7 @@ td {
   text-align: center;
 }
 .fa-facebook-square {
+  i{
   width: 44px;
   height: 44px;
   color: #fff;
@@ -315,8 +316,10 @@ td {
   font-size: 30px;
   border-radius: 4px;
   line-height: 44px;
+  }
 }
 .fa-twitter {
+  i{
   width: 44px;
   height: 44px;
   color: #fff;
@@ -324,6 +327,7 @@ td {
   font-size: 35px;
   border-radius: 4px;
   line-height: 44px;
+  }
 }
 .fa-pinterest {
   width: 44px;

@@ -17,6 +17,7 @@
 
 ### Association
 - has_one :users_address
+- has_one :users_authentication
 - has_many :products
 - has_many :comments
 - has_many :likes
@@ -33,6 +34,17 @@
 |house_number|string|null: false|
 |building|string|null: false|
 |user_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+
+
+## users_authenticationテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|phone_number|string|unique: true, foreign_key: true|
 
 ### Association
 - belongs_to :user

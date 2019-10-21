@@ -50,11 +50,11 @@
 |name|text|null: false|
 |explanation|text|null: false|
 |status|string|null: false|
-|skipping charge|string|null: false|
-|skipping area|string|null: false|
-|days before skipment|string|null: false|
-|selling prime|integer|null: false|
-|skipping method|string|null: false|
+|shipping_charge|string|null: false|
+|shipping_area|string|null: false|
+|days_before_shipment|string|null: false|
+|selling_prime|integer|null: false|
+|shipping_method|string|null: false|
 
 ### Association
 - belongs_to :user
@@ -141,7 +141,7 @@ has_many :sizes, throuh: :sizes_small-genres
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
-|contents|text|null: false|
+|content|text|null: false|
 
 ### Association
 - belongs_to :user

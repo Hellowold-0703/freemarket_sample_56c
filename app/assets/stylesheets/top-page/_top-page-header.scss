@@ -1,0 +1,155 @@
+.top-page-header{
+  height:100px;
+  padding: 0 202px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+  
+  &__wrapper{
+    width: 1020px;
+    margin: auto;
+    padding-top: 8px; 
+    
+
+    .header-top{
+      display:flex;
+      position: relative;
+      height:40px;
+      
+      &__logo{
+        width: 134px;
+        height: 36px;
+        padding-top: 2px;
+      }
+      textarea{
+        margin-left:45px;
+        height:38px;
+        width: 829px;
+        line-height: 36px;
+        font-size: 16px;
+        font-family: 'YuGothic';
+        padding-left: 10px; 
+        border-color: rgb(190, 187, 187);
+        border-radius: 5px;
+        background-color: rgb(245, 243, 243);
+        resize: none;
+      }
+      i{
+        cursor: pointer;
+        position: absolute;
+        height: 34px;
+        line-height: 38px;
+        width: 27px; 
+        right: 5px;
+        font-size: 14px;
+      }
+    }
+  
+    .header-bottom{
+      display:flex;
+      margin-top: 8px;
+      height: 44px;
+      &__search-menu{
+        cursor: pointer;
+        display:flex;
+        line-height: 35px;
+        span{
+          font-size: 13px;
+          letter-spacing: 1px;
+          font-weight: 600;
+          font-family:  inherit;
+          color: black;
+          vertical-align: 1px;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+        }
+        i{
+          color: red;
+        }
+        &__category{
+          &__icon{
+          }
+        }
+        &__brand{
+            padding-left: 27px;
+          &__icon{
+          }
+        }
+      }
+      &__user-menu{
+        cursor: pointer;
+        display:flex;
+        margin-left: 195px;
+        i{
+          color: rgb(204, 204, 204);
+          font-size: 19px;
+          line-height: 31px;
+        }
+        span{
+          font-family: sans-serif;
+          padding-left: 4px;
+          font-size: 14px;
+          font-family: 'YuGothic';
+          vertical-align: 2px;
+          color: black;
+        } 
+        li{
+          list-style: none;
+          
+        }
+        &__good{
+          padding-right: 14px; 
+          &__icon{
+          }
+        }
+        &__notice{
+          position: relative;
+          padding: 0 14px;
+          &__icon{
+            &__count{
+              position: absolute;
+              top: -3px;
+              left: 20px;
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              background: #ea352d;
+              text-align: center;
+              line-height: 20px;
+              font-size: 12px;
+              color: #fff;
+              font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            }
+          }
+        }
+        &__todolist{
+          padding: 0 14px;
+          &__icon{
+          }
+          &__content{
+            &__view{
+            }
+          }
+        }
+        &__mypage{
+          padding-left: 14px;
+          &__icon{
+            text-decoration: none;
+            color: black;
+            font-size: 10px;
+            img{
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              vertical-align: middle;
+              padding-right: 3px;
+            }
+            span{
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+}

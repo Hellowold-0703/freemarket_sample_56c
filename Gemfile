@@ -57,9 +57,7 @@ gem 'haml-rails'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
-gem 'font-awesome-sass', '~> 5.4.1'
+gem 'font-awesome-rails'
 # .env から環境変数を読み込み
 
 gem 'dotenv-rails'
-
-

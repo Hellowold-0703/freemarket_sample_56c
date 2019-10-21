@@ -1,0 +1,118 @@
+.contents{
+  &__wrapper {
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    width: 100%;
+    .slider{
+      text-align: center;
+      background-color: #d6d3d396;
+      .contents__banner{
+        cursor: pointer;
+      }
+    }
+
+    .pickup{
+      background: #f5f5f5; 
+      padding-bottom: 65px; 
+      &__header{
+        height: 170px;
+        line-height: 90px;
+        padding: 30px 0 56px;
+        background: white;
+        font-size: 28px;
+        text-align:center;
+        font-weight: 600;
+        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        &__categories{
+          font-size:14px;
+          list-style: none;
+          margin-top: -40px;
+          a{
+          margin: 10px 0px 0px 10px;
+          background-color: rgb(239, 239, 239); 
+          color: black;
+          padding: 8px 16px;
+          border-radius: 15px;
+          cursor: pointer;
+          }
+        }
+      }
+      &__item{
+        margin: 0 210px;
+        padding-top: 42px;
+        margin-bottom: 18px;
+        &__header{
+          height: 50px;
+          &__category-title{
+            float: left;
+            font-size: 24px;
+            font-weight:bold;
+          }
+          &__see-more{
+            float: right;
+            color: #0099e8;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 13px 0 5px 5px;
+            font-weight: 600;
+          }
+        }
+        &__bottom{
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          &__image{
+            position: relative;
+            margin-bottom: 15px;
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+            height: 252px;
+            background-color: #fff;
+            cursor: pointer;
+            p{
+              position: absolute;
+              bottom: 76px;
+              left: 0px;
+              font-size: 17px;
+              height: 28px;
+              line-height: 28px;
+              padding: 0 12px;
+              border-radius: 0 14px 14px 0;
+              background: rgba(0,0,0,.4);
+              color: white;
+            }
+            span{
+              position: absolute;
+              bottom: 20px;
+              left: 10px;
+              color: black;
+            }
+          }
+        }
+      }
+    } 
+    .camera{
+      height: 160px;
+      width: 160px;
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      border-radius: 50%;
+      background-color: #ea352d;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+      &__text{
+        display: block;
+        color: #fff;
+        font-size: 22px;
+        margin: 27px 0 2px;
+      }
+      &__icon{
+        display: block;
+        color: #fff;
+        font-size: 58px;
+      }
+    }
+  }
+}

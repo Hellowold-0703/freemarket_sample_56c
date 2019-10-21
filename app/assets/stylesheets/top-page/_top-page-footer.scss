@@ -1,0 +1,216 @@
+.app-banner{
+  background-image: url("footer_bg_pc.jpg");
+  background-position: center;
+  background-size: cover;
+  border-style: solid;
+  border-width: 0;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  &__pc {
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+    display: flex;
+    font-size: inherit;
+    line-height: inherit;
+    box-sizing: inherit;
+    position: relative;
+    width: 750px;
+    list-style: none;
+      &__inner {
+        padding: 0;
+    
+        h2 {
+          font-size: 24px;
+          line-height: 1.2;
+          margin: 45px 0 3px 0;
+          font-weight: 600;
+
+        }
+        p {
+          font-size: 35px;
+         
+        }
+        &__icon.clearfix{
+          width: 420px;
+          height: 68px;
+          text-align: left;
+          line-height: 65px;
+          display: inline-block;
+          display: flex;
+          margin: 14px 0 0;
+          overflow: hidden;
+          
+          .merucari {
+            margin: 0;
+            margin-right: 9px;
+            img {
+              margin: 0;
+              width: 67px;
+            }
+          }
+
+          .icon {
+            margin: 0;
+            img {
+              margin: 12px 0 0 17px;
+              padding: 0;
+            }
+          }
+
+          ul {
+            list-style: none;
+            display: flex;
+            margin: 20px;
+          }
+        }
+        .figure {
+          img{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 300px;
+            height: 100%;
+          }
+        }
+      }
+  }
+}
+
+
+.global-footer {
+background: #212121;
+color: #fff;
+text-align: center;
+line-height: 6px;
+padding: 0 20px 10px 20px;
+
+  .info {
+    width: 1020px;
+    margin: 0 auto;
+    overflow: hidden;
+
+  .footer-box{
+    float: left;
+    display: inline-block;
+    font-size: 12px;
+    white-space: nowrap;
+    text-align: left;
+    margin: 25px 0 0 0;
+    padding-bottom: 0px;
+
+    .footer-head {
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  
+    .footer-social-link {
+      display: inline;
+      font-size: 30px;
+      text-decoration: none;
+      a{
+        color: white; 
+      }
+      i {
+        color:white;
+        margin: 17px 10px 0 1px;
+        font-size: 30px;
+      }
+    }
+
+      .inner-footer {
+        display: flex;
+        font-size: 12px;
+        width: 20%;
+        vertical-align: top;
+        padding: 0 20px 0 0;
+        white-space: nowrap;
+      }
+
+    ul {
+      list-style: none;
+      font-size: 12px;
+      text-align: left;
+      overflow: hidden;
+    }
+  }
+
+      li {
+        line-height: 24px;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 6px 0 8px;
+        font-size: 12px;
+        font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        p{
+          line-height: 16px;
+        }
+        &:first-child {
+        margin: 24px 0 0;
+        text-align: left;
+        }
+      }
+  }
+}
+
+.footer-nav-lang {
+  a{
+    opacity: .3;
+    &.activate{
+        opacity: 1.0;
+    }
+  }
+}
+.footer-box.full-width {
+  padding: 0 30px 0 0;
+}
+
+
+
+.footer-bottom {
+  margin: 20px auto 18px;
+  width: 1020px;
+  height: 32px;  
+  clear: both;
+  text-align: left;
+  line-height: 32px;
+  img{
+    height: 32px;
+  }
+
+  .footer-bottom__copyright {  
+    width: 745px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    vertical-align: top;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    font-weight: 500;
+    
+  }
+}
+
+
+.footer-box:nth-child(1) {
+    width: 20%;
+    padding: 0 3px 0 0;
+  }
+
+.footer-box:nth-child(2) {
+  width: 20%;
+  padding: 0 26px 0 0;
+}
+
+.inner-footer-box:nth-child(1) {
+  padding: 0 20px 0 0;
+}
+
+.inner-footer-box:nth-child(2) {
+  padding: 0 0 0 10px;
+}
+
+
+

@@ -1,0 +1,18 @@
+= render 'top/header'
+
+%nav.bread-crumbs
+  %ul
+    %li
+      = link_to 'メルカリ', ''
+      %i.icon-arrow-right
+      
+    %li
+      マイページ
+
+%main.l-container.clearfix
+  .l-container-box
+    = render 'mypage/main'
+
+    = render 'mypage/side'
+
+= render 'top/footer'

@@ -43,8 +43,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|genre_id|references|null: false, foreign_key: true|
-|small-genre_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, foreign_key: true|
 |image|text|null: false, index: true|
@@ -59,8 +58,7 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :genre
-- belongs_to :small-genre
+- belongs_to :category
 - belongs_to :brand
 - belongs_to :category
 - belongs_to :size
@@ -83,10 +81,11 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
+|parent_id|references||
 
 ### Association
 - has_many :products
-- has_many :genres
+- has_many :sizes, though: :sizes_categorys
 
 
 ## sizesテーブル
@@ -96,19 +95,19 @@
 |value|string|null: false|
 
 ### Association
-- has_many :genres, though: :sizes_small-genres
+- has_many :categorys, though: :sizes_categorys
 
 
-## sizes_small-genresテーブル
+## sizes_categorysテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-|genre_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :small-genre
+- belongs_to :category
 - belongs_to :size
 
 

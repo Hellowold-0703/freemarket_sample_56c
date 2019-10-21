@@ -14,7 +14,6 @@
 |profile|text||
 |image|string||
 |phone_number|string|unique: true|
-|address_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_one :users_address

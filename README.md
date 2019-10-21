@@ -27,11 +27,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|string|null: false, foreign_key: true|
-|prefecture|string|null: false, foreign_key: true|
-|city|string|null: false, foreign_key: true|
-|house_number|string|null: false, foreign_key: true|
-|building|string|null: false, foreign_key: true|
+|postal_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|house_number|string|null: false|
+|building|string|null: false|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user

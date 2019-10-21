@@ -13,7 +13,6 @@
 |birth_year|string|null: false|
 |profile|text||
 |image|string||
-|product_id|references|null: false, foreign_key: true|
 |phone_number|string|unique: true|
 |address_id|references|null: false, foreign_key: true|
 

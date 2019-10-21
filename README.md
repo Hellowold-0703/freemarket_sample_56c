@@ -89,18 +89,6 @@
 - has_many :genres
 
 
-## genresテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, unique: true|
-|category_id|references|null: false, foreign_key: true|
-
-### Association
-- has_many :small-genres
-- belongs_to :category
-
-
 ## sizesテーブル
 
 |Column|Type|Options|
@@ -109,18 +97,6 @@
 
 ### Association
 - has_many :genres, though: :sizes_small-genres
-
-
-## small-genresテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|genre_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :genre
-has_many :sizes, throuh: :sizes_small-genres
 
 
 ## sizes_small-genresテーブル

@@ -15,7 +15,7 @@ CarrierWave.configure do |config|
     config.fog_directory  = 'freemarket56c'
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket56c'
   else
-    config.storge :file
+    config.storage :file
     config.enable_processing = false if Rails.env.test?
   end
 end

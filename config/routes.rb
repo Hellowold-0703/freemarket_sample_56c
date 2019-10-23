@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'top#index'
   resources :mypage, only: [:index]
   resources :products, only: [:index]
+  resources :creditcards, only: [:index]
 end

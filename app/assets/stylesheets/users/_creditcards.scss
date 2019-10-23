@@ -3,7 +3,9 @@ body {
   'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 .payment-method {
+  float: right; 
   width: 700px;
+  background-color: #fff;
   &__head {
     padding: 8px 24px;
     border-bottom: 1px solid #f5f5f5;

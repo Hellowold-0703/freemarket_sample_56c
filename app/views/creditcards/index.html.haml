@@ -1,20 +1,31 @@
-.payment-method
-  %section.payment-method__container
-    %h2.payment-method__head 支払い方法
-    .payment-method__inner
-      %section
-        .payment-list
-          %h3.payment-list__head クレジットカード一覧
-        %ul.payment-list__content
-      %section.add-credit-card
-        .add-credit-card__content
-          = link_to root_path, class: 'btn-red submit_button' do
-            .add-credit-card__btn
-              = fa_icon 'credit-card'
+= render 'top/header'
+
+= render 'mypage/pankuzu'
+
+%main.l-container.clearfix
+  .l-container-box
+    
+    = render 'mypage/side'
+    
+    .payment-method
+      %section.payment-method__container
+        %h2.payment-method__head 支払い方法
+        .payment-method__inner
+          %section
+            .payment-list
+              %h3.payment-list__head クレジットカード一覧
+            %ul.payment-list__content
+          %section.add-credit-card
+            .add-credit-card__content
+              = link_to root_path, class: 'btn-red submit_button' do
+                .add-credit-card__btn
+                  = fa_icon 'credit-card'
+                  %span<>
+                  クレジットカードを追加する
+          .payment-footer
+            = link_to do
+              %span 支払い方法について
+              = fa_icon 'chevron-right'
               %span<>
-              クレジットカードを追加する
-      .payment-footer
-        = link_to do
-          %span 支払い方法について
-          = fa_icon 'chevron-right'
-          %span<>
+
+= render 'top/footer'

@@ -124,6 +124,9 @@ td {
 .user-ratings {
   display: inline-block;
   margin: 8px 0 0 16px;
+  span{
+    color: #333;
+  }
 }
 .user-ratings i {
   font-size: 16px;
@@ -154,12 +157,16 @@ td {
     margin: 0 16px 0 0;
     font-size: 50px;
     font-weight: 600;
+    color: #333;
   }
   &__tax {
     font-size: 10px;
+    color: #333;
+
   }
-  &__shippingfee {
+  &__sipping-fee {
     font-size: 16px;
+    color: #333;
   }
 }
 .product-buy-btn {
@@ -187,6 +194,9 @@ td {
   font-size: 0;
   &__left {
     float: left;
+    span{
+      color: #333;
+    }
     &__like {
       display: inline-block;
       padding: 8px 16px;
@@ -208,12 +218,20 @@ td {
   &__right {
     float: right;
     margin: 8px 0 0;
+    i{
+      height: 50px;
+      width: 50px;
+      color: #333;
+    }
   }
 }
 
 .product-message {
   width: 700px;
   margin: 8px auto;
+  span{
+    color: #fff;
+  }
   &__content {
   padding: 24px;
   background-color: #fff;
@@ -410,13 +428,14 @@ td {
 }
 
 .product-bottom {
+  height: 49px;
   position: relative;
   background-color: #f5f5f5;
   box-shadow: none;
   border-top: 1px solid #eee;
   & ul {
     overflow: visible;
-    width: 700px;
+    width: 1020px;
     margin: 0 auto;
     padding: 16px 0;
     white-space: normal;
@@ -427,8 +446,15 @@ td {
     line-height: 1.2;
   }
 }
-.product-bottom i {
+.product-bottom{ 
+  span{
+    color: #333;
+  }
+ i{
   padding: 0 8px;
+  font-size: 9px;
+  font-weight: 600;
+ }
 }
 .product-bottom a {
   color: #333;

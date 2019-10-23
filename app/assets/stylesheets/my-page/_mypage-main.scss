@@ -18,11 +18,7 @@
   margin-right: calc(100% / 2 - 1020px / 2);
 }
 
-.icon-arrow-right::before {
-  content: '\03e';
-  color: #ccc;
-  margin: 0 8px 0; 
-}
+
 
 .bread-crumbs{
   width: 100%;
@@ -33,6 +29,20 @@
   padding: 0 210px;
   font-size: 14px;
   background-color: white;
+  a{
+    color: black;
+  }
+  .icon-arrow-right::before {
+    content: '\03e';
+    height: 49px;
+    line-height: 49px;
+    color: #888;
+    margin: 0 8px 0;
+    i{
+    font-size: 9px;
+    font-family: 'icon-font';
+    }
+  }
   & li {
     display: inline-table;
   }
@@ -48,7 +58,7 @@
 .mypage-user-icon {
   background-image: url(https://www.photolibrary.jp/mhd5/img533/450-20170708173121221103.jpg);
   height: 160px;
-  width: 660px;
+  width: 700px;
   padding: 20px;
   .mypage-detail{
     color: black;
@@ -68,6 +78,7 @@
 }
 
 .bold {
+  color: black;
   font-size: 14px;
   font-weight: bold;
 }

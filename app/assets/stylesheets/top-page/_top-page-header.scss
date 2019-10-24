@@ -19,13 +19,13 @@
       
       &__logo{
         width: 134px;
-        height: 36px;
+        height: 38px;
         padding-top: 2px;
       }
       textarea{
         margin-left:45px;
-        height:38px;
-        width: 829px;
+        height:40px;
+        width: 841px;
         line-height: 36px;
         font-size: 16px;
         font-family: 'YuGothic';
@@ -41,7 +41,7 @@
         height: 34px;
         line-height: 38px;
         width: 27px; 
-        right: 5px;
+        right: 1px;
         font-size: 14px;
       }
     }
@@ -55,9 +55,9 @@
         display:flex;
         line-height: 35px;
         span{
-          font-size: 13px;
-          letter-spacing: 1px;
-          font-weight: 600;
+          padding-left: 3px;
+          font-size: 14px;
+          font-weight: 700;
           font-family:  inherit;
           color: black;
           vertical-align: 1px;

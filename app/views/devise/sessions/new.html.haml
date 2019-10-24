@@ -1,17 +1,28 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.default-container
+  = render 'sign-up-header'
+
+  %main.login_container
+    .login_container__panel
+      .login_container__panel--no-account
+        %p アカウントをお持ちでない方はこちら
+        = link_to '新規会員登録', new_user_registration_path, class: 'login_container__panel--no-account__link', data:{turbolinks: :false}
+      .login_container__panel--sns
+        %button#facebook-login.login_container__panel--sns--facebook
+          = fa_icon 'facebook-square 2x', class: 'icon-facebook-square'
+          Facebookでログイン
+        %button#google-login.login_container__panel--sns--google
+          = fa_icon 'google 2x', class: 'icon-google'
+          Googleでログイン
+
+      .login_container__panel--devise-login
+        = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'login_form') do |f|
+          .login_form__field
+            = f.email_field :email, class: 'login_form__field__input', placeholder: 'メールアドレス', autofocus: true, autocomplete: "email"
+          .login_form__field
+            = f.password_field :password, class: 'login_form__field__input', placeholder: 'パスワード', autocomplete: "current-password"
+          .login_form__field 
+            = recaptcha_tags
+          = f.submit "ログイン", class: 'login_form__submit'
+          = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: 'login_form__link'
+
+  = render 'sign-up-footer'

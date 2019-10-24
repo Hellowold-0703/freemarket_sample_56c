@@ -1,6 +1,4 @@
 @import"reset";
-@import"sessions/session_new";
-@import"sessions/signup";
 @import"font-awesome";
 @import "./top-page/top-page-header";
 @import "./top-page/top-page-contents";
@@ -11,3 +9,5 @@
 @import "./users/profile-edit";
 @import "./users/logout-page";
 @import "./users/creditcards";
+@import"sessions/session_new";
+@import"sessions/signup";

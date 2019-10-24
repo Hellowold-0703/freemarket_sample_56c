@@ -14,20 +14,24 @@
     line-height: 14px;
     color: #333;
   }
-}
-.mypage-nav-list-item{
-  color: #333;
-}
-.icon-arrow-right {
-  float: right;
-}
-
-.mypage-nav-head {
-  margin-top: 40px;
-  font-weight: bold;
-}
-
-.mypage-nav-list-item.active {
-  background-color: #eee;
-  font-weight: bold;
+  .mypage-nav-list-item{
+    color: #333; 
+  }
+  
+  .mypage-nav-head {
+    margin-top: 40px;
+    font-weight: bold;
+  }
+  .mypage-nav-list-item.active {
+    background-color: #eee;
+    font-weight: bold;
+  }
+  .fa.fa-angle-right{
+    height: 48px;
+    line-height: 12px;
+    float: right;
+    color: #ccc;
+    font-weight: 600;
+    font-size: 23px;
+  }
 }

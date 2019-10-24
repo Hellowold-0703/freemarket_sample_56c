@@ -22,67 +22,69 @@ body {
   &__content {
     padding: 40px 16px;
   }
-}
-figure {
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
-  vertical-align: middle;
-}
-.input-default {
-  width: 220px;
-  height: 48px;
-  padding: 10px 16px 8px;
-  margin: 0 0 0 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  line-height: 1.5;
-  font-size: 16px;
-}
-textarea {
-  width: 100%;
-}
-.textarea-default {
-  display: block;
-  max-width: 100%;
-  min-height: 216px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  line-height: 1.5;
-  background-color: #fff;
-}
-.btn-red {
-  display: block;
-  width: 100%;
-  margin: 16px 0 0;
-  line-height: 48px;
-  font-size: 14px;
-  cursor: pointer;
-  text-align: center;
-  background-color: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
+
+  figure {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+  .input-default {
+    width: 220px;
+    height: 48px;
+    padding: 10px 16px 8px;
+    margin: 0 0 0 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  textarea {
+    width: 100%;
+  }
+  .textarea-default {
+    display: block;
+    max-width: 100%;
+    min-height: 216px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #fff;
+  }
+  .btn-red {
+    display: block;
+    width: 100%;
+    margin: 16px 0 0;
+    line-height: 48px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+  }
+  
+  .back-image {
+    width: 60px; 
+    height: 60px;
+  }
+  
+  button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+  }
 }
 
-.back-image {
-  width: 60px; 
-  height: 60px;
-}
-
-button{
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  appearance: none;
-}
 
 *, ::before, ::after {
   box-sizing: border-box;

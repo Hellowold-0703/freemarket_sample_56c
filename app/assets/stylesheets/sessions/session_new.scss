@@ -1,0 +1,155 @@
+.default-container {
+  background-color: #f1f1f1;
+  box-sizing: border-box;
+  .sign-up-header {
+
+    text-align: center;
+    .sign-up-header__main {
+      width: 185px;
+      line-height: 49px;
+      margin-top: 40px;
+      margin-right: 10px;
+      margin-bottom: 50px;
+      display: inline-block;
+    }
+  }
+}
+.login_container {
+  display: block;
+  &__panel {
+    width: 456px;
+    margin: 0 auto;
+    background: #fff;
+    &--no-account {
+      padding: 40px 64px;
+      text-align: center;
+      p {
+        font-size: 14px;
+      }
+      &__link {
+        display: block;
+        margin: 8px 0 0;
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        color: #fff;
+        line-height: 40px;
+        text-decoration: none;
+        touch-action: manipulation;
+      }
+    }
+    &--sns {
+      padding: 32px 64px;
+      border-top: 1px solid #eee;
+      &--facebook {
+        background: #385185;
+        color: #fff;
+        display: block;
+        width: 100%;
+        height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+        .icon-facebook-square {
+          position: absolute;
+          top: 10px;
+          left: 16px;
+        }
+      }
+      &--google {
+        display: block;
+        width: 100%;
+        height: 48px;
+        font-size: 14px;
+        border: #979797 solid 1px;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+        margin: 16px 0 0;
+        .icon-google {
+          position: absolute;
+          top: 10px;
+          left: 16px;
+        }
+      }
+    }
+    &--devise-login {
+      padding: 0 64px 32px;
+      .login_form {
+        border: 0;
+        &__field {
+          margin: 24px 0 0;
+          &__input {
+            box-sizing: border-box;
+            margin: 0;
+            width: 100%;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            -webkit-appearance: none;
+          }
+        }
+        &__submit {
+          margin: 24px 0 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+        }
+        &__link {
+          display: block;
+          margin: 40px 0 0;
+          color: #0099e8;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+.k_su_footer {
+  height: 200px;
+  width: 100%;
+  &__inner {
+    height: 100%;
+    width: 456px;
+    margin: 50px auto 0;
+    text-align: center;
+    &--nav {
+      width: 100%;
+      display: flex;
+      padding-inline-start: 40px;
+      list-style: none;
+      &-li {
+        margin: 0 5px;
+        &-a {
+          color: #333333;
+          font-size: 12px;       
+        }
+      }
+    }
+    &--logo {
+      display: block;
+      margin: 40px 0 0 0;
+    }
+    &--small {
+      font-size: 12px;
+      margin: 5px 0 0 0;
+    }
+  }
+} 

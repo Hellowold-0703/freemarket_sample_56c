@@ -1,0 +1,47 @@
+.single-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 170px;
+  padding: 40px 0;
+  text-align: center;
+  li:first-child {
+    margin: 0;
+  }
+  li {
+    margin: 16px 0 0;
+    font-size: 12px;
+  }
+  a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    font-size: 12px;
+  }
+  &-logo {
+      vertical-align: middle;
+      width: 80px;
+      height: 65px;
+      margin: 40px auto 0;
+  }
+  p {
+    margin: 8px 0 0;
+    small{
+      font-size: 13px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .single-footer{
+    width: 456px;
+    height: 140px;
+    margin: 0 auto;
+    li{
+      display: inline-block;
+      margin: 0 0 0 16px;
+    }
+  }
+}

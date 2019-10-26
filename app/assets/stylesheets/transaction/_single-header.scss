@@ -1,0 +1,39 @@
+.single-header{
+  text-align: center;
+  h1{
+    margin: 11px 0 12px;;
+    display: inline-block;
+  }
+  a{
+    display: inline-block;
+    width: 120px;
+    height: 33px;
+    line-height: 33px;
+    margin: 0 8px 0 0;
+    color: #0099e8;
+    text-decoration: none;
+  }
+  img{
+    width: 120px;
+    height: 33px;
+    vertical-align: middle;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .single-header {
+    height: 128px;
+    h1 {
+      margin: 40px 0 0;
+    }
+    a {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+    }
+    img {
+      width: 185px;
+      height: 49px;
+    }
+  }
+}

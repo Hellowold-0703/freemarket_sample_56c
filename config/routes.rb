@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:signup]
   resources :transaction do
     collection do
-      get 'buy'
+      get 'buy', 'sell'
     end
   end
 end

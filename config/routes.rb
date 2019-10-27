@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :mypage, only: [:index]
   resources :products, only: [:index]
   resources :creditcards, only: [:index]
+  resources :confirm, only: [:index]
   resources :users, only: [:signup]
   resources :transaction do
     collection do

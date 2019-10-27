@@ -1,10 +1,10 @@
-.userpage_home_wrapper {
-  width: 100vw;
-  height: 210vh;
+.userpage_home {
   background-color: #dcdcdc;
-}
+  float: right;
+  width: 100%;
 
-.userpage_home_sidebar_wrapper {
+
+.userpage_home_sidebar {
   position: absolute;
   width: 15%;
   height: 190vh;
@@ -312,4 +312,5 @@ select {
       }
     }
   }
+}
 }

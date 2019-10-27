@@ -1,52 +1,65 @@
-.userpage_home_wrapper
-  .userpage_home_form_wrapper
-    .userpage_home_top
-      本人確認の登録  
-    .userpage_home_explain
-      %p お客さまの本人情報をご登録ください。
-      %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-      = link_to '本人確認書類のアップロードについて＞', '###'          
+= render 'top/header'
+
+= render 'mypage/pankuzu'
+
+%main.l-container.clearfix
+  .l-container-box
+
+    
+    
     .userpage_home
-      %div
-        %span お名前
-        %br
-        %span
-          坂井 秀喜
-        %br
-      %div
-        %span お名前カナ
-        %br
-        %span
-          サカイ ヒデキ
-        %br
-      %div
-        %span 生年月日
-        %br
-        %span
-          1995/12/14
-        %br
-    .userpage_home_form
-      %form
-        %textarea{placeholder: "郵便番号", class: "input_postnum"}
-        %br
-        %textarea{placeholder: '例）1234567',class: "input_postnum"}
-        %br
-        %textarea{placeholder: "都道府県",class: "input_postnum"}
-        %br
-        %textarea{placeholder: "東京都",class: "input_postnum"}
-        %br
-        %textarea{placeholder: "市区町村",class: "input_postnum"}
-        %br
-        %textarea{placeholder: '例）横浜市緑区',class: "input_postnum"}
-        %br
-        %textarea{placeholder: "番地",class: "input_postnum"}
-        %br
-        %textarea{placeholder: '例）青山1-1-1',class: "input_postnum"}
-        %br
-        %textarea{placeholder: "建物名",class: "input_postnum"}
-        %br
-        %textarea{placeholder: '例）柳ビル103',class: "input_postnum"}
-        %br
-        %submit "登録する"
-        %br
-      = link_to '本人情報登録について>', '###',class: "about_your_data"
+      .userpage_home_form
+        .userpage_home_top
+          本人確認の登録  
+        .userpage_home_explain
+          %p お客さまの本人情報をご登録ください。
+          %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          = link_to '本人確認書類のアップロードについて＞', '###'          
+        .userpage_home
+          %div
+            %span お名前
+            %br
+            %span
+              坂井 秀喜
+            %br
+          %div
+            %span お名前カナ
+            %br
+            %span
+              サカイ ヒデキ
+            %br
+          %div
+            %span 生年月日
+            %br
+            %span
+              1995/12/14
+            %br
+        .userpage_home_form
+          %form
+            %textarea{placeholder: "郵便番号", class: "input_postnum"}
+            %br
+            %textarea{placeholder: '例）1234567',class: "input_postnum"}
+            %br
+            %textarea{placeholder: "都道府県",class: "input_postnum"}
+            %br
+            %textarea{placeholder: "東京都",class: "input_postnum"}
+            %br
+            %textarea{placeholder: "市区町村",class: "input_postnum"}
+            %br
+            %textarea{placeholder: '例）横浜市緑区',class: "input_postnum"}
+            %br
+            %textarea{placeholder: "番地",class: "input_postnum"}
+            %br
+            %textarea{placeholder: '例）青山1-1-1',class: "input_postnum"}
+            %br
+            %textarea{placeholder: "建物名",class: "input_postnum"}
+            %br
+            %textarea{placeholder: '例）柳ビル103',class: "input_postnum"}
+            %br
+            %submit "登録する"
+            %br
+          = link_to '本人情報登録について>', '###',class: "about_your_data"
+
+    = render 'mypage/side'
+
+= render 'top/footer'

@@ -217,11 +217,7 @@ html {
     &__right {
       float: right;
       margin: 8px 0 0;
-      i{
-        height: 50px;
-        width: 50px;
-        color: #333;
-      }
+      
     }
   }
 }
@@ -297,6 +293,9 @@ html {
     font-size: 14px;
   }
   .fa-flag-o {
+    font-size: 14px;
+  }
+  .fa-lock{
     font-size: 14px;
   }
 }

@@ -160,4 +160,4 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :product
+- belongs_to :product# freemarket_sample_56c_test

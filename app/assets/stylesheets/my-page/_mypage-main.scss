@@ -9,14 +9,16 @@
   display: inline-block;
   background-color: #f5f5f5;
   padding-bottom: 40px;
+  .l-container-box{
+    width: 71%;
+    display: inline-block;
+    margin-top: 40px;
+    margin-left: 210px;
+    margin-right: 210px;
+  }
 }
 
-.l-container-box{
-  display: inline-block;
-  margin-top: 40px;
-  margin-left: calc(100% / 2 - 1020px / 2);
-  margin-right: calc(100% / 2 - 1020px / 2);
-}
+
 
 
 

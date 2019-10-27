@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   resources :creditcards, only: [:index]
   resources :confirm, only: [:index]
   resources :users, only: [:signup]
-  resources :transaction do
-    collection do
-      get 'buy', 'sell'
-    end
+  namespace :transaction do
+    resources :buy, only: [:index]
+    resources :sell, only: [:index]
   end
 end

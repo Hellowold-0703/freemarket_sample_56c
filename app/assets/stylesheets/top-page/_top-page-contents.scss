@@ -90,29 +90,30 @@
         }
       }
     } 
-    .camera{
-      height: 160px;
-      width: 160px;
-      position: fixed;
-      bottom: 32px;
-      right: 32px;
-      border-radius: 50%;
-      background-color: #ea352d;
-      text-align: center;
-      cursor: pointer;
-      text-decoration: none;
-      font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-      &__text{
-        display: block;
-        color: #fff;
-        font-size: 22px;
-        margin: 27px 0 2px;
-      }
-      &__icon{
-        display: block;
-        color: #fff;
-        font-size: 58px;
-      }
-    }
+  }
+}
+
+.camera{
+  height: 160px;
+  width: 160px;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  border-radius: 50%;
+  background-color: #ea352d;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  &__text{
+    display: block;
+    color: #fff;
+    font-size: 22px;
+    margin: 35px 0 5px;
+  }
+  &__icon{
+    display: block;
+    color: #fff;
+    font-size: 58px;
   }
 }

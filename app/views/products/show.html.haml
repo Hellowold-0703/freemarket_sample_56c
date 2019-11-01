@@ -1,41 +1,18 @@
 = render 'top/header'
 %section.product
-  %h1.product__name 26㎝【中古品】ナイキ エアジョーダン１ レターマン
+  %h1.product__name 
+    = @product.name
   .product__content.clearfix
     .product__photo
       .owl-carousel.owl-loaded.owl-drag
         .owl-stage-outer
           .owl-stage
-            .owl-product.active
-              .owl-product-inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_1.jpg?1571141929',{class: 'owl-lazy-active'}
-            .owl-product
-              .owl-product-inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_2.jpg?1571141929',{class: 'owl-lazy'}
-            .owl-product
-              .owl-product-inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_3.jpg?1571141929',{class: 'owl-lazy'}
-            .owl-product
-              .owl-product-inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_4.jpg?1571141929',{class: 'owl-lazy'}
-            .owl-product
-              .owl-product-inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_5.jpg?1571141929',{class: 'owl-lazy'}
-            .owl-product
-              .owl-product-inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_6.jpg?1571141929',{class: 'owl-lazy'}
-            .owl-product
-              .owl-product-inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_7.jpg?1571141929',{class: 'owl-lazy'}
-            .owl-product
-              .owl-product-inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_8.jpg?1571141929',{class: 'owl-lazy'}
-            .owl-product
-              .owl-product-inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_9.jpg?1571141929',{class: 'owl-lazy'}
-            .owl-product
-              .owl-product-inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_10.jpg?1571141881',{class: 'owl-lazy'}
+            - @product.image.each do |i|
+              - if i.url.present?
+                .owl-product.active
+                  .owl-product-inner
+                    = image_tag i.url,{class: 'owl-lazy'}
+
         .owl-nav.disabled
           .owl-prev prev
           .owl-next next

@@ -1,0 +1,51 @@
+<%= form_for @product do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :explanation %>
+    <%= f.text_area :explanation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :shipping_charge %>
+    <%= f.text_field :shipping_charge %>
+  </div>
+
+  <div class="field">
+    <%= f.label :shipping_area %>
+    <%= f.text_field :shipping_area %>
+  </div>
+
+  <div class="field">
+    <%= f.label :days_before_shipment %>
+    <%= f.text_field :days_before_shipment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :selling_prime %>
+    <%= f.text_field :selling_prime %>
+  </div>
+
+  <div class="field">
+    <%= f.label :shipping_method %>
+    <%= f.text_field :shipping_method %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image, multiple: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

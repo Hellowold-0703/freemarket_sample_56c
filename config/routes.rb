@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'top#index'
   resources :mypage, only: [:index]
-  resources :products, only: [:index]
+  resources :products
   resources :creditcards, only: [:index]
   resources :confirm, only: [:index]
   resources :users, only: [:signup]

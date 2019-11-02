@@ -9,7 +9,7 @@
           .owl-stage
             - @product.images.each do |image|
               - if image.url.present?
-                .owl-product.active
+                .owl-product
                   .owl-product-inner
                     = image_tag image.url,{class: 'owl-lazy'}
 
@@ -19,7 +19,7 @@
         .owl-items.owl-thumbs
           - @product.images.each do |image|
             - if image.url.present?
-              .owl-item.active
+              .owl-item
                 .owl-item-inner
                   = image_tag image.url, {class: 'is-higher-width'}
     %table.product__detail

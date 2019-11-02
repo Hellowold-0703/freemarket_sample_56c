@@ -167,7 +167,6 @@ GEM
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
-    owlcarousel-rails (2.2.3.5)
     public_suffix (4.0.1)
     puma (3.12.1)
     rack (2.0.7)
@@ -283,7 +282,6 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick
   mysql2 (>= 0.3.18, < 0.6.0)
-  owlcarousel-rails
   puma (~> 3.0)
   rails (~> 5.0.7, >= 5.0.7.2)
   recaptcha

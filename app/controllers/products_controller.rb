@@ -10,6 +10,9 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(params_product)
+    @product.images[0].url 
+    @product.images[0].current_path 
+    @product.images[0].identifier
       if @product.save
         redirect_to root_path
       else
@@ -24,6 +27,6 @@ class ProductsController < ApplicationController
   private
 
   def params_product
-    params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_prime, :shipping_method, {image: []})
+    params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_prime, :shipping_method, {images: []})
   end
 end

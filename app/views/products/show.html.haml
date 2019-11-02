@@ -7,57 +7,21 @@
       .owl-carousel.owl-loaded.owl-drag
         .owl-stage-outer
           .owl-stage
-            - @product.image.each do |i|
-              - if i.url.present?
+            - @product.images.each do |image|
+              - if image.url.present?
                 .owl-product.active
                   .owl-product-inner
-                    = image_tag i.url,{class: 'owl-lazy'}
+                    = image_tag image.url,{class: 'owl-lazy'}
 
         .owl-nav.disabled
           .owl-prev prev
           .owl-next next
         .owl-items.owl-thumbs
-          .owl-item.active
-            %span
-            .owl-item-inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_1.jpg?1571141929', {class: 'is-higher-width'}
-          .owl-item
-            %span
-            .owl-item-inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_2.jpg?1571141929', {class: 'is-higher-width'}
-          .owl-item
-            %span
-            .owl-item-inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_3.jpg?1571141929', {class: 'is-higher-width'}
-          .owl-item
-            %span
-            .owl-item-inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_4.jpg?1571141929', {class: 'is-higher-width'}
-          .owl-item
-            %span
-            .owl-item-inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_5.jpg?1571141929', {class: 'is-higher-width'}
-          .owl-item
-            %span
-            .owl-item-inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_6.jpg?1571141929', {class: 'is-higher-width'}
-          .owl-item
-            %span
-            .owl-item-inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_7.jpg?1571141929', {class: 'is-higher-width'}
-          .owl-item
-            %span
-            .owl-item-inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_8.jpg?1571141929', {class: 'is-higher-width'}
-          .owl-item
-            %span
-            .owl-item-inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_9.jpg?1571141929', {class: 'is-higher-width'}
-          .owl-item
-            %span
-            .owl-item-inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m91314866723_10.jpg?1571141881z', {class: 'is-higher-width'}
-          
+          - @product.images.each do |image|
+            - if image.url.present?
+              .owl-item.active
+                .owl-item-inner
+                  = image_tag image.url, {class: 'is-higher-width'}
     %table.product__detail
       %tbody
         %tr
@@ -96,21 +60,25 @@
           %td 26㎝
         %tr
           %th 商品の状態
-          %td 未使用に近い
+          %td 
+            = @product.status
         %tr
           %th 配送料の負担
-          %td 送料込み(出品者負担)
+          %td 
+            = @product.shipping_charge
         %tr
           %th 配送の方法
-          %td らくらくメルカリ便
+          %td 
+            = @product.shipping_method
         %tr
           %th 配送元地域
           %td
             = link_to do
-              東京都
+              = @product.shipping_area
         %tr
           %th 発送日の目安
-          %td 1~2日で発送
+          %td 
+            = @product.days_before_shipment
 
   .product-price
     %span.product-price__total ¥18,700
@@ -119,24 +87,8 @@
   = link_to '購入画面に進む', root_path, {class: 'product-buy-btn'}
   .product-description
     %p.product-description__content<
-      ※値下交渉不可です。
-      \
-      サイズ 26cm
-      箱 変え紐付。 ※タグは付きません。
-      \
-      ナイキ エアジョーダン1 レターマン
-      \
-      使用回数 2回 
-      アッパー 汚れなし つま先若干履きジワあり。
-      インソール ロゴ擦れなしアウトソール
-      汚れ、かかと擦れほぼなし総合評価 9/10 (極美品)
-      \
-      ジョーダン1の通称レターマンです。
-      \
-      発色のいいクリムゾンカラーとメタリックのスウォッシュがアクセントになっていてカッコいいです。
-      \
-      変え紐付きですがネイビーの紐の方がカッコいい印象です。ほぼ未使用と思ってもらっても良い状態です。
-  
+      = @product.explanation
+
   .product-button.clearfix
     .product-button__left
       %button.product-button__left__like
@@ -188,7 +140,7 @@
       %section.products-box
         = link_to do
           %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m68697493164_1.jpg?1569380239'
+            = image_tag @product.images[0].url
           .products-box__body
             %h3.products-box__body__name
               26.5cm ナイキ オクワン2
@@ -200,7 +152,7 @@
       %section.products-box
         = link_to do
           %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m68697493164_1.jpg?1569380239'
+            = image_tag @product.images[0].url
           .products-box__body
             %h3.products-box__body__name
               26.5cm ナイキ オクワン2
@@ -212,7 +164,7 @@
       %section.products-box
         = link_to do
           %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m68697493164_1.jpg?1569380239'
+            = image_tag @product.images[0].url
           .products-box__body
             %h3.products-box__body__name
               26.5cm ナイキ オクワン2
@@ -224,7 +176,7 @@
       %section.products-box
         = link_to do
           %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m68697493164_1.jpg?1569380239'
+            = image_tag = image_tag @product.images[0].url
           .products-box__body
             %h3.products-box__body__name
               26.5cm ナイキ オクワン2
@@ -236,7 +188,7 @@
       %section.products-box
         = link_to do
           %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m68697493164_1.jpg?1569380239'
+            = image_tag = image_tag @product.images[0].url
           .products-box__body
             %h3.products-box__body__name
               26.5cm ナイキ オクワン2
@@ -248,7 +200,7 @@
       %section.products-box
         = link_to do
           %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m68697493164_1.jpg?1569380239'
+            = image_tag @product.images[0].url
           .products-box__body
             %h3.products-box__body__name
               26.5cm ナイキ オクワン2

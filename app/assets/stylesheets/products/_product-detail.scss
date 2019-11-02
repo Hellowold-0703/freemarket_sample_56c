@@ -100,14 +100,11 @@ html {
     overflow: hidden;
     pointer-events: none;
   }
-.owl-item span {
-  display: none;
-}
-.owl-item img {
+ .owl-item img {
   position: absolute;
   left: 0;
   width: 100%;
-}
+  }
   
   table {
     border-spacing: 0;

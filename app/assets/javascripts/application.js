@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require owl.carousel
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

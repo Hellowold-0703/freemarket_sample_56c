@@ -18,10 +18,12 @@
 ### Association
 - has_one :users_address
 - has_one :users_authentication
-- has_many :products
+- has_many :credit_cards
 - has_many :comments
 - has_many :likes
 - has_many :reviews
+- has_many :byers
+- has_many :sellers
 
 
 ## users_addressテーブル
@@ -50,11 +52,22 @@
 - belongs_to :user
 
 
-## productsテーブル
+## credit_cardsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+
+### Association
+- belongs_to :user
+
+
+## productsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, foreign_key: true|
@@ -69,13 +82,38 @@
 |shipping_method|string|null: false|
 
 ### Association
-- belongs_to :user
 - belongs_to :category
 - belongs_to :brand
 - belongs_to :category
 - belongs_to :size
 - has_many :comments
 - has_many :reviews
+- has_many :byers
+- has_many :sellers
+
+
+## byersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :product
+
+
+## sellersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :product
 
 
 ## brandsテーブル
@@ -158,6 +196,5 @@
 |product_id|references|null: false, foreign_key: true|
 
 ### Association
-
 - belongs_to :user
 - belongs_to :product# freemarket_sample_56c_test

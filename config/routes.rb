@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :buy, only: [:index]
     resources :sell, only: [:index]
   end
+  post   '/like/:product_id' => 'likes#like',   as: 'like'
+  delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
 end

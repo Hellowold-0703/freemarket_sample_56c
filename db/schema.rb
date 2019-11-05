@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191103114635) do
+ActiveRecord::Schema.define(version: 20191104100826) do
 
   create_table "buyers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",    null: false
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20191103114635) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_likes_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  end
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                               null: false
     t.text     "images",               limit: 65535, null: false
@@ -40,6 +49,7 @@ ActiveRecord::Schema.define(version: 20191103114635) do
     t.string   "shipping_method",                    null: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.integer  "likes_count"
     t.index ["name"], name: "index_products_on_name", using: :btree
   end
 
@@ -74,6 +84,8 @@ ActiveRecord::Schema.define(version: 20191103114635) do
 
   add_foreign_key "buyers", "products"
   add_foreign_key "buyers", "users"
+  add_foreign_key "likes", "products"
+  add_foreign_key "likes", "users"
   add_foreign_key "sellers", "products"
   add_foreign_key "sellers", "users"
 end

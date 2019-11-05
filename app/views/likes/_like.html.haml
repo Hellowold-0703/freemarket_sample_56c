@@ -1,0 +1,15 @@
+- if @like
+  = link_to unlike_path(product.id), method: :delete, remote: true do
+    %i.fa.fa-heart-o
+    %span いいね！
+    %span
+    %span.fade-in-down
+      = product.likes.count
+- else
+  = link_to like_path(product.id), method: :post, remote: true do
+    %i.fa.fa-heart-o
+    %span いいね！
+    %span
+    %span.fade-in-down 
+      = product.likes.count
+

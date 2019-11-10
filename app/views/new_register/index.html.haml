@@ -1,0 +1,39 @@
+.mer-img
+  = render 'devise/sessions/sign-up-header'
+.progress-information
+  =image_tag "progress.png", height: "100px", width: "400px;"
+.input-header
+  会員情報入力
+.members-input-form
+  %form
+    %br　ニックネーム
+    %textarea{placeholder: "例）メルカリ太郎", class: "input-members"}
+    %br　メールアドレス
+    %textarea{placeholder: 'PC・携帯どちらでも可',class: "input-members"}
+    %br　パスワード 
+    %textarea{placeholder: "7文字以上",class: "input-members"}
+    %br　パスワード（確認）
+    %textarea{placeholder: "7文字以上",class: "input-members"}
+    %br　本人確認
+    %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+.input-footer-name
+  %form
+    %br　お名前(全角)
+    %textarea{placeholder: "例)山田", class: "input-name"}
+    %textarea{placeholder: "例)彩", class: "input-name"}
+.input-footer-kana
+  %form
+    %br　お名前カナ(全角)
+    %textarea{placeholder: "例)ヤマダ", class: "input-name"}
+    %textarea{placeholder: "例)アヤ", class: "input-name"}
+.input-footer-birth
+  %form
+    %br 生年月日
+    %textarea{placeholder: "--", class: "input-birth"}
+    %textarea{placeholder: "--", class: "input-birth"}
+    %textarea{placeholder: "--", class: "input-birth"}
+    %br
+    %p 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+  .register-button 次へ進む
+= render 'devise/sessions/sign-up-footer'
+

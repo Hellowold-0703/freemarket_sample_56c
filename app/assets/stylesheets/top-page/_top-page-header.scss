@@ -1,22 +1,17 @@
 .top-page-header{
   height:100px;
   padding: 0 202px;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   position: relative;
   z-index: 3;
   background-color: #fff;
-  
-  &__wrapper{
+  .top-page-header-inner{
     width: 1020px;
     margin: auto;
     padding-top: 8px; 
-    
-
     .header-top{
       display:flex;
       position: relative;
       height:40px;
-      
       &__logo{
         width: 134px;
         height: 38px;
@@ -45,7 +40,6 @@
         font-size: 14px;
       }
     }
-  
     .header-bottom{
       display:flex;
       margin-top: 8px;
@@ -151,5 +145,11 @@
         }
       }
     }
+  }
+}
+
+.top-page-pc-header{
+  .top-page-header{
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   }
 }

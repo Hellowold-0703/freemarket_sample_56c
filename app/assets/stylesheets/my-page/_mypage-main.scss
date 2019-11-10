@@ -61,7 +61,7 @@
 
 .mypage-user-icon {
   background-image: url(https://www.photolibrary.jp/mhd5/img533/450-20170708173121221103.jpg);
-  height: 160px;
+  height: 200px;
   width: 700px;
   padding: 20px;
   .mypage-detail{
@@ -70,6 +70,24 @@
   & a{
     width: 700px;
     height: 111px;
+  }
+  figure{
+    padding-top: 25px;
+  }
+  h2{
+    margin-top: 8px;
+    font-size: 14px;
+  }
+  div{
+    margin-top: 8px;
+    span{
+      margin-left: 8px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+  div + div{
+    margin-left: 16px;
   }
 }
 
@@ -93,7 +111,18 @@
   box-sizing: border-box;
   & li{
     float: left;
+    h3{
+      a{
+        color: #333;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
   }
+  li + li{
+    background-color: #eee;
+  }
+
 }
 
 .mypage-tab-container-notification-todo {
@@ -122,9 +151,21 @@
 }
 
 .tab-content {
+  padding-top: 30px;
   display: block;
   height: 236px;
-  background-image: url(https://i0.wp.com/gekkan-fukugyou.jp/wp-content/uploads/2019/04/shutterstock_662309260.jpg?resize=640%2C359&ssl=1);
+  width: 100%;
+  background-color: #fff;
+  .tab-content-img{
+  height: 100px;
+  width: 120px;
+  margin: 0 auto 5px;
+  background-image: url("//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3466462615");
+  background-size: cover;
+  }
+  li{
+    color: #ccc;
+  }
 }
 
 .mypage-tab-container{

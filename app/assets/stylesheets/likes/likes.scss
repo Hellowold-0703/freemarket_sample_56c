@@ -1,0 +1,21 @@
+.like-link {
+  display: inline-block;
+  padding: 8px 16px;
+  color: #333;
+  background-color: #f5f5f5;
+  line-height: 0;
+  border: 1px solid #f5f5f5;
+  border-radius: 40px;
+  span {
+  display: inline-block;
+  margin: 1px 0 0 8px;
+  font-size: 14px;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  color: #333;
+  font-weight: 400;
+  }
+  .fa-heart-o{
+    font-size: 14px;
+    color: #333;
+  }
+}

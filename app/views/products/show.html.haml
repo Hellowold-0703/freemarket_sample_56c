@@ -81,7 +81,8 @@
             = @product.days_before_shipment
 
   .product-price
-    %span.product-price__total ¥18,700
+    %span.product-price__total
+      = @product.selling_prime
     %span.product-price__tax (税込)
     %span.product-price__sipping-fee 送料込み
   = link_to '購入画面に進む', root_path, {class: 'product-buy-btn'}
@@ -91,15 +92,14 @@
 
   .product-button.clearfix
     .product-button__left
-      %button.product-button__left__like
-        %i.fa.fa-heart-o
-        %span いいね！
-        %span.fade-in-down 7
+      .like-link{id: "like-link-#{@product.id}"}
+        = render partial: 'likes/like', locals:{product:@product}
+      
       = link_to '', {class: 'product-button__left__like product-button__left__report'} do
         %i.fa.fa-flag-o
         %span 不適切な商品の報告
     .product-button__right
-      = link_to do
+      = link_to "https://www.mercari.com/jp/safe/description/" do
         %i.fa.fa-lock
         %span あんしん・あんぜんへの取り組み
 .product-message
@@ -124,13 +124,13 @@
     .fb-save.fb_iframe_wedget
   %ul.social-media__box
     %li
-      = link_to do
+      = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm36938855197%2F" do
         %i.fa.fa-facebook-square
     %li
-      = link_to do
+      = link_to "http://twitter.com" do
         %i.fa.fa-twitter 
     %li
-      = link_to do
+      = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm36938855197%2F&amp;media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm36938855197_1.jpg%3F1572579695&amp;description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%82%A8%E3%82%A2%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B9%E3%80%80%E3%82%B4%E3%82%A2%E3%83%86%E3%83%83%E3%82%AF%E3%82%B9%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
         %i.fa.fa-pinterest
 .user-profile
   %section.user-profile__box.clearfix
@@ -289,7 +289,7 @@
 .product-bottom
   %ul
     %li.product-bottom__nav
-      = link_to do
+      = link_to root_path do
         メルカリ
         %i.fa.fa-angle-right
     %li.product-bottom__nav

@@ -2,7 +2,7 @@
   %nav.mypage-nav
   %ul.mypage-nav-list
     %li.mypage-nav-list-item
-      = link_to 'マイページ', '', class: 'mypage-nav-list-item'
+      = link_to 'マイページ', mypage_index_path, class: 'mypage-nav-list-item'
       %i.fa.fa-angle-right
     %li
       = link_to 'お知らせ', '', class: 'mypage-nav-list-item'
@@ -14,7 +14,7 @@
       = link_to 'いいね！一覧', '', class: 'mypage-nav-list-item'
       %i.fa.fa-angle-right
     %li
-      = link_to '出品する', '', class: 'mypage-nav-list-item'
+      = link_to '出品する', transaction_sell_index_path, class: 'mypage-nav-list-item'
       %i.fa.fa-angle-right
     %li
       = link_to '出品した商品-出品中', '', class: 'mypage-nav-list-item'
@@ -55,7 +55,7 @@
   
     %h3.mypage-nav-head 設定
     %li
-      = link_to 'プロフィール', '', class: 'mypage-nav-list-item'
+      = link_to 'プロフィール',edit_user_registration_path , class: 'mypage-nav-list-item'
       %i.fa.fa-angle-right
     %li
       = link_to '発送元お届け先住所変更', '', class: 'mypage-nav-list-item'
@@ -67,7 +67,7 @@
       = link_to 'メール/パスワード', '', class: 'mypage-nav-list-item'
       %i.fa.fa-angle-right
     %li
-      = link_to '本人情報', '', class: 'mypage-nav-list-item'
+      = link_to '本人情報', confirm_index_path, class: 'mypage-nav-list-item'
       %i.fa.fa-angle-right
     %li
       = link_to '電話番号の確認', '', class: 'mypage-nav-list-item'

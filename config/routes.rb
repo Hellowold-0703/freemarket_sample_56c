@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     resources :buy, only: [:index]
     resources :sell, only: [:index]
   end
+  resources :new_register do
+    collection do
+      get 'index', 'phone_number','address','credit','complete'
+    end
+  end
   post   '/like/:product_id' => 'likes#like',   as: 'like'
   delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
 end

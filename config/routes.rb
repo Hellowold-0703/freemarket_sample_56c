@@ -11,4 +11,9 @@ Rails.application.routes.draw do
       get 'buy', 'sell'
     end
   end
+  resources :new_register do
+    collection do
+      get 'index', 'phone_number','address','credit','complete'
+    end
+  end
 end

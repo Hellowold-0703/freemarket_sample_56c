@@ -14,7 +14,7 @@ class LikesController < ApplicationController
   private
 
   def set_variables
-    @user = User.find_by(family_name: "橋本")
+    @user = User.find(1)
     @product = Product.find(params[:product_id])
     @id_name = "#like-link-#{@product.id}"
   end

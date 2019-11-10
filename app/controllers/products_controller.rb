@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   
   def index
-    Product.all
+    @products = Product.limit(10)
   end
   
   def new
@@ -24,6 +24,6 @@ class ProductsController < ApplicationController
   private
 
   def params_product
-    params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_prime, :shipping_method, {images: []})
+    params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_prime, :shipping_method, :likes_count, {images: []})
   end
 end

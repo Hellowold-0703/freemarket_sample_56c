@@ -1,0 +1,9 @@
+= link_to product_path(product) do
+  .pickup__item__bottom__image
+    %p
+      ¥
+      = product.selling_prime
+    - product.images.each do |image|
+      = image_tag (image.url), height: "188px", width: "188px"
+    %span 
+      = product.name

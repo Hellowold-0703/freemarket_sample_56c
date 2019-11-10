@@ -16,23 +16,33 @@
           .header-bottom__search-menu__brand__icon
             %i.fa.fa-tag
             %span ブランドから探す
-      .header-bottom__user-menu
-        %li.header-bottom__user-menu__good
-          .header-bottom__user-menu__good__icon
-            %i.fa.fa-heart
-            %span いいね！一覧
-        %li.header-bottom__user-menu__notice
-          .header-bottom__user-menu__notice__icon
-            %i.fa.fa-bell
-            %span お知らせ
-            .header-bottom__user-menu__notice__icon__count
-              99+
-        %li.header-bottom__user-menu__todolist
-          .header-bottom__user-menu__todolist__icon
-            %i.fa.fa-check
-            %span やることリスト
-          %ul.header-bottom__user-menu__todolist__content
-        %li.header-bottom__user-menu__mypage
-          =link_to mypage_index_path, class:'header-bottom__user-menu__mypage__icon' do
-            =image_tag "user_photo_noimage.png"
-            %span マイページ
+        
+        .header-bottom__user
+          = link_to new_user_registration_path do
+            .header-bottom__user__sign-up
+              新規会員登録
+          = link_to new_user_session_path do
+            .header-bottom__user__sign-in
+              ログイン
+
+      // .header-bottom__user-menu
+      //   %li.header-bottom__user-menu__good
+      //     .header-bottom__user-menu__good__icon
+      //       %i.fa.fa-heart
+      //       %span いいね！一覧
+      //   %li.header-bottom__user-menu__notice
+      //     .header-bottom__user-menu__notice__icon
+      //       %i.fa.fa-bell
+      //       %span お知らせ
+      //       .header-bottom__user-menu__notice__icon__count
+      //         99+
+      //   %li.header-bottom__user-menu__todolist
+      //     .header-bottom__user-menu__todolist__icon
+      //       =link_to new_product_path do
+      //         %i.fa.fa-check
+      //         %span やることリスト
+      //     %ul.header-bottom__user-menu__todolist__content
+      //   %li.header-bottom__user-menu__mypage
+      //     =link_to mypage_index_path, class:'header-bottom__user-menu__mypage__icon' do
+      //       =image_tag "user_photo_noimage.png"
+      //       %span マイページ

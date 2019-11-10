@@ -23,9 +23,10 @@ html {
     float: left;
     min-width: 300px;
     max-width: 300px;
-    min-height: 375px;
+    min-height: 420px;
     margin: 0 auto;
     background: #fafafa;
+    overflow: hidden;
   }
   &__detail {
     float: right;
@@ -39,52 +40,69 @@ html {
   
   .owl-carousel {
     position: relative;
+    float: left;
+    min-height: 1px;
+    user-select: none;
+    overflow: hidden;
+    & img {
+      width: 100%;
+    }
   }
   .owl-stage-outer {
     position: relative;
     overflow : hidden;
+    width: 300px;
+    height: 300px;
   }
   .owl-stage {
     position: relative;
     left: 0px;
-    max-width: 3000px;
   }
   .owl-product {
-    min-height: 1px;
     float: left;
+    width: 300px;
+    min-height: 1px;
     user-select: none;
   }
   .owl-product-inner {
     position: relative;
     width: 100%;
+    height: 300px;
     height: 0;
     padding: 0 0 100%;
   }
-  .owl-lazy-active {
-    width: 100%;
-    vertical-align: bottom;
-    opacity: 1;
+  .owl-nav {
+    display: none;
   }
-  .owl-lazy-first {
-    display: inline-block;
+  .owl-items {
+    width: 300px;
+    line-height: 0;
+    font-size:0;
+  }
+  .owl-item.active {
+    opacity: 1;
+    cursor: default;
+  }
+  .owl-item {
     position: relative;
+    display: inline-block;
     width: 60px;
     height: 60px;
-    overflow: hidden;
-    max-height: none;
+    left: 0;
     opacity: .4;
-    cursor: pointer;
-    opacity: 1;
+    overflow: hidden;
   }
-  .owl-lazy {
-    display: inline-block;
-    position: relative;
-    width: 60px;
-    height: 60px;
+  .owl-item-inner {
+    position: static;
+    height: auto;
+    padding: 0;
     overflow: hidden;
-    max-height: none;
-    opacity: .4;
-    cursor: pointer;
+    pointer-events: none;
+  }
+ .owl-item img {
+  position: absolute;
+  left: 0;
+  width: 100%;
   }
   
   table {
@@ -217,11 +235,7 @@ html {
     &__right {
       float: right;
       margin: 8px 0 0;
-      i{
-        height: 50px;
-        width: 50px;
-        color: #333;
-      }
+      
     }
   }
 }
@@ -297,6 +311,9 @@ html {
     font-size: 14px;
   }
   .fa-flag-o {
+    font-size: 14px;
+  }
+  .fa-lock{
     font-size: 14px;
   }
 }

@@ -2,6 +2,8 @@
 
 = render 'mypage/pankuzu'
 
+= render 'top/transaction-btn'
+
 %main.l-container.clearfix
   .l-container-box
     
@@ -17,7 +19,7 @@
             %ul.payment-list__content
           %section.add-credit-card
             .add-credit-card__content
-              = link_to root_path, class: 'btn-red submit_button' do
+              = link_to root_path, class: 'submit_button' do
                 .add-credit-card__btn
                   = fa_icon 'credit-card'
                   %span<>

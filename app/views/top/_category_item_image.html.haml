@@ -1,7 +1,8 @@
 .pickup__item__bottom__image
-  %p ¥1,500
-  =image_tag "category-item-image.jpg", height: "188px", width: "188px;"
-  %span 新品未使用パーカー
+  = link_to products_path do
+    %p ¥1,500
+    =image_tag "category-item-image.jpg", height: "188px", width: "188px;"
+    %span 新品未使用パーカー
 .pickup__item__bottom__image
   %p ¥1,500
   =image_tag "category-item-image.jpg", height: "188px", width: "188px;"

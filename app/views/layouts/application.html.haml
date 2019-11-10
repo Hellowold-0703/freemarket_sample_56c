@@ -5,6 +5,8 @@
     %title FreemarketSample56c
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %link{rel: "stylesheet", type:"text/css", href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{type: "text/javascript", src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"}
   %body
     = yield

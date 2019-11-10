@@ -1,16 +1,10 @@
 class UsersController < ApplicationController
   def index
   end
-
-  def phone_number
+  
+  def destroy
   end
 
-  def address
-  end
-
-  def credit
-  end
-
-  def complete
+  def edit
   end
 end

@@ -1,5 +1,5 @@
 .app-banner{
-  background-image: url("footer_bg_pc.jpg");
+  background-image: url('https://i.gyazo.com/48a0d974109e794a5e6b5ca2b4c878dc.png');
   background-position: center;
   background-size: cover;
   border-style: solid;
@@ -24,10 +24,13 @@
           line-height: 1.2;
           margin: 45px 0 3px 0;
           font-weight: 600;
-
+          text-shadow: 0 0 5px rgba(0,0,0,0.4);
+          
         }
         p {
+          padding: 10px 0;
           font-size: 35px;
+          text-shadow: 0 0 5px rgba(0,0,0,0.4);
          
         }
         &__icon.clearfix{

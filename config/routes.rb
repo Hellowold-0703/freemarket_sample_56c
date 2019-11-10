@@ -2,18 +2,19 @@ Rails.application.routes.draw do
   devise_for :users
   root 'top#index'
   resources :mypage, only: [:index]
-  resources :products, only: [:index]
+  resources :products
   resources :creditcards, only: [:index]
   resources :confirm, only: [:index]
-  resources :users, only: [:signup]
-  resources :transaction do
-    collection do
-      get 'buy', 'sell'
-    end
+  resources :users, only: [:signup, :index, :destroy, :edit]
+  namespace :transaction do
+    resources :buy, only: [:index]
+    resources :sell, only: [:index]
   end
   resources :new_register do
     collection do
       get 'index', 'phone_number','address','credit','complete'
     end
   end
+  post   '/like/:product_id' => 'likes#like',   as: 'like'
+  delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
 end

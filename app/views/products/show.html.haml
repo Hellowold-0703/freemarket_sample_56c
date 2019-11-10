@@ -1,0 +1,297 @@
+= render 'top/header'
+%section.product
+  %h1.product__name 
+    = @product.name
+  .product__content.clearfix
+    .product__photo
+      .owl-carousel.owl-loaded.owl-drag
+        .owl-stage-outer
+          .owl-stage
+            - @product.images.each do |image|
+              - if image.url.present?
+                .owl-product
+                  .owl-product-inner
+                    = image_tag image.url,{class: 'owl-lazy'}
+
+        .owl-nav.disabled
+          .owl-prev prev
+          .owl-next next
+        .owl-items.owl-thumbs
+          - @product.images.each do |image|
+            - if image.url.present?
+              .owl-item
+                .owl-item-inner
+                  = image_tag image.url, {class: 'is-higher-width'}
+    %table.product__detail
+      %tbody
+        %tr
+          %th 出品者
+          %td 
+            = link_to 'シン'
+            .ratings
+              .user-ratings
+                %i.fa.fa-smile-o
+                %span 1200
+              .user-ratings
+                %i.fa.fa-meh-o
+                %span 300
+              .user-ratings
+                %i.fa.fa-frown-o
+                %span 10
+        %tr
+          %th カテゴリー
+          %td 
+            = link_to 'メンズ'
+            = link_to do
+              .product-sub-category
+                %i.fa.fa-angle-right
+                靴
+            = link_to do
+              .product-sub-category
+                %i.fa.fa-angle-right
+                スニーカー
+        %tr
+          %th ブランド
+          %td 
+            = link_to do
+              ナイキ
+        %tr
+          %th 商品のサイズ
+          %td 26㎝
+        %tr
+          %th 商品の状態
+          %td 
+            = @product.status
+        %tr
+          %th 配送料の負担
+          %td 
+            = @product.shipping_charge
+        %tr
+          %th 配送の方法
+          %td 
+            = @product.shipping_method
+        %tr
+          %th 配送元地域
+          %td
+            = link_to do
+              = @product.shipping_area
+        %tr
+          %th 発送日の目安
+          %td 
+            = @product.days_before_shipment
+
+  .product-price
+    %span.product-price__total
+      = @product.selling_prime
+    %span.product-price__tax (税込)
+    %span.product-price__sipping-fee 送料込み
+  = link_to '購入画面に進む', root_path, {class: 'product-buy-btn'}
+  .product-description
+    %p.product-description__content<
+      = @product.explanation
+
+  .product-button.clearfix
+    .product-button__left
+      .like-link{id: "like-link-#{@product.id}"}
+        = render partial: 'likes/like', locals:{product:@product}
+      
+      = link_to '', {class: 'product-button__left__like product-button__left__report'} do
+        %i.fa.fa-flag-o
+        %span 不適切な商品の報告
+    .product-button__right
+      = link_to "https://www.mercari.com/jp/safe/description/" do
+        %i.fa.fa-lock
+        %span あんしん・あんぜんへの取り組み
+.product-message
+  .product-message__container
+    .product-message__content
+      %form.message-form
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.textarea-default
+        %button.message-submit-btn
+          %span コメントする
+%ul.product-link
+  %li.product-link__prev
+    = link_to do
+      %i.fa.fa-angle-left
+      アディダス
+  %li.product-link__next
+    = link_to do
+      スタンスミス
+      %i.fa.fa-angle-right
+.social-media
+  .social-media__text
+    .fb-save.fb_iframe_wedget
+  %ul.social-media__box
+    %li
+      = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm36938855197%2F" do
+        %i.fa.fa-facebook-square
+    %li
+      = link_to "http://twitter.com" do
+        %i.fa.fa-twitter 
+    %li
+      = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm36938855197%2F&amp;media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm36938855197_1.jpg%3F1572579695&amp;description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%82%A8%E3%82%A2%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B9%E3%80%80%E3%82%B4%E3%82%A2%E3%83%86%E3%83%83%E3%82%AF%E3%82%B9%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
+        %i.fa.fa-pinterest
+.user-profile
+  %section.user-profile__box.clearfix
+    %h2.user-profile__box__head
+      = link_to 'シンさんのその他の出品'
+    .user-profile__box__content.clearfix
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag @product.images[0].url
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag @product.images[0].url
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag @product.images[0].url
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag = image_tag @product.images[0].url
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag = image_tag @product.images[0].url
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag @product.images[0].url
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+
+  %section.user-profile__box.clearfix
+    %h2.user-profile__box__head
+      = link_to 'ナイキのスニーカー その他の出品'
+    .user-profile__box__content.clearfix
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+      %section.products-box
+        = link_to do
+          %figure.products-box__photo
+            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
+          .products-box__body
+            %h3.products-box__body__name
+              26.5cm ナイキ オクワン2
+            .products-box__body__num
+              .products-box__body__num__price ¥17,300
+              .products-box__body__num__icon
+                %i.fa.fa-heart-o 
+                %span 22
+.product-bottom
+  %ul
+    %li.product-bottom__nav
+      = link_to root_path do
+        メルカリ
+        %i.fa.fa-angle-right
+    %li.product-bottom__nav
+      %span 26㎝【中古品】ナイキ エアジョーダン１ レターマン
+= render 'top/footer'

@@ -1,7 +1,7 @@
 .address-img
   = render 'devise/sessions/sign-up-header'
-.progress-phone
-  =image_tag "progress2.png", height: "100px", width: "400px;"
+.progress-address
+  =image_tag "progress3.png", height: "100px", width: "400px;"
   
 .address-header 住所入力
 .address-name
@@ -19,7 +19,7 @@
     %br 郵便番号
     %textarea{placeholder: "例)123-4567", class: "input-members"}
     %br 都道府県
-    %textarea{placeholder: "例)北海道", class: "input-members"}
+    %textarea{placeholder: "北海道", class: "input-members"}
     %br 市区町村
     %textarea{placeholder: "例)横浜市緑区", class: "input-members"}
     %br 番地
@@ -30,4 +30,4 @@
     %textarea{placeholder: "例)09012345678", class: "input-members"}
   .register-button 次へ進む
 
-  = render 'devise/sessions/sign-up-footer'
+= render 'devise/sessions/sign-up-footer'

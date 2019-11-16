@@ -6,29 +6,37 @@
   会員情報入力
 .members-input-form
   %form
+    %h2 必須
     %br　ニックネーム
     %textarea{placeholder: "例）メルカリ太郎", class: "input-members"}
+    %h3 必須
     %br　メールアドレス
     %textarea{placeholder: 'PC・携帯どちらでも可',class: "input-members"}
+    %h4 必須
     %br　パスワード 
     %textarea{placeholder: "7文字以上",class: "input-members"}
+    %h5 必須
     %br　パスワード（確認）
     %textarea{placeholder: "7文字以上",class: "input-members"}
-    %br　本人確認
+    %h1　本人確認
     %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
 .input-footer-name
   %form
+    %h1 必須
     %br　お名前(全角)
     %textarea{placeholder: "例)山田", class: "input-name"}
     %textarea{placeholder: "例)彩", class: "input-name"}
 .input-footer-kana
   %form
+    %h1 必須
     %br　お名前カナ(全角)
     %textarea{placeholder: "例)ヤマダ", class: "input-name"}
     %textarea{placeholder: "例)アヤ", class: "input-name"}
 .input-footer-birth
   %form
-    %br 生年月日
+    %h2 必須
+    %br 
+    %h1 生年月日
     %textarea{placeholder: "--", class: "input-birth"}
     %textarea{placeholder: "--", class: "input-birth"}
     %textarea{placeholder: "--", class: "input-birth"}

@@ -1,33 +1,41 @@
 .address-img
   = render 'devise/sessions/sign-up-header'
-.progress-phone
-  =image_tag "progress2.png", height: "100px", width: "400px;"
+.progress-address
+  =image_tag "progress3.png", height: "100px", width: "400px;"
   
 .address-header 住所入力
 .address-name
   %form
+    %h1 必須
     %br　お名前(全角)
     %textarea{placeholder: "例)山田", class: "input-address-name"}
     %textarea{placeholder: "例)彩", class: "input-address-name"}
 .address-kana
   %form
+    %h1 必須
     %br　お名前カナ(全角)
     %textarea{placeholder: "例)ヤマダ", class: "input-address-name"}
     %textarea{placeholder: "例)アヤ", class: "input-address-name"}
 .address-input
   %form
+    %h1 必須
     %br 郵便番号
     %textarea{placeholder: "例)123-4567", class: "input-members"}
+    %h2 必須
     %br 都道府県
-    %textarea{placeholder: "例)北海道", class: "input-members"}
+    %textarea{placeholder: "北海道", class: "input-members"}
+    %h3 必須
     %br 市区町村
     %textarea{placeholder: "例)横浜市緑区", class: "input-members"}
+    %h4 必須
     %br 番地
     %textarea{placeholder: "例)青山1-1-1", class: "input-members"}
+    %h5 任意
     %br 建物名
     %textarea{placeholder: "例)柳ビル103", class: "input-members"}
+    %h6 任意
     %br 電話
     %textarea{placeholder: "例)09012345678", class: "input-members"}
   .register-button 次へ進む
 
-  = render 'devise/sessions/sign-up-footer'
+= render 'devise/sessions/sign-up-footer'

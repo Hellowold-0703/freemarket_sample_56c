@@ -13,4 +13,5 @@ class NewRegisterController < ApplicationController
 
   def complete
   end
+  
 end

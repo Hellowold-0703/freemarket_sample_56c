@@ -82,6 +82,7 @@
 
   .product-price
     %span.product-price__total
+      ¥
       = @product.selling_prime
     %span.product-price__tax (税込)
     %span.product-price__sipping-fee 送料込み
@@ -92,12 +93,23 @@
 
   .product-button.clearfix
     .product-button__left
+    - if user_signed_in?
       %button.like-link{id: "like-link-#{@product.id}"}
         = render partial: 'likes/like', locals: {product:@product}
-      
       = link_to '', {class: 'product-button__left__like product-button__left__report'} do
         %i.fa.fa-flag-o
-        %span 不適切な商品の報告
+        %span{style: "color: #333;"} 不適切な商品の報告
+    - else
+      = link_to new_user_session_path do
+        %button.like-link
+          %i.fa.fa-heart-o
+          %span いいね！
+          %span
+          %span.fade-in-down
+            = @product.likes.count
+      = link_to '', {class: 'product-button__left__like product-button__left__report'} do
+        %i.fa.fa-flag-o
+        %span{style: "color: #333;"} 不適切な商品の報告
     .product-button__right
       = link_to "https://www.mercari.com/jp/safe/description/" do
         %i.fa.fa-lock

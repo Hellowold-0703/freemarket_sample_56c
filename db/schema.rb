@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191104100826) do
+ActiveRecord::Schema.define(version: 20191117072718) do
 
   create_table "buyers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",    null: false
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20191104100826) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.integer  "likes_count"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["name"], name: "index_products_on_name", using: :btree
   end
 
@@ -86,6 +88,7 @@ ActiveRecord::Schema.define(version: 20191104100826) do
   add_foreign_key "buyers", "users"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
+  add_foreign_key "products", "categories"
   add_foreign_key "sellers", "products"
   add_foreign_key "sellers", "users"
 end

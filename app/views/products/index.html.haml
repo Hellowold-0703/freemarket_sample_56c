@@ -18,25 +18,19 @@
         .pickup__item__header__category-title  レディース新着アイテム
         .pickup__item__header__see-more もっと見る 》
       .pickup__item__bottom
-        = render partial: "top/category_item", collection: @products, as: "product"
+        = render partial: "top/category_item", collection: @ladies_products, as: "product"
     .pickup__item
       .pickup__item__header
         .pickup__item__header__category-title メンズ新着アイテム
         .pickup__item__header__see-more もっと見る 》
       .pickup__item__bottom
-        = render partial: "top/category_item", collection: @products, as: "product"
-    .pickup__item
-      .pickup__item__header
-        .pickup__item__header__category-title 家電・スマホ・カメラ新着アイテム
-        .pickup__item__header__see-more もっと見る 》
-      .pickup__item__bottom
-        = render partial: "top/category_item", collection: @products, as: "product"
+        = render partial: "top/category_item", collection: @mens_products, as: "product"
     .pickup__item
       .pickup__item__header
         .pickup__item__header__category-title おもちゃ・ホビー・グッズ新着アイテム
         .pickup__item__header__see-more もっと見る 》
       .pickup__item__bottom
-        = render partial: "top/category_item", collection: @products, as: "product"   
+        = render partial: "top/category_item", collection: @babies_products, as: "product"   
   .pickup
     %h2.pickup__header 
       人気のブランド

@@ -29,3 +29,11 @@ baby_unisex = baby_kids.children.create(name: "ベビー服(男女兼用) ~95cm"
 baby_girl.children.create([{name: "トップス"}, {name: "アウター"}, {name: "パンツ"}])
 baby_boy.children.create([{name: "トップス"}, {name: "アウター"}, {name: "パンツ"}])
 baby_unisex.children.create([{name: "トップス"}, {name: "アウター"}, {name: "パンツ"}])
+
+
+
+chanel = Brand.create(name: "シャネル")
+nike = Brand.create(name: "ナイキ")
+louis_vuitton = Brand.create(name: "ルイ・ヴィトン")
+supreme = Brand.create(name: "シュプリーム")
+adidas = Brand.create(name: "アディダス")

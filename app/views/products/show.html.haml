@@ -92,8 +92,8 @@
 
   .product-button.clearfix
     .product-button__left
-      .like-link{id: "like-link-#{@product.id}"}
-        = render partial: 'likes/like', locals:{product:@product}
+      %button.like-link{id: "like-link-#{@product.id}"}
+        = render partial: 'likes/like', locals: {product:@product}
       
       = link_to '', {class: 'product-button__left__like product-button__left__report'} do
         %i.fa.fa-flag-o

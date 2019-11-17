@@ -3,7 +3,7 @@
     %p
       ¥
       = product.selling_prime
-    - product.images.each do |image|
-      = image_tag (image.url), height: "188px", width: "188px"
+    %a
+      = image_tag (product.images[0].url), height: "188px", width: "188px"
     %span 
       = product.name

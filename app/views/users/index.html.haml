@@ -13,7 +13,7 @@
       .logout-page__container
         .logout-page__inner   
           .logout-page__content
-            = form_tag(root_path, method: :get) do
+            = form_tag(destroy_user_session_path, method: :delete) do
               %button.btn-red{ type:'submit'} ログアウト
 
 = render 'top/footer'

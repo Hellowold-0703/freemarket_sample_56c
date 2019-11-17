@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :products
   resources :creditcards, only: [:index]
   resources :confirm, only: [:index]
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update, :index]
   namespace :transaction do
     resources :buy, only: [:index]
     resources :sell, only: [:index]

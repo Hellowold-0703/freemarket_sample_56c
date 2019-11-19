@@ -85,7 +85,7 @@
       = @product.selling_prime
     %span.product-price__tax (税込)
     %span.product-price__sipping-fee 送料込み
-  = link_to '購入画面に進む', transaction_buy_index_path, {class: 'product-buy-btn'}
+  = link_to '購入画面に進む', buy_product_path(@product), {class: 'product-buy-btn'}
   .product-description
     %p.product-description__content<
       = @product.explanation

@@ -1,26 +1,29 @@
-// .sign-up-container
-// 
-//   = render 'devise/sessions/sign-up-header'
-// 
-//   .signup
-//     %h2
-//       新規会員登録
-//     .signup-select-case
-//       %ul
-//         %li.email-address
-//           = link_to new_user_registration_path do
-//             = fa_icon "envelope"
-//             メールアドレスで登録する
-//         %li.facebook
-//           = link_to "" do
-//             = fa_icon "facebook-square"
-//             Facebookで登録する
-//         %li.google
-//           = link_to "" do
-//             = fa_icon "google"
-//             Googleで登録する
-// 
-//   = render 'devise/sessions/sign-up-footer'
+//.container  
+//  
+//  = render 'devise/sessions/sign-up-header'
+//  
+//  .signup
+//    %h2
+//      新規会員登録
+//    .signup-select-case
+//      %ul
+//        %li.email-address
+//          = link_to new_user_session_path do
+//            = fa_icon "envelope"
+//            メールアドレスで登録する
+//        %li.facebook
+//          = link_to user_facebook_omniauth_authorize_path do
+//            = fa_icon "facebook-square"
+//            Facebookで登録する
+//        %li.google
+//          =  link_to user_google_oauth2_omniauth_authorize_path do
+//            = fa_icon "google"
+//            Googleで登録する
+//  
+//  = render 'devise/sessions/sign-up-footer'
+
+  
+
 
 
 .account-page__inner.clearfix

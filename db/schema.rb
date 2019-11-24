@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 20191117103937) do
     t.text     "profile",                limit: 65535
     t.string   "image"
     t.string   "phone_number"
+    t.string   "provider"
+    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

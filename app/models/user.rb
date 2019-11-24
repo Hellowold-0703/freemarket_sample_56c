@@ -17,6 +17,7 @@ class User < ApplicationRecord
   validates :first_furigana, presence: true
   validates :birth_year, presence: true
 
+
   has_many :sellers
   has_many :buyers
   has_many :likes, dependent: :destroy

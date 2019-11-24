@@ -391,9 +391,14 @@ html {
       position: relative;
       width: 220px;
       height: 220px;
+      top: 0;
       margin: auto;
       padding: 0 0 100%;
       overflow: hidden;
+      img {
+      display: block;
+      margin: auto;
+      }
     }
     &__body {
       height: 110px;

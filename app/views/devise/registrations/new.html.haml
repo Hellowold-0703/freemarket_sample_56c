@@ -1,4 +1,27 @@
-.container
+// .sign-up-container
+// 
+//   = render 'devise/sessions/sign-up-header'
+// 
+//   .signup
+//     %h2
+//       新規会員登録
+//     .signup-select-case
+//       %ul
+//         %li.email-address
+//           = link_to new_user_registration_path do
+//             = fa_icon "envelope"
+//             メールアドレスで登録する
+//         %li.facebook
+//           = link_to "" do
+//             = fa_icon "facebook-square"
+//             Facebookで登録する
+//         %li.google
+//           = link_to "" do
+//             = fa_icon "google"
+//             Googleで登録する
+// 
+//   = render 'devise/sessions/sign-up-footer'
+
 
   = render 'devise/sessions/sign-up-header'
 
@@ -23,4 +46,57 @@
   = render 'devise/sessions/sign-up-footer'
 
   
+
+
+
+.account-page__inner.clearfix
+  .account-page__inner--header.account-page__header
+    %h2 新規会員登録
+  .account-page__inner--bottom.user-form
+    %b ＊全て必須項目です
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .field
+        .field-label
+          = f.label :family_name, "氏名"
+        .field-input
+          = f.text_field :family_name, autofocus: true
+      .field
+        .field-label
+          = f.label :frist_name, "名前"
+        .field-input
+          = f.text_field :first_name
+      .field
+        .field-label
+          = f.label :family_furigana, "氏名 ふりがな"
+        .field-input
+          = f.text_field :family_furigana
+      .field
+        .field-label
+          = f.label :first_furigana, "名前 ふりがな"
+        .field-input
+          = f.text_field :first_furigana
+      .field
+        .field-label
+          = f.label :birth_year, "誕生日"
+        .field-input
+          = f.text_field :birth_year, placeholder: "2019/11/10"
+      .field
+        .field-label
+          = f.label :email, "メールアドレス"
+        .field-input
+          = f.email_field :email, placeholder: "info@sample.com"
+      .field
+        .field-label
+          = f.label :password, "パスワード"
+          %i <英数字8文字以上>
+        .field-input
+          = f.password_field :password, autocomplete: "off"
+      .field
+        .field-label
+          = f.label :password_confirmation, "パスワードの再確認"
+        .field-input
+          = f.password_field :password_confirmation, autocomplete: "off"
+      .actions
+        = f.submit "登録する", class: 'btn'
 

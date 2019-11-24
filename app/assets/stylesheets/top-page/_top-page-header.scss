@@ -1,22 +1,17 @@
 .top-page-header{
   height:100px;
   padding: 0 202px;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   position: relative;
   z-index: 3;
   background-color: #fff;
-  
-  &__wrapper{
+  .top-page-header-inner{
     width: 1020px;
     margin: auto;
     padding-top: 8px; 
-    
-
     .header-top{
       display:flex;
       position: relative;
       height:40px;
-      
       &__logo{
         width: 134px;
         height: 38px;
@@ -45,7 +40,6 @@
         font-size: 14px;
       }
     }
-  
     .header-bottom{
       display:flex;
       margin-top: 8px;
@@ -76,6 +70,40 @@
           }
         }
       }
+
+      &__user{
+        display: flex;
+        margin-left: 521px;
+        &__sign-up{
+          background-color: rgb(234, 53, 45);
+          color: rgb(255, 255, 255);
+          font-size: 14px;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(234, 53, 45);
+          border-image: initial;
+          border-radius: 4px;
+          margin-bottom: 12px;
+          padding: 8px 10px;
+          margin-right: 11px;
+          line-height: 15px
+        }
+        &__sign-in{
+          background-color: rgb(255, 255, 255);
+          color: rgb(0, 149, 238);
+          font-size: 14px;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(0, 149, 238);
+          border-image: initial;
+          border-radius: 4px;
+          padding: 6px 10px;
+          transition: all 0.3s ease-out 0s;
+          margin-bottom: 12px;
+          line-height: 19px
+        }
+      }
+
       &__user-menu{
         cursor: pointer;
         display:flex;
@@ -92,6 +120,7 @@
           font-family: 'YuGothic';
           vertical-align: 2px;
           color: black;
+          font-weight: 300;
         } 
         li{
           list-style: none;
@@ -151,5 +180,11 @@
         }
       }
     }
+  }
+}
+
+.top-page-pc-header{
+  .top-page-header{
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   }
 }

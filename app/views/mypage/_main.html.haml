@@ -18,14 +18,15 @@
   %section.mypage-tab-container-notification-todo
     %ul.mypage-tabs
       %li.active
-        = link_to 'お知らせ' , href: "#mypage-tab-notification", data: {toggle: "tab"}
+        = link_to 'お知らせ' , href: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3466462615", alt: "mercari", width: "80", height:"65", data: {toggle: "tab"}
       %li
-        = link_to 'やることリスト' , href: "#maypage-tab-todo", data: {toggle: "tab"} 
+        = link_to 'やることリスト' , href: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3466462615", alt: "mercari", width: "80", height:"65", data: {toggle: "tab"} 
     .tab-content
+      .tab-content-img
       %ul#mypage-tab-notification.maypage-itemlist.tabpane
         %li.mypage-item-not-found.bold お知らせの商品はありません
-    -#  %ul#mypage-tab-todo.maypage-itemlist.tabpane
-    -#    %li.mypage-item-not-found.bold 現在やることリストはありません
+  -#  %ul#mypage-tab-todo.maypage-itemlist.tabpane
+  -#    %li.mypage-item-not-found.bold 現在やることリストはありません
   
   %section.mypage-tab-container
     %h2.mypage-tab-head
@@ -38,7 +39,8 @@
         %h3
           = link_to '過去の取引' ,href: "#mypage-tab-transaction-old", data: {toggle: "tab"}
     .tab-content
+      .tab-content-img
       %ul#mypage-tab-transaction-now.mypage-item-list.tabpane
-        %li.mypage-item-not-found.bold 取引中の商品はありません
+        %li.mypage-item-not-found.bold 取引中の商品がありません
     -#  %ul#mypage-tab-transaction-old.maypage-itemlist.tabpane
     -#    %li.mypage-item-not-found.bold 過去に取引した商品はありません

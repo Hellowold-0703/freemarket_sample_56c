@@ -14,11 +14,13 @@ class ProductsController < ApplicationController
   
   def new
     @product = Product.new
+    @seller = Seller.new
   end
 
   def create
     @product = Product.new(params_product)
       if @product.save
+         @seller= Seller.create(user_id: current_user.id,product_id: @product.id)
         redirect_to root_path
       else
         render :new
@@ -27,11 +29,15 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @seller = Seller.find_by(product_id: @product.id)
+    @sellers = Seller.limit(6)
+    @products = Product.limit(6)
+    @nike_products = @products.where("brand_id = ?", @product.brand_id)
   end
 
   private
 
   def params_product
-    params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_prime, :shipping_method, :likes_count, :category_id, :brand_id, {images: []})
+    params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_prime, :shipping_method, :likes_count, :category_id, :brand_id,:seller_id, {images: []})
   end
 end

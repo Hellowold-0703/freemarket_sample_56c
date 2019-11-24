@@ -385,7 +385,7 @@ html {
     position: relative;
     float: left;
     width: 220px;
-    margin: 0 20px 20px 0;
+    margin: 0 0 20px 20px;
     background-color: #fff;
     &__photo {
       position: relative;
@@ -428,8 +428,9 @@ html {
     }
   }
   .products-box:nth-child(3n) {
-    margin-right: 0;
+    margin-left: 0;
   }
+  
   .products-box__photo img {
     position: absolute;
     top: 0;
@@ -466,6 +467,8 @@ html {
   }
 }
 .product-bottom{ 
+  width: 700px;
+  margin: 0 auto;
   span{
     color: #333;
   }

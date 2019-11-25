@@ -27,7 +27,8 @@
         %tr
           %th 出品者
           %td 
-            = link_to 'シン'
+            = link_to do
+              = @seller.user.first_name
             .ratings
               .user-ratings
                 %i.fa.fa-smile-o
@@ -41,7 +42,8 @@
         %tr
           %th カテゴリー
           %td 
-            = link_to 'メンズ'
+            = link_to do
+              = @product.category.name
             = link_to do
               .product-sub-category
                 %i.fa.fa-angle-right
@@ -54,7 +56,7 @@
           %th ブランド
           %td 
             = link_to do
-              ナイキ
+              =@product.brand.name
         %tr
           %th 商品のサイズ
           %td 26㎝
@@ -147,157 +149,47 @@
 .user-profile
   %section.user-profile__box.clearfix
     %h2.user-profile__box__head
-      = link_to 'シンさんのその他の出品'
+      = link_to do
+        = @seller.user.first_name
+        さんのその他の商品
     .user-profile__box__content.clearfix
+    - @sellers.each do |seller|
       %section.products-box
         = link_to do
           %figure.products-box__photo
-            = image_tag @product.images[0].url
+            = image_tag seller.product.images[0].url
           .products-box__body
             %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
+              = seller.product.name
             .products-box__body__num
-              .products-box__body__num__price ¥17,300
+              .products-box__body__num__price
+                = seller.product.selling_prime
               .products-box__body__num__icon
                 %i.fa.fa-heart-o 
-                %span 22
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag @product.images[0].url
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag @product.images[0].url
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag = image_tag @product.images[0].url
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag = image_tag @product.images[0].url
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag @product.images[0].url
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
+                %span
+                = seller.product.likes_count
 
   %section.user-profile__box.clearfix
     %h2.user-profile__box__head
-      = link_to 'ナイキのスニーカー その他の出品'
+      = link_to do
+        = @product.brand.name 
+        その他の出品
     .user-profile__box__content.clearfix
+    - @nike_products.each do |nike|
       %section.products-box
         = link_to do
           %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
+            = image_tag nike.images[0].url
           .products-box__body
             %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
+              = nike.name
             .products-box__body__num
-              .products-box__body__num__price ¥17,300
+              .products-box__body__num__price
+                = nike.selling_prime
               .products-box__body__num__icon
                 %i.fa.fa-heart-o 
-                %span 22
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m77099306190_1.jpg?1570098867'
-          .products-box__body
-            %h3.products-box__body__name
-              26.5cm ナイキ オクワン2
-            .products-box__body__num
-              .products-box__body__num__price ¥17,300
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span 22
+                  = nike.likes_count
+      
 .product-bottom
   %ul
     %li.product-bottom__nav
@@ -305,5 +197,6 @@
         メルカリ
         %i.fa.fa-angle-right
     %li.product-bottom__nav
-      %span 26㎝【中古品】ナイキ エアジョーダン１ レターマン
+      %span 
+      = @product.name
 = render 'top/footer'

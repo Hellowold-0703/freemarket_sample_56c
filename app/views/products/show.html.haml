@@ -27,8 +27,8 @@
         %tr
           %th 出品者
           %td 
-            = link_to do
-              = @seller.user.first_name
+        
+            
             .ratings
               .user-ratings
                 %i.fa.fa-smile-o
@@ -149,25 +149,9 @@
 .user-profile
   %section.user-profile__box.clearfix
     %h2.user-profile__box__head
-      = link_to do
-        = @seller.user.first_name
-        さんのその他の商品
+    
     .user-profile__box__content.clearfix
-    - @sellers.each do |seller|
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag seller.product.images[0].url
-          .products-box__body
-            %h3.products-box__body__name
-              = seller.product.name
-            .products-box__body__num
-              .products-box__body__num__price
-                = seller.product.selling_prime
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span
-                = seller.product.likes_count
+  
 
   %section.user-profile__box.clearfix
     %h2.user-profile__box__head

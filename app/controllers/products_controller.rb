@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @seller = Seller.find_by(product_id: @product.id)
-    @sellers = Seller.limit(6)
+    @sellers = Seller.where("user_id = ?", @seller.user_id).limit(6)
     @products = Product.limit(6)
     @nike_products = @products.where("brand_id = ?", @product.brand_id)
   end

@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   mount_uploaders :images, ImageUploader
   serialize :images, JSON
 
+  belongs_to :user
   has_many :sellers
   has_many :buyers
   belongs_to :category, optional: true

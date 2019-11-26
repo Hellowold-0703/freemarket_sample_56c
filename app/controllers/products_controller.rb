@@ -3,8 +3,7 @@ class ProductsController < ApplicationController
   require 'payjp'
 
   before_action :set_product, only: [:show, :buy]
-  before_action :set_card, only: [:buy, :pay]
-  before_action :authenticate_user! only: [:buy, :pay, :create]
+  before_action :authenticate_user!, only: [:buy, :pay, :create]
   
   def index
     @products = Product.limit(10)
@@ -40,6 +39,7 @@ class ProductsController < ApplicationController
   end
 
   def buy
+    card = set_card
     if card.blank?
       redirect_to controller: "credit_card", action: "new"
     else
@@ -50,6 +50,7 @@ class ProductsController < ApplicationController
   end
 
   def pay
+    card = set_card
     product = Product.find(params[:id])
     Payjp.api_key = set_payjp_private_key
     Payjp::Charge.create(
@@ -75,6 +76,6 @@ class ProductsController < ApplicationController
   end
 
   def set_card
-    card = CreditCard.where(user_id: current_user.id).first
+    CreditCard.where(user_id: current_user.id).first
   end
 end

@@ -1,0 +1,29 @@
+.complete-img
+  = render 'devise/sessions/sign-up-header'
+.progress-complete
+  =image_tag "progress5.png", height: "100px", width: "450px;"
+.complete-header 会員登録完了
+.complete-message
+  %p ありがとうございます。
+  %p 会員登録が完了しました。
+.complete-button
+  .start-button メルカリをはじめる
+.complete-app-banner
+  %aside.app-banner
+  .app-banner__pc
+    .app-banner__pc__inner
+      %h2 スマホでかんたんフリマアプリ
+      %p 今すぐ無料ダウンロード！
+
+      .app-banner__pc__inner__icon.clearfix
+        .merucari
+          = image_tag 'footer-mercari-icon.png'
+        %ul.icon
+          %li
+            = link_to image_tag('app-store.svg',:alt => "/")
+          %li
+            = link_to image_tag('google-play.svg',:alt => "/")
+      %li.figure
+        = link_to image_tag('download_app_pc.png',:alt => "/")
+
+= render 'devise/sessions/sign-up-footer'

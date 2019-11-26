@@ -8,11 +8,13 @@
         = link_to '新規会員登録', new_user_registration_path, class: 'login_container__panel--no-account__link', data:{turbolinks: :false}
       .login_container__panel--sns
         %button#facebook-login.login_container__panel--sns--facebook
-          = fa_icon 'facebook-square 2x', class: 'icon-facebook-square'
-          Facebookでログイン
+          = link_to user_facebook_omniauth_authorize_path, class: 'icon-facebook-square-btn', method: :post do
+            = fa_icon 'facebook-square 2x', class: 'icon-facebook-square'  
+            facebookでログイン
         %button#google-login.login_container__panel--sns--google
-          = fa_icon 'google 2x', class: 'icon-google'
-          Googleでログイン
+          = link_to user_google_oauth2_omniauth_authorize_path, class: 'icon-facebook-square-btn', method: :post do
+            = fa_icon 'google 2x', class: 'icon-google'
+            Googleでログイン
 
       .login_container__panel--devise-login
         = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'login_form') do |f|

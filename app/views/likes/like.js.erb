@@ -1,4 +1,5 @@
 $("<%= @id_name %>").html('<%= escape_javascript(render("likes/like", product: @product  ))%>');
-$(".like-link").css("border", "red 1px solid").css("background-color", "white");
+$(".like-link").css("border", "red 1px solid");
+$(".like-link").css("background-color", "white")
 $(".like-link .fa-heart-o").css("color", "red");
 $(".like-link span").css("color", "red")

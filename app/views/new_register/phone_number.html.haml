@@ -1,12 +1,13 @@
-.phone-img
+.mer-img
   = render 'devise/sessions/sign-up-header'
 .progress-phone
-  =image_tag "progress2.png", height: "100px", width: "400px;"
+  =image_tag "progress2.png", height: "100px", width: "500px;"
 .process-number  
 .phone-header 電話番号の確認
 .input-number-main
   %form
-  %br 携帯電話の番号
+  %br
+  %h1 携帯電話の番号
   %textarea{placeholder: "携帯電話の番号を入力", class: "input-number"}
   %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
   .sms-button SMSを送信する

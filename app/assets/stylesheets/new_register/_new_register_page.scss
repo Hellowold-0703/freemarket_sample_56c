@@ -1,5 +1,5 @@
 //header-----------------
-.input-header,.credit-header{
+.input-header{
   width: 60%;
   height: 100px;
   border-bottom: 1px solid #ccc;
@@ -10,6 +10,8 @@
   left:20%;
   line-height: 90px;
   font-size: 30px;
+  font-weight:bold;
+  font-weight:bold;
 }
 .phone-header{
   width: 60%;
@@ -22,6 +24,7 @@
   left:20%;
   line-height: 90px;
   font-size: 30px;
+  font-weight:bold;
 }
 .address-header{
   width: 60%;
@@ -30,10 +33,37 @@
   text-align: center;
   background-color: white;
   position:relative;
-  top:150px;
+  top:10px;
+  left:19%;
+  line-height: 90px;
+  font-size: 30px;
+  font-weight:bold;
+}
+.credit-header{
+  width: 60%;
+  height: 100px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  background-color: white;
+  position:relative;
+  top:46px;
   left:20%;
   line-height: 90px;
   font-size: 30px;
+  font-weight:bold;
+}
+.complete-header{
+  width: 60%;
+  height: 100px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  background-color: white;
+  position:relative;
+  top:10px;
+  left:20%;
+  line-height: 90px;
+  font-size: 30px;
+  font-weight:bold;
 }
 //--------------------------
 .members-input-form{
@@ -46,10 +76,69 @@
   background-color: white;
   padding-top:20px;
   padding-left:250px;
+  font-weight:bold;
+
+  h2{
+    background: #FF1A00;
+    color: #FFF;
+    border-radius: 3px;
+    font-size: 10px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    letter-spacing: 0.2em;
+    position: absolute;
+    left:45%;
+    top:5%;
+    }
+    h3{
+      background: #FF1A00;
+      color: #FFF;
+      border-radius: 3px;
+      font-size: 10px;
+      margin-right: 10px;
+      padding: 5px 10px;
+      letter-spacing: 0.2em;
+      position: absolute;
+      left:47%;
+      top:24.5%;
+      }
+      h4{
+        background: #FF1A00;
+        color: #FFF;
+        border-radius: 3px;
+        font-size: 10px;
+        margin-right: 10px;
+        padding: 5px 10px;
+        letter-spacing: 0.2em;
+        position: absolute;
+        left:43%;
+        top:44%;
+        }
+    
+        h5{
+          background: #FF1A00;
+          color: #FFF;
+          border-radius: 3px;
+          font-size: 10px;
+          margin-right: 10px;
+          padding: 5px 10px;
+          letter-spacing: 0.2em;
+          position: absolute;
+          left:49%;
+          top:63.5%;
+          }
+
+  h1{
+    font-weight:bold;
+    font-size:15px;
+    position: relative;
+    right:3%;
+  }
 
   p{
     width:340px;
     height:50px;
+    font-weight:normal;
   }
 }
 .input-members{
@@ -63,6 +152,8 @@
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   font-size: 100%;
+  font-weight:bold;
+  margin-top:3px;
 }
 .input-footer-name{
   width: 60%;
@@ -74,6 +165,20 @@
   background-color: white;
   padding-top:20px;
   padding-left:240px;
+  font-weight:bold;
+
+  h1{
+    background: #FF1A00;
+    color: #FFF;
+    border-radius: 3px;
+    font-size: 10px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    letter-spacing: 0.2em;
+    position: absolute;
+    left:43%;
+    top:16.5%;
+    }
 }
   .input-name{
    float:left;
@@ -88,6 +193,19 @@
    border-bottom-left-radius: 5px;
    font-size: 100%;
    margin:5px;
+
+   h1{
+    background: #FF1A00;
+    color: #FFF;
+    border-radius: 3px;
+    font-size: 10px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    letter-spacing: 0.2em;
+    position: absolute;
+    left:44%;
+    top:26.5%;
+    }
   }
   .input-footer-kana{
   width: 60%;
@@ -99,6 +217,20 @@
   background-color: white;
   padding-top:10px;
   padding-left:240px;
+  font-weight:bold;
+
+  h1{
+    background: #FF1A00;
+    color: #FFF;
+    border-radius: 3px;
+    font-size: 10px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    letter-spacing: 0.2em;
+    position: absolute;
+    left:47%;
+    top:20.5%;
+    }
   }
   .input-footer-birth{
   width: 60%;
@@ -110,6 +242,24 @@
   background-color: white;
   padding-top:25px;
   padding-left:245px;
+
+  h2{
+    background: #FF1A00;
+    color: #FFF;
+    border-radius: 3px;
+    font-size: 10px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    letter-spacing: 0.2em;
+    position: absolute;
+    left:40%;
+    top:12%;
+    }
+  
+  h1{
+    font-weight:bold;
+    font-size:15px;
+  }
 
   p{
     width:340px;
@@ -127,6 +277,7 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     font-size: 100%;
+    margin-top:5px;
   }
     
     .register-button{
@@ -140,17 +291,21 @@
     }
     .input-number-main{
       width: 60%;
-      height:300px;
+      height:400px;
       background-color: #ccc;
       position:relative;
       top:150px;
       left:20%;
       background-color: white;
-      padding-top:20px;
+      padding-top:40px;
       padding-left:250px;
+      
+      h1{
+        font-weight:bold;
+      }
 
       p{
-        height:60px;
+        height:80px;
         width:350px;
       }
     }
@@ -194,11 +349,25 @@
       height:160px;
       background-color: #ccc;
       position:relative;
-      top:60px;
-      left:20%;
+      top:10px;
+      left:19%;
       background-color: white;
       padding-top:20px;
       padding-left:250px;
+      font-weight:bold;
+
+      h1{
+        background: #FF1A00;
+        color: #FFF;
+        border-radius: 3px;
+        font-size: 10px;
+        margin-right: 10px;
+        padding: 5px 10px;
+        letter-spacing: 0.2em;
+        position: absolute;
+        left:45%;
+        top:19%;
+        }
     }
     .input-address-name{
       width: 60%;
@@ -211,28 +380,118 @@
       border-bottom-right-radius: 5px;
       border-bottom-left-radius: 5px;
       font-size: 100%;
+      font-weight:bold;
+      margin-top:5px;
     }
     .address-kana{
       width: 60%;
       height:150px;
       background-color: #ccc;
       position:relative;
-      top:60px;
-      left:20%;
+      top:10px;
+      left:19%;
       background-color: white;
       padding-top:20px;
       padding-left:250px;
+      font-weight:bold;
+
+      h1{
+        background: #FF1A00;
+        color: #FFF;
+        border-radius: 3px;
+        font-size: 10px;
+        margin-right: 10px;
+        padding: 5px 10px;
+        letter-spacing: 0.2em;
+        position: absolute;
+        left:48%;
+        top:20%;
+        }
     }
     .address-input{
       width: 60%;
-      height:800px;
+      height:750px;
       background-color: #ccc;
       position:relative;
-      top:80px;
-      left:22%;
+      top:10px;
+      left:19%;
       background-color: white;
       padding-top:20px;
       padding-left:250px;
+      font-weight:bold;
+
+      h1{
+        background: #FF1A00;
+        color: #FFF;
+        border-radius: 3px;
+        font-size: 10px;
+        margin-right: 10px;
+        padding: 5px 10px;
+        letter-spacing: 0.2em;
+        position: absolute;
+        left:40%;
+        top:4%;
+      }
+      h2{
+        background: #FF1A00;
+        color: #FFF;
+        border-radius: 3px;
+        font-size: 10px;
+        margin-right: 10px;
+        padding: 5px 10px;
+        letter-spacing: 0.2em;
+        position: absolute;
+        left:40%;
+        top:18%;
+        }
+        h3{
+          background: #FF1A00;
+          color: #FFF;
+          border-radius: 3px;
+          font-size: 10px;
+          margin-right: 10px;
+          padding: 5px 10px;
+          letter-spacing: 0.2em;
+          position: absolute;
+          left:40%;
+          top:32.5%;
+          }
+          h4{
+            background: #FF1A00;
+            color: #FFF;
+            border-radius: 3px;
+            font-size: 10px;
+            margin-right: 10px;
+            padding: 5px 10px;
+            letter-spacing: 0.2em;
+            position: absolute;
+            left:36.5%;
+            top:46.5%;
+            }
+            h5{
+              background: #d0d0d0;
+              color: #FFF;
+              border-radius: 3px;
+              font-size: 10px;
+              margin-right: 10px;
+              padding: 5px 10px;
+              letter-spacing: 0.2em;
+              position: absolute;
+              left:38%;
+              top:61%;
+              }
+              h6{
+                background: #d0d0d0;
+                color: #FFF;
+                border-radius: 3px;
+                font-size: 10px;
+                margin-right: 10px;
+                padding: 5px 10px;
+                letter-spacing: 0.2em;
+                position: absolute;
+                left:36.5%;
+                top:75%;
+                }
 
       span{
         background-color: red;
@@ -246,25 +505,30 @@
     }
     .progress-information{
       position:relative;
-      left:710px;
+      left:660px;
       top:0px;
     }
     .phone-img{
-      position:absolute;
+      position: absolute;
       left:300px;
       top:80px;
       width:250px;
     }
     .progress-phone{
-      position:absolute;
-      left:710px;
+      position: absolute;;
+      left:680px;
       top:70px;
     }
     .address-img{
-      position:absolute;
-      left:300px;
-      top:70px;
+      position:relative;
+      left:280px;
+      top:90px;
       width:250px;
+    }
+    .progress-address{
+      position:relative;
+      left:680px;
+      top:10px;
     }
     //credit画面--------------
     .credit-input-form{
@@ -272,22 +536,50 @@
       height:130px;
       background-color: #ccc;
       position:relative;
-      top:60px;
+      top:46px;
       left:20%;
       background-color: white;
       padding-top:20px;
       padding-left:250px;
+      font-weight:bold;
+
+      span{
+          background: #FF1A00;
+          color: #FFF;
+          border-radius: 3px;
+          font-size: 12px;
+          margin-right: 10px;
+          padding: 5px 10px;
+          letter-spacing: 0.2em;
+          position: absolute;
+          left:43%;
+          top:20%;
+          }
     }
     .credit-input-line{
       width: 60%;
       height:120px;
       background-color: #ccc;
       position:relative;
-      top:60px;
+      top:46px;
       left:20%;
       background-color: white;
       padding-top:20px;
       padding-left:240px;
+      font-weight:bold;
+
+      span{
+        background: #FF1A00;
+        color: #FFF;
+        border-radius: 3px;
+        font-size: 12px;
+        margin-right: 10px;
+        padding: 5px 10px;
+        letter-spacing: 0.2em;
+        position:absolute;
+        left:40%;
+        top:23.5%;
+        }
 
       .input-name{
         float:left;
@@ -315,9 +607,34 @@
       }
        
     }
+    .credit-input-code{
+      width: 60%;
+      height:130px;
+      background-color: #ccc;
+      position:relative;
+      top:46px;
+      left:20%;
+      background-color: white;
+      padding-top:20px;
+      padding-left:250px;
+      font-weight:bold;
+
+      span{
+          background: #FF1A00;
+          color: #FFF;
+          border-radius: 3px;
+          font-size: 10px;
+          margin-right: 10px;
+          padding: 5px 10px;
+          letter-spacing: 0.2em;
+          position: absolute;
+          left:50%;
+          top:20%;
+          }
+    }
     .credit-explain{
       width: 60%;
-      height:90px;
+      height:70px;
       background-color: #ccc;
       position:relative;
       top:30px;
@@ -339,8 +656,66 @@
     }
     .credit-img{
       position:absolute;
-      top:430px;
+      top:415px;
       left:500px;
     }
 //--------------------
+.complete-img{
+  position: relative;
+  left:300px;
+  top:80px;
+  width:250px;
+}
+.progress-complete{
+  position:relative;
+  left:710px;
+  top:10px;
+}
+.complete-message{
+  width: 60%;
+  height:140px;
+  background-color: #ccc;
+  position:relative;
+  top:10px;
+  left:20%;
+  background-color: white;
+  padding-top:70px;
+  padding-left:15px;
+  p{
+     text-align: center;
+     font-size: 20px;
+  }
+}
+.complete-button{
+  width: 60%;
+  height:140px;
+  background-color: #ccc;
+  position:relative;
+  top:10px;
+  left:20%;
+  background-color: white;
+  padding-top:10px;
+  padding-left:15px;
+}
+.start-button{
+  width: 50%;
+  height: 60px;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  margin-bottom: 5%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  margin:0 auto;
+}
+.complete-app-banner{
+  background-image: url('https://i.gyazo.com/48a0d974109e794a5e6b5ca2b4c878dc.png');
+  width: 60%;
+  height:30%;
+  position:relative;
+  top:10px;
+  left:20%;
+  padding-top:10px;
+  padding-left:15px;
+}
     

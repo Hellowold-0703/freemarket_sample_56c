@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
 
   require 'payjp'
+
+  before_action :set_product, only: [:show, :buy]
+  before_action :set_card, only: [:buy, :pay]
+  before_action :authenticate_user! only: [:buy, :pay, :create]
   
   def index
     @products = Product.limit(10)
@@ -30,15 +34,12 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @seller = Seller.find_by(product_id: @product.id)
     @sellers = Seller.where("user_id = ?", @seller.user_id).where.not("product_id = ?", @product.id).limit(6)
     @nike_products = Product.where("brand_id = ?", @product.brand_id).limit(6)
   end
 
   def buy
-    @product = Product.find(params[:id])
-    card = CreditCard.where(user_id: current_user.id).first
     if card.blank?
       redirect_to controller: "credit_card", action: "new"
     else
@@ -50,7 +51,6 @@ class ProductsController < ApplicationController
 
   def pay
     product = Product.find(params[:id])
-    card = CreditCard.where(user_id: current_user.id).first
     Payjp.api_key = set_payjp_private_key
     Payjp::Charge.create(
     amount: product.selling_prime,
@@ -68,5 +68,13 @@ class ProductsController < ApplicationController
 
   def set_payjp_private_key
     payjp_private_key = ENV['PAYJP_PRIVATE_KEY']
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def set_card
+    card = CreditCard.where(user_id: current_user.id).first
   end
 end

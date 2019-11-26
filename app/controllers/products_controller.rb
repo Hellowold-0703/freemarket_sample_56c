@@ -53,9 +53,9 @@ class ProductsController < ApplicationController
     card = CreditCard.where(user_id: current_user.id).first
     Payjp.api_key = set_payjp_private_key
     Payjp::Charge.create(
-    :amount => product.selling_prime,
-    :customer => card.customer_id,
-    :currency => 'jpy',
+    amount: product.selling_prime,
+    customer: card.customer_id,
+    currency: 'jpy',
   )
   redirect_to action: 'done'
   end

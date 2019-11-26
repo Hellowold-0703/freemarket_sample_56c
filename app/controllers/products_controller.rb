@@ -29,7 +29,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-  
+    @seller = Seller.find_by(product_id: @product.id)
+    @sellers = Seller.where("user_id = ?", @seller.user_id).where.not("product_id = ?", @product.id).limit(6)
     @nike_products = Product.where("brand_id = ?", @product.brand_id).limit(6)
   end
 

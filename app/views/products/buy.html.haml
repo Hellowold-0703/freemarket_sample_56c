@@ -7,13 +7,18 @@
       %section.buy-content.buy-item
         .buy-content__inner
           %h3.buy-item__image
-            %img.lazyloaded{alt: "", src: "https://static.mercdn.net/thumb/photos/m89085468436_1.jpg?1570340244", data: {src: "https://static.mercdn.net/thumb/photos/m89085468436_1.jpg?1570340244"}}
+            - @product.images.each do |image|
+              - if image.url.present?
+                .owl-product
+                  .owl-product-inner
+                    = image_tag image.url,{class: 'owl-lazy'}
           %p.buy-item__name.bold
             = @product.name
           %form.buy-form{action: "", method: "POST", novalidate: "novalidate"}
             %p.buy-price__ja.bold
-              ¥2,110
-              %span.item-shipping-fee.f14.bold 送料込み
+              = @product.selling_prime
+              %span.item-shipping-fee.f14.bold
+                = @product.shipping_charge
             %ul.accordion.not-have
               %li.accordion__parent
                 .accordion__toggle
@@ -22,8 +27,9 @@
               %li.buy-price__row.buy-you__pay.bold
                 .buy-price__cell 支払い金額
                 .buy-price__cell
-                  %span{data: {buy: {pay: "2110"}}} ¥2,110
-            = form_tag(action: :pay, method: :post) do
+                  %span
+                    = @product.selling_prime
+            = link_to pay_product_url, method: :post do
               %button.btn-default.btn-red.bold 購入する
 
       %section.buy-content.buy-user-info

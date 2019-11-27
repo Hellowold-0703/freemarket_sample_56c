@@ -62,38 +62,38 @@
                       %option{value: 1318}自動車•オートバイ
                       %option{value: 10}その他
                 .form-group
-                  = f.label :status_id do
+                  = f.label :status do
                     商品の状態
                     %span.form-require 必須
                   .select-wrap
                     %i.fas.fa-angle-down
-                    = f.select :status_id, Product.status_ids.keys, {}, class: "select-default"
+                    = f.select :status, Product.statuses.keys, {}, class: "select-default"
 
             .sell-content.clearfix
               %h3.sell__sub-head 配送について
               %a.form-question{href: "https://www.mercari.com/jp/help_center/article/68/", target: "_blank"}?
               .sell__form-box
                 .form-group
-                  = f.label :shipping_charge_id do
+                  = f.label :shipping_charge do
                     配送料の負担
                     %span.form-require 必須
                   .select-wrap
                     %i.fas.fa-angle-down
-                    = f.select :shipping_charge_id, Product.shipping_charge_ids.keys, {}, class: "select-default", onchange: "outputSelectedValueAndText(this);"
+                    = f.select :shipping_charge, Product.shipping_charges.keys, {}, class: "select-default", onchange: "outputSelectedValueAndText(this);"
                 .form-group
-                  = f.label :shipping_area_id do
+                  = f.label :shipping_area do
                     発送元の地域
                     %span.form-require 必須
                   .select-wrap
                     %i.fas.fa-angle-down
-                    = f.select :shipping_area_id, Product.shipping_area_ids.keys, {}, class: "select-default"
+                    = f.select :shipping_area, Product.shipping_areas.keys, {}, class: "select-default"
                 .form-group
-                  = f.label :days_before_shipment_id do
+                  = f.label :days_before_shipment do
                     発送までの日数
                     %span.form-require 必須
                   .select-wrap
                     %i.fas.fa-angle-down
-                    = f.select :days_before_shipment_id, Product.days_before_shipment_ids.keys, {}, class: "select-default"
+                    = f.select :days_before_shipment, Product.days_before_shipments.keys, {}, class: "select-default"
 
             .sell-content.clearfix
               %h3.sell__sub-head 販売価格(300〜9,999,999)
@@ -108,13 +108,20 @@
                       .l-right.sell-price__input
                         ¥
                         %div
-                          = f.text_field :selling_price, class: "input-default", placeholder: "例)300"
+                          = f.text_field :selling_prime, class: "input-default", placeholder: "例)300"
                   %li.clearfix
                     .l-left 販売手数料 (10%)
                     .l-right -
                   %li.clearfix.bold
                     .l-left 販売利益
                     .l-right -
+
+            .field
+              = f.label :category_id
+              = f.text_field :category_id
+            .field
+              = f.label :brand_id
+              = f.text_field :brand_id
 
             .sell-content.sell-btn-box
               %div
@@ -136,10 +143,5 @@
 
   = render 'single-footer'
 
-.field
-  = f.label :category_id
-  = f.text_field :category_id
-.field
-  = f.label :brand_id
-  = f.text_field :brand_id
+
 

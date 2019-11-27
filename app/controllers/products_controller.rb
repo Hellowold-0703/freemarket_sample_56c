@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   require 'payjp'
 
   before_action :set_product, only: [:show, :buy]
-  before_action :authenticate_user!, only: [:buy, :pay, :create]
+  before_action :authenticate_user!, only: [:buy, :pay, :create, new]
   
   def index
     @products = Product.limit(10)

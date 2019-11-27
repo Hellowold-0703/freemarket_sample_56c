@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
+  get "/transaction/sell", to: "products#new"
+  post "/transaction/sell", to: "products#create"
   resources :creditcards, only: [:index]
   resources :confirm, only: [:index]
   resources :users, only: [:edit, :update, :index]

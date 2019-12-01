@@ -73,6 +73,7 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'ancestry'
+gem 'gretel'
 gem 'payjp'
 gem 'pry-rails'
 gem 'gon'

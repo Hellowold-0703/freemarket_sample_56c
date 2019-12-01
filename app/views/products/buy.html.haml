@@ -1,0 +1,65 @@
+.single-container
+  = render 'transaction/single-header'
+  
+  %main
+    %section.buy-item-container
+      %h2.head 購入内容の確認
+      %section.buy-content.buy-item
+        .buy-content__inner
+          %h3.buy-item__image
+            - @product.images.each do |image|
+              - if image.url.present?
+                .owl-product
+                  .owl-product-inner
+                    = image_tag image.url,{class: 'owl-lazy'}
+          %p.buy-item__name.bold
+            = @product.name
+          %form.buy-form{action: "", method: "POST", novalidate: "novalidate"}
+            %p.buy-price__ja.bold
+              = @product.selling_prime
+              %span.item-shipping-fee.f14.bold
+                = @product.shipping_charge
+            %ul.accordion.not-have
+              %li.accordion__parent
+                .accordion__toggle
+                  ポイントはありません
+            %ul.buy-price__table
+              %li.buy-price__row.buy-you__pay.bold
+                .buy-price__cell 支払い金額
+                .buy-price__cell
+                  %span
+                    = @product.selling_prime
+            = link_to pay_product_url, method: :post do
+              %button.btn-default.btn-red.bold 購入する
+
+      %section.buy-content.buy-user-info
+        .buy-content__inner
+          %h3 配送先 
+          %address.buy-user-info__text
+            〒○○○-○○○○
+            %br
+            ○県○市○区○町○○マンション
+            %br
+            test-user
+          %p.buy-user-info__text
+          
+          = link_to "", class: "buy-user-info__fix" do
+            %span 変更する
+            = fa_icon "angle-right"
+      %section.buy-content.buy-user-info
+        .buy-content__inner
+          %h3 支払い方法
+          %p.buy-user-info__text
+            = "**** **** **** " + @default_card_information.last4
+            %br
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+          %figure
+            = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2806274400", alt: "visa", width: "49", height: "15"
+            %p
+          = link_to "", class: "buy-user-info__fix" do
+            %span 変更する
+            = fa_icon "angle-right"
+
+  = render 'transaction/single-footer'

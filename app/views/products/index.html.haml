@@ -8,67 +8,75 @@
   .pickup
     %h2.pickup__header 
       人気のカテゴリー
-      %li.pickup__header__categories
+    .pickup__bottom
+      .a1
         %a レディース
+      .a2 
         %a メンズ
+      .a3
         %a 家電・スマホ・カメラ
+      .a4
         %a おもちゃ・ホビー・グッズ
     .pickup__item
       .pickup__item__header
         .pickup__item__header__category-title  レディース新着アイテム
         .pickup__item__header__see-more もっと見る 》
       .pickup__item__bottom
-        = render partial: "top/category_item", collection: @products, as: "product"
+        = render partial: "top/category_item", collection: @ladies_products, as: "product"
     .pickup__item
       .pickup__item__header
         .pickup__item__header__category-title メンズ新着アイテム
         .pickup__item__header__see-more もっと見る 》
       .pickup__item__bottom
-        = render partial: "top/category_item", collection: @products, as: "product"
+        = render partial: "top/category_item", collection: @mens_products, as: "product"
     .pickup__item
       .pickup__item__header
-        .pickup__item__header__category-title 家電・スマホ・カメラ新着アイテム
+        .pickup__item__header__category-title 家電・スマホ・カメラ
         .pickup__item__header__see-more もっと見る 》
       .pickup__item__bottom
-        = render partial: "top/category_item", collection: @products, as: "product"
+        = render partial: "top/category_item", collection: @babies_products, as: "product"
     .pickup__item
       .pickup__item__header
         .pickup__item__header__category-title おもちゃ・ホビー・グッズ新着アイテム
         .pickup__item__header__see-more もっと見る 》
       .pickup__item__bottom
-        = render partial: "top/category_item", collection: @products, as: "product"   
+        = render partial: "top/category_item", collection: @babies_products, as: "product"
   .pickup
     %h2.pickup__header 
       人気のブランド
-      %li.pickup__header__categories
+    .pickup__bottom
+      .b1
         %a シャネル
-        %a ルイヴィトン
-        %a シュプリーム
+      .b2
         %a ナイキ
+      .b3  
+        %a シュプリーム
+      .b4  
+        %a アディダス
     .pickup__item
       .pickup__item__header
         .pickup__item__header__category-title  シャネル新着アイテム
         .pickup__item__header__see-more もっと見る 》
       .pickup__item__bottom
-        = render "top/brand_item_image"
-    .pickup__item
-      .pickup__item__header
-        .pickup__item__header__category-title ルイヴィトン新着アイテム
-        .pickup__item__header__see-more もっと見る 》
-      .pickup__item__bottom
-        = render "top/brand_item_image"
-    .pickup__item
-      .pickup__item__header
-        .pickup__item__header__category-title シュプリーム新着アイテム
-        .pickup__item__header__see-more もっと見る 》
-      .pickup__item__bottom
-        = render "top/brand_item_image"
+        = render partial: "top/category_item", collection: @chanel_products, as: "product"
     .pickup__item
       .pickup__item__header
         .pickup__item__header__category-title ナイキ新着アイテム
         .pickup__item__header__see-more もっと見る 》
       .pickup__item__bottom
-        = render "top/brand_item_image"
+        = render partial: "top/category_item", collection: @nike_products, as: "product"
+    .pickup__item
+      .pickup__item__header
+        .pickup__item__header__category-title シュプリーム新着アイテム
+        .pickup__item__header__see-more もっと見る 》
+      .pickup__item__bottom
+        = render partial: "top/category_item", collection: @supreme_products, as: "product"
+    .pickup__item
+      .pickup__item__header
+        .pickup__item__header__category-title アディダス新着アイテム
+        .pickup__item__header__see-more もっと見る 》
+      .pickup__item__bottom
+        = render partial: "top/category_item", collection: @adidas_products, as: "product"
 
 
 = render "top/transaction-btn"

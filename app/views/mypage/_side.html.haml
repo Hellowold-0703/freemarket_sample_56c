@@ -1,77 +1,101 @@
 .l-side
   %nav.mypage-nav
   %ul.mypage-nav-list
-    %li.mypage-nav-list-item
-      = link_to 'マイページ', mypage_index_path, class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'お知らせ', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'やることリスト', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'いいね！一覧', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to '出品する', transaction_sell_index_path, class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to '出品した商品-出品中', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to '出品した商品-取引中', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to '出品した商品-売却済', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to '購入した商品-取引中', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to '購入した商品-過去の取引', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'ニュース一覧', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to '評価一覧', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'ガイド', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'お問い合わせ', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
+    = link_to mypage_index_path do
+      %li.mypage-nav-list-item
+        マイページ
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        お知らせ
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        やることリスト
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        いいね一覧
+        %i.fa.fa-angle-right
+    = link_to transaction_sell_index_path do
+      %li.mypage-nav-list-item
+        出品する
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        出品した商品-出品中
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        出品した商品-取引中
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        出品した商品-売却済
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        購入した商品-取引中
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        購入した商品-過去の取引
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        ニュース一覧
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        評価一覧
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        ガイド
+        %i.fa.fa-angle-right
+    = link_to "" do
+      %li.mypage-nav-list-item
+        お問い合わせ
+        %i.fa.fa-angle-right
       
     %h3.mypage-nav-head メルペイ
     %ul.mypage-nav-list
-      %li
-        = link_to '売上・振込申請', '', class: 'mypage-nav-list-item'
-        %i.fa.fa-angle-right
-      %li
-        = link_to 'ポイント', '', class: 'mypage-nav-list-item'
-        %i.fa.fa-angle-right
+      = link_to "" do
+        %li.mypage-nav-list-item
+          売上・振込申請
+          %i.fa.fa-angle-right
+      = link_to "" do
+        %li.mypage-nav-list-item
+          ポイント
+          %i.fa.fa-angle-right
   
     %h3.mypage-nav-head 設定
-    %li
-      = link_to 'プロフィール',edit_user_registration_path , class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to '発送元お届け先住所変更', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to '支払い方法', creditcards_path, class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'メール/パスワード', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to '本人情報', confirm_index_path, class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to '電話番号の確認', '', class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'ログアウト', users_path, class: 'mypage-nav-list-item'
-      %i.fa.fa-angle-right
+    %ul.mypage-nav-list
+      = link_to edit_user_registration_path do
+        %li.mypage-nav-list-item
+          プロフィール
+          %i.fa.fa-angle-right
+      = link_to "" do
+        %li.mypage-nav-list-item
+          発送元お届け先住所変更
+          %i.fa.fa-angle-right
+      = link_to creditcards_path do
+        %li.mypage-nav-list-item
+          支払い方法
+          %i.fa.fa-angle-right
+      = link_to "" do
+        %li.mypage-nav-list-item
+          メール/パスワード
+          %i.fa.fa-angle-right
+      = link_to confirm_index_path do
+        %li.mypage-nav-list-item
+          本人情報
+          %i.fa.fa-angle-right
+      = link_to "" do
+        %li.mypage-nav-list-item
+          電話番号の確認
+          %i.fa.fa-angle-right
+      = link_to users_path do
+        %li.mypage-nav-list-item
+          ログアウト
+          %i.fa.fa-angle-right

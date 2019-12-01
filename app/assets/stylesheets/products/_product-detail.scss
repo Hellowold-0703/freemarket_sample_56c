@@ -385,15 +385,20 @@ html {
     position: relative;
     float: left;
     width: 220px;
-    margin: 0 20px 20px 0;
+    margin: 0 0 20px 20px;
     background-color: #fff;
     &__photo {
       position: relative;
       width: 220px;
       height: 220px;
+      top: 0;
       margin: auto;
       padding: 0 0 100%;
       overflow: hidden;
+      img {
+      display: block;
+      margin: auto;
+      }
     }
     &__body {
       height: 110px;
@@ -428,8 +433,9 @@ html {
     }
   }
   .products-box:nth-child(3n) {
-    margin-right: 0;
+    margin-left: 0;
   }
+  
   .products-box__photo img {
     position: absolute;
     top: 0;
@@ -466,6 +472,8 @@ html {
   }
 }
 .product-bottom{ 
+  width: 700px;
+  margin: 0 auto;
   span{
     color: #333;
   }

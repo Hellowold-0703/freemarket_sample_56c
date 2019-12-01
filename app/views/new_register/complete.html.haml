@@ -7,7 +7,9 @@
   %p ありがとうございます。
   %p 会員登録が完了しました。
 .complete-button
-  .start-button メルカリをはじめる
+  .start-button 
+    = link_to mypage_index_path do
+      メルカリをはじめる
 .complete-app-banner
   %aside.app-banner
   .app-banner__pc

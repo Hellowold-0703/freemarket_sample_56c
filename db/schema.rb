@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191123141208) do
+ActiveRecord::Schema.define(version: 20191130185524) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -73,23 +73,46 @@ ActiveRecord::Schema.define(version: 20191123141208) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                                default: "", null: false
-    t.string   "encrypted_password",                   default: "", null: false
+    t.string   "email",                                    default: "",  null: false
+    t.string   "encrypted_password",                       default: "",  null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.string   "family_name",                                       null: false
-    t.string   "first_name",                                        null: false
-    t.string   "family_furigana",                                   null: false
-    t.string   "first_furigana",                                    null: false
-    t.string   "birth_year",                                        null: false
-    t.text     "profile",                limit: 65535
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.string   "family_name",                                            null: false
+    t.string   "first_name",                                             null: false
+    t.string   "family_furigana",                                        null: false
+    t.string   "first_furigana",                                         null: false
+    t.string   "birth_year",                                             null: false
+    t.text     "profile",                    limit: 65535
     t.string   "image"
     t.string   "phone_number"
     t.string   "provider"
     t.string   "uid"
+    t.string   "nickname",                                               null: false
+    t.string   "last_name",                                              null: false
+    t.string   "last_name_kana",                                         null: false
+    t.string   "first_name_kana",                                        null: false
+    t.integer  "birthdate_year",                                         null: false
+    t.integer  "birthdate_month",                                        null: false
+    t.integer  "birthdate_day",                                          null: false
+    t.string   "address_last_name",                                      null: false
+    t.string   "address_first_name",                                     null: false
+    t.string   "address_last_name_kana",                                 null: false
+    t.string   "address_first_name_kana",                                null: false
+    t.string   "address_number",                                         null: false
+    t.string   "address_prefecture",                       default: "0", null: false
+    t.string   "address_name",                                           null: false
+    t.string   "address_block",                                          null: false
+    t.string   "address_building"
+    t.integer  "address_phone_number"
+    t.text     "introduce",                  limit: 65535
+    t.integer  "payment_carc_expire"
+    t.integer  "payment_card_security_code"
+    t.integer  "exp_month"
+    t.integer  "exp_year"
+    t.integer  "card_number"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

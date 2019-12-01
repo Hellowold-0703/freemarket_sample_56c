@@ -21,6 +21,11 @@ crumb :logout do
   link "ログアウト", users_path
   parent :mypage
 end
+
+crumb :profile do
+  link "プロフィール", users_path
+  parent :mypage
+end
 # crumb :issue do |issue|
 #   link issue.title, issue_path(issue)
 #   parent :project_issues, issue.project

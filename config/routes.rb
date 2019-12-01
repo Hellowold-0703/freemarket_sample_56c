@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     end
   end
   resources :confirm, only: [:index]
-  resources :users, only: [:edit, :update, :index]
+  resources :users, only: [:edit, :update, :index] do
+    collection do
+      get 'logout'
+    end
+  end
   namespace :transaction do
     resources :buy, only: [:index]
     resources :sell, only: [:index]

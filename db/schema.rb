@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191130185524) do
+ActiveRecord::Schema.define(version: 20191201063225) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -89,11 +89,11 @@ ActiveRecord::Schema.define(version: 20191130185524) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                                            null: false
     t.datetime "updated_at",                                            null: false
-    t.string   "family_name",                                           null: false
-    t.string   "first_name",                                            null: false
-    t.string   "family_furigana",                                       null: false
-    t.string   "first_furigana",                                        null: false
-    t.string   "birth_year",                                            null: false
+    t.string   "family_name"
+    t.string   "first_name"
+    t.string   "family_furigana"
+    t.string   "first_furigana"
+    t.string   "birth_year"
     t.text     "profile",                    limit: 65535
     t.string   "image"
     t.string   "phone_number"

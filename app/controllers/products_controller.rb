@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:buy, :pay, :create, new]
   
   def index
-    @products = Product.limit(10)
+    @products = Product.limit(10).order(created_at: :desc)
     @mens_products = @products.where('category_id = ?', 14)
     @ladies_products = @products.where('category_id = ?', 1)
     @babies_products = @products.where("category_id = ?", 27)

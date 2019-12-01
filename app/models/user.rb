@@ -12,14 +12,10 @@ class User < ApplicationRecord
           where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
             user.email = auth.info.email
             user.password = Devise.friendly_token[0,20]
+            user.first_name = auth.info.name
           end
         end
 
-  validates :family_name, presence: true
-  validates :first_name, presence: true
-  validates :family_furigana, presence: true
-  validates :first_furigana, presence: true
-  validates :birth_year, presence: true
 
 
   has_many :sellers

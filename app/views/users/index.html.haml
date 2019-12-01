@@ -1,21 +1,13 @@
 = render 'top/header'
 
-.bread-crumbs
-  - breadcrumb :logout
-  = render "layouts/breadcrumbs"
+= render 'mypage/pankuzu'
 
 = render 'top/transaction-btn'
 
 %main.l-container.clearfix
   .l-container-box
-    
+    = render 'mypage/main', collection: @user
+
     = render 'mypage/side'
-    
-    .logout-page
-      .logout-page__container
-        .logout-page__inner   
-          .logout-page__content
-            = form_tag(destroy_user_session_path, method: :delete) do
-              %button.btn-red{ type:'submit'} ログアウト
 
 = render 'top/footer'

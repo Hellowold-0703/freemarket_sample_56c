@@ -15,6 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, event: :authentication 
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
+      session[:first_name] = @user.nickname
       session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
       redirect_to root_url
     end

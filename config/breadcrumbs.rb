@@ -8,7 +8,7 @@ crumb :mypage do
 end
 
 crumb :creditcards do
-  link "支払い方法", creditcards_path
+  link "支払い方法", credit_card_index_path
   parent :mypage
 end
 

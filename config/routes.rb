@@ -11,7 +11,6 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
-  resources :creditcards, only: [:index]
   resources :confirm, only: [:index]
   resources :users, only: [:edit, :update, :index]
   namespace :transaction do
@@ -25,9 +24,8 @@ Rails.application.routes.draw do
   end
   post   '/like/:product_id' => 'likes#like',   as: 'like'
   delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
-  resources :credit_card, only: [:new, :show] do
+  resources :credit_card, only: [:new, :show, :index] do
     collection do
-      post 'show', to: 'credit_card#show'
       post 'pay', to: 'credit_card#pay'
       post 'delete', to: 'credit_card#delete'
     end

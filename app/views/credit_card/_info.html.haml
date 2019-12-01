@@ -1,10 +1,18 @@
-%label 登録クレジットカード情報
-%br
-= "**** **** **** " + @default_card_information.last4
-%br
-- exp_month = @default_card_information.exp_month.to_s
-- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-= form_tag(delete_credit_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
-  %input{ type: "hidden", name: "card_id", value: "" }
-  %button 削除する
+.credit-info
+  .credit-info--header 支払い方法
+  %br
+  .credit-info--body
+    .credit-info--body--name 登録クレジットカード情報
+    %br
+    .credit-info--body--left
+      .credit-info--body--left--number
+        = "**** **** **** " + @default_card_information.last4
+        %br
+      .credit-info--body--left--data
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
+        = form_tag(delete_credit_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+          %input{ type: "hidden", name: "card_id", value: "" }
+    .credit-info--body--right
+      %button 削除する

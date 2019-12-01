@@ -19,25 +19,20 @@
       margin-left: 126px;
       font-weight: bold;
     }
-    &--left {
-      float: left;
+    &--content {
       margin-left: 126px;
       &--number {
         margin-top: 10px;
       }
       &--data {
         margin-top: 10px;
-      }
-    }
-    &--right {
-      float: right;
-      margin-right: 126px;
-      button {
-        color: red;
-        border-radius: 3px;
-        border: 1px solid red;
-        padding: 4px 6px;
-        font-size: 14px;
+        button {
+          color: red;
+          border-radius: 3px;
+          border: 1px solid red;
+          padding: 4px 6px;
+          font-size: 14px;
+        }
       }
     }
   }

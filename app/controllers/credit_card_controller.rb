@@ -1,10 +1,10 @@
 class CreditCardController < ApplicationController
   require "payjp"
 
-  before_action :set_card, only: [:new]
   before_action :authenticate_user!
 
   def new
+    card = set_card
     gon.payjp_key = ENV['PAYJP_KEY']
     redirect_to action: "show" if card.exists?
   end
@@ -56,6 +56,6 @@ class CreditCardController < ApplicationController
   end
 
   def set_card
-    card = CreditCard.where(user_id: current_user.id)
+    CreditCard.where(user_id: current_user.id)
   end
 end

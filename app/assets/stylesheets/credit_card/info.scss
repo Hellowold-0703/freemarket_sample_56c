@@ -26,12 +26,18 @@
       }
       &--data {
         margin-top: 10px;
+        display: flex;
+        #charge-form{
+          margin-top: -30px;
+        }
         button {
           color: red;
           border-radius: 3px;
           border: 1px solid red;
           padding: 4px 6px;
           font-size: 14px;
+          margin-left: 230px;
+       
         }
       }
     }

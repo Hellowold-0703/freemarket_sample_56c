@@ -75,7 +75,6 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'ancestry'
 gem 'gretel'
 gem 'payjp'
-gem 'pry-rails'
 gem 'gon'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'

@@ -1,7 +1,7 @@
 .l-side
   %nav.mypage-nav
   %ul.mypage-nav-list
-    = link_to mypage_index_path do
+    = link_to users_path do
       %li.mypage-nav-list-item
         マイページ
         %i.fa.fa-angle-right
@@ -79,7 +79,7 @@
         %li.mypage-nav-list-item
           発送元お届け先住所変更
           %i.fa.fa-angle-right
-      = link_to creditcards_path do
+      = link_to credit_card_index_path(@credit_card) do
         %li.mypage-nav-list-item
           支払い方法
           %i.fa.fa-angle-right
@@ -95,7 +95,7 @@
         %li.mypage-nav-list-item
           電話番号の確認
           %i.fa.fa-angle-right
-      = link_to users_path do
+      = link_to logout_users_path do
         %li.mypage-nav-list-item
           ログアウト
           %i.fa.fa-angle-right

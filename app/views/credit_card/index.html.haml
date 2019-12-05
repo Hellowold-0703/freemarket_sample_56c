@@ -1,6 +1,8 @@
 = render 'top/header'
 
-= render 'mypage/pankuzu'
+.bread-crumbs
+  - breadcrumb :creditcards
+  = render "layouts/breadcrumbs"
 
 = render 'top/transaction-btn'
 
@@ -19,7 +21,7 @@
             %ul.payment-list__content
           %section.add-credit-card
             .add-credit-card__content
-              = link_to credit_card_index_path, class: 'submit_button' do
+              = link_to credit_card_path(@credit_card), class: 'submit_button', data: {"turbolinks" => false} do
                 .add-credit-card__btn
                   = fa_icon 'credit-card'
                   %span<>
@@ -31,4 +33,3 @@
               %span<>
 
 = render 'top/footer'
-

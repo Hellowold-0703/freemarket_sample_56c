@@ -6,7 +6,8 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:buy, :pay, :create, new]
   before_action :category_info_set, only: [:index]
   before_action :brand_info_set, only: [:index]
-
+  before_action :authenticate_user!, except: [:index, :show]
+  
   def index
   end
   
@@ -78,12 +79,15 @@ class ProductsController < ApplicationController
   end
   
   def show
+    @product = set_product
     @seller = Seller.find_by(product_id: @product.id)
     @sellers = Seller.where("user_id = ?", @seller.user_id).where.not("product_id = ?", @product.id).limit(6)
     @nike_products = Product.where("brand_id = ?", @product.brand_id).limit(6)
   end
 
   def buy
+    @credit_card = current_user.id
+    @product = set_product
     card = set_card
     if card.blank?
       redirect_to controller: "credit_card", action: "new"
@@ -96,14 +100,22 @@ class ProductsController < ApplicationController
 
   def pay
     card = set_card
-    product = Product.find(params[:id])
+    product = set_product
+    @buyer = Buyer.create(user_id: current_user.id, product_id: product.id)
     Payjp.api_key = set_payjp_private_key
     Payjp::Charge.create(
     amount: product.selling_price,
     customer: card.customer_id,
     currency: 'jpy',
-  )
-  redirect_to action: 'done'
+    )
+    redirect_to action: 'done'
+  end
+
+  def done
+    @product = set_product
+    @seller = Seller.find_by(product_id: @product.id)
+    @sellers = Seller.where("user_id = ?", @seller.user_id).where.not("product_id = ?", @product.id).limit(6)
+    @nike_products = Product.where("brand_id = ?", @product.brand_id).limit(6)
   end
 
   private
@@ -117,7 +129,7 @@ class ProductsController < ApplicationController
   end
 
   def set_product
-    @product = Product.find(params[:id])
+    Product.find(params[:id])
   end
 
   def set_card

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers:{ omniauth_callbacks: 'users/omniauth_callbacks' }
+
   root 'products#index'
   resources :mypage, only: [:index]
   resources :products, only: [:index, :show, :new, :buy, :done, :create] do
@@ -20,7 +21,11 @@ Rails.application.routes.draw do
   resources :sizes, only: [:index]
   resources :creditcards, only: [:index]
   resources :confirm, only: [:index]
-  resources :users, only: [:edit, :update, :index]
+  resources :users, only: [:edit, :update, :index] do
+    collection do
+      get 'logout'
+    end
+  end
   namespace :transaction do
     resources :buy, only: [:index]
     resources :sell, only: [:index]
@@ -32,9 +37,8 @@ Rails.application.routes.draw do
   end
   post   '/like/:product_id' => 'likes#like',   as: 'like'
   delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
-  resources :credit_card, only: [:new, :show] do
+  resources :credit_card, only: [:new, :show, :index] do
     collection do
-      post 'show', to: 'credit_card#show'
       post 'pay', to: 'credit_card#pay'
       post 'delete', to: 'credit_card#delete'
     end

@@ -1,7 +1,5 @@
 %nav.bread-crumbs
   %ul
     %li
-      = link_to 'メルカリ', ''
-      %i.icon-arrow-right
-    %li
-      マイページ
+      - breadcrumb :mypage
+      = render "layouts/breadcrumbs"

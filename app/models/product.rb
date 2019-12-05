@@ -1,23 +1,20 @@
 class Product < ApplicationRecord
-
-  mount_uploaders :images, ImageUploader
-  serialize :images, JSON
-
-  has_many :sellers
+  has_many :sellers, dependent: :destroy
   has_many :buyers
   belongs_to :category, optional: true
   belongs_to :brand, optional: true
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
+  has_many :product_images, dependent: :destroy
+  accepts_nested_attributes_for :product_images, allow_destroy: true
   validates :name, presence: true
   validates :explanation, presence: true
   validates :status, presence: true
   validates :shipping_charge, presence: true
   validates :shipping_area, presence: true
   validates :days_before_shipment, presence: true
-  validates :selling_prime, presence: true
+  validates :selling_price, presence: true
   validates :shipping_method, presence: true
-  validates :images, presence: true
   validates :category_id, presence: true
 
   enum status: {

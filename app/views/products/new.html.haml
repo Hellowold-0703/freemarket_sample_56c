@@ -17,13 +17,13 @@
                   .sell-upload-items.have-item-0
                     %ul
                 %label{class: "sell-upload__drop-box have-item-0"}
-                  = f.fields_for @product do |image|
-                    = image.file_field :images, multiple: true, class: "sell-upload__drop-file", style: "display:none;", name: "product_images[image][]", id: "input_files"
-                    %pre.visible-pc
-                      :preserve
-                        ドラッグアンドドロップ
-                        またはクリックしてファイルをアップロード
-                    %i.fas.fa-camera
+                  = f.fields_for @product_images do |i|
+                    = i.file_field :image, multiple: true, class: "sell-upload__drop-file", style: "display:none;", id: "input_files", name: 'product_images[image][]'
+                  %pre.visible-pc
+                    :preserve
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+                  %i.fas.fa-camera
 
             .sell-content
               .form-group
@@ -41,26 +41,13 @@
               %h3.sell__sub-head 商品の詳細
               .sell__form-box
                 .form-group
-                  %label
-                    カテゴリー
-                    %span.form-require 必須
-                  .select-wrap
-                    %i.fas.fa-angle-down
-                    %select.select-default
-                      %option ---
-                      %option{value: 1}レディース
-                      %option{value: 2}メンズ
-                      %option{value: 3}ベビー•キッズ
-                      %option{value: 4}インテリア•住まい•小物
-                      %option{value: 5}本•音楽•ゲーム
-                      %option{value: 1328}おもちゃ•ホビー•グッズ
-                      %option{value: 6}コスメ•香水•美容
-                      %option{value: 7}家電•スマホ•カメラ
-                      %option{value: 8}スポーツ•レジャー
-                      %option{value: 9}ハンドメイド
-                      %option{value: 1027}チケット
-                      %option{value: 1318}自動車•オートバイ
-                      %option{value: 10}その他
+                  = f.label "カテゴリー" 
+                  %span.form-require 必須
+                  .category-box
+                    .select-wrap
+                      = f.select :category, @category_parent_array, {}, {class: 'select-default', id: 'parent_category', name: 'parent_category'}
+                      %i.fas.fa-angle-down
+                 
                 .form-group
                   = f.label :status do
                     商品の状態
@@ -79,7 +66,7 @@
                     %span.form-require 必須
                   .select-wrap
                     %i.fas.fa-angle-down
-                    = f.select :shipping_charge, Product.shipping_charges.keys, {}, class: "select-default", onchange: "outputSelectedValueAndText(this);"
+                    = f.select :shipping_charge, Product.shipping_charges.keys, {}, class: "select-default"
                 .form-group
                   = f.label :shipping_area do
                     発送元の地域
@@ -108,20 +95,13 @@
                       .l-right.sell-price__input
                         ¥
                         %div
-                          = f.text_field :selling_prime, class: "input-default", placeholder: "例)300"
+                          = f.text_field :selling_price, class: "input-default", placeholder: "例)300"
                   %li.clearfix
                     .l-left 販売手数料 (10%)
-                    .l-right -
+                    .l-right{id: "fee"} -
                   %li.clearfix.bold
                     .l-left 販売利益
-                    .l-right -
-
-            .field
-              = f.label :category_id
-              = f.text_field :category_id
-            .field
-              = f.label :brand_id
-              = f.text_field :brand_id
+                    .l-right{id: "profit"} -
 
             .sell-content.sell-btn-box
               %div

@@ -4,34 +4,79 @@ class ProductsController < ApplicationController
 
   before_action :set_product, only: [:show, :buy]
   before_action :authenticate_user!, only: [:buy, :pay, :create, new]
-  
+  before_action :category_info_set, only: [:index]
+  before_action :brand_info_set, only: [:index]
+
   def index
-    @products = Product.limit(10)
-    @mens_products = @products.where('category_id = ?', 14)
-    @ladies_products = @products.where('category_id = ?', 1)
-    @babies_products = @products.where("category_id = ?", 27)
-    
-    @chanel_products = @products.where("brand_id = ?", 1)
-    @nike_products = @products.where("brand_id = ?", 2)
-    @supreme_products = @products.where("brand_id = ?", 4)
-    @adidas_products = @products.where("brand_id = ?", 5)
   end
   
+  def category_info_set
+    array = [1, 14, 27]
+    for num in array do
+      search_anc = Category.where('ancestry LIKE(?)', "#{num}/%")
+      ids = []
+      search_anc.each do |i|
+        ids << i[:id]
+      end
+      products = Product.where(category_id: ids).order("id DESC").limit(10)
+      instance_variable_set("@category_no#{num}", products)
+    end
+  end
+
+  def brand_info_set
+    array = [1, 2, 4, 5]
+    for num in array do
+      products = Product.where(brand_id: num).order("id DESC").limit(10)
+      instance_variable_set("@brand_no#{num}", products)
+    end
+  end
+
   def new
     @product = Product.new
     @seller = Seller.new
+    @product_images = @product.product_images.build
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
+  def get_size
+    @sizes = Size.all.where(size_type_id: params[:size_type_id])
   end
 
   def create
-    @product = Product.new(params_product)
+    @product = Product.new(product_params)
+    @product_images = ProductImage.new
+    @category = Category.where(id: params[:grandchild_category])
+    @product[:category_id] = @category[0][:id]
+    respond_to do |format|
       if @product.save
-         @seller= Seller.create(user_id: current_user.id,product_id: @product.id)
-        redirect_to root_path
+        num = 0
+        image = params[:product_images][:image]
+        while num < image.length() do
+          @product_images = @product.product_images.build
+          @product_images[:image] = image[num]
+          @product_images[:name] = "#{@product.id}-#{num}"
+          @product_images.save
+          File.binwrite("public/images/#{@product.id}-#{num}", image[num].read)
+          num += 1
+        end
+        format.html{redirect_to root_path}
       else
-        render :new
-     end
+        format.html{render action: 'new'}
+      end
+    end
   end
-
+  
   def show
     @seller = Seller.find_by(product_id: @product.id)
     @sellers = Seller.where("user_id = ?", @seller.user_id).where.not("product_id = ?", @product.id).limit(6)
@@ -54,7 +99,7 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     Payjp.api_key = set_payjp_private_key
     Payjp::Charge.create(
-    amount: product.selling_prime,
+    amount: product.selling_price,
     customer: card.customer_id,
     currency: 'jpy',
   )
@@ -63,8 +108,8 @@ class ProductsController < ApplicationController
 
   private
 
-  def params_product
-    params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_prime, :shipping_method, :likes_count, :category_id, :brand_id, {images: []})
+  def product_params
+    params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_price, :shipping_method, :likes_count, :parent_category, :child_category, :grandchild_category, :brand_id, :size_id, product_images_attributes: [:image, :name])
   end
 
   def set_payjp_private_key

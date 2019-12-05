@@ -1,81 +1,4 @@
 $(document).on('turbolinks:load', function(){
-  function append_formGroup() {
-    var html = `
-      <div class="form-group">
-        <label for="shipping_area_id">
-        配送の方法
-          <span class="form-require">必須</span>
-        </label>
-        <div class="select-wrap">
-          <i class="fas fa-angle-down"></i>
-          <select id="shipping_method_id", name="product[shipping_method_id]", class="select-default">
-          </select>
-        </div>
-      </div>
-    `
-    return html;
-  };
-
-  function cash_on_delivery(selectId){
-    var arr = [
-      {val:"---", txt:"---"},
-      {val:"未定", txt:"未定"},
-      {val:"クロネコヤマト", txt:"クロネコヤマト"},
-      {val:"ゆうパック", txt:"ゆうパック"},
-      {val:"ゆうメール", txt:"ゆうメール"},
-      {val:"ゆうパケット", txt:"ゆうパケット"},
-      {val:"レターパック", txt:"レターパック"},
-      {val:"普通郵便(定形、定形外)", txt:"普通郵便(定形、定形外)"},
-      {val:"クリックポスト", txt:"クリックポスト"},
-      {val:"らくらくメルカリ便", txt:"らくらくメルカリ便"},
-    ];
-   
-    for(var i=0;i<arr.length;i++){
-      let op = document.createElement("option");
-      op.value = arr[i].val;
-      op.text = arr[i].txt;
-      selectId.appendChild(op);
-    }
-  };
-
-  function shipping_included(selectId){
-    var arr = [
-      {val:"---", txt:"---"},
-      {val:"未定", txt:"未定"},
-      {val:"クロネコヤマト", txt:"クロネコヤマト"},
-      {val:"ゆうパック", txt:"ゆうパック"},
-      {val:"ゆうメール", txt:"ゆうメール"},
-    ];
-
-    for(var i=0;i<arr.length;i++){
-      let op = document.createElement("option");
-      op.value = arr[i].val;
-      op.text = arr[i].txt;
-      selectId.appendChild(op);
-    }
-  };
-
-  const selectId = document.getElementById("product_shipping_charge_id")
-  $(selectId).change(function() {
-    if($(document.getElementById("shipping_method_id")).length) {
-      var shippingMethodId = document.getElementById("shipping_method_id");
-      var parent = shippingMethodId.closest(".form-group");
-      parent.remove();
-    }
-
-    if($(this).val() !== "---") {
-      var parent = $(this).closest(".form-group");
-      parent.after(append_formGroup());
-      var selectId = document.getElementById("shipping_method_id");
-      if($(this).val() == "着払い(購入者負担)") {
-        cash_on_delivery(selectId);
-      } else if($(this).val() == "送料込み(出品者負担)") {
-        shipping_included(selectId);
-      }
-    } 
-  });
-
-
   var box_count = 0;
   var box_count2 = 0;
 
@@ -104,7 +27,6 @@ $(document).on('turbolinks:load', function(){
         $(".sell-upload-items").removeClass(remove_box.selector).addClass(add_box.selector);
       }
       $(".sell-upload__drop-box").removeClass(remove_box.selector).addClass(add_box.selector);
-      // $(".sell-upload__drop-box").children("input").attr("name", "product_images[name][]");
     }
   }
 
@@ -117,7 +39,6 @@ $(document).on('turbolinks:load', function(){
       box_count2 -= 1
       reduce_box.addClass("have-item-" + box_count.toString(10))
       $(".sell-upload__drop-box").addClass("have-item-" + box_count.toString(10))
-      // $(".sell-upload__drop-box").children("input").attr("name", "product_images[" + name + "][]");
       if(box_count == 4) {
         $(".sell-upload__drop-box").prop('style', "display:block;")
       }
@@ -135,7 +56,6 @@ $(document).on('turbolinks:load', function(){
       box_count2 -= 1
       reduce_box.addClass("have-item-" + box_count.toString(10))
       $(".sell-upload__drop-box").addClass("have-item-" + box_count.toString(10))
-      // $(".sell-upload__drop-box").children("input").attr("name", "product_images[image" + box_count2 + "][]");
       if(box_count == 4) {
         $(".sell-upload-items:last").remove();
       }
@@ -154,7 +74,6 @@ $(document).on('turbolinks:load', function(){
         (function() {
           var j = i;
           var file = files[j]; 
-          console.log(file);
           var reader = new FileReader();
           reader.onload = function(e) {
             var src = e.target.result;
@@ -197,6 +116,10 @@ $(document).on('turbolinks:load', function(){
 
   $(".sell-dropbox__container").on("click", "#upload-item__delete", function(){
     var delete_target = $(this).parents(".sell-upload__item")
+    var target_tag = delete_target.children("figure")
+    var target_tag2 = target_tag.children("img")
+    var target_id = target_tag2.attr("id")
+    var file_list = document.getElementsByTagName("img")
     change_class_to_decrement(delete_target)
     delete_target.remove();
   })
@@ -324,15 +247,12 @@ $(document).on('turbolinks:load', function(){
       )
       const data = out.toDataURL('image/png');
       var image_id = edit_target.attr("id");
-      console.log(image_id);
       var change_image = document.getElementById(image_id)
       change_image.src = data;
     }
 
     var cancel = document.getElementById("cancel")
-    console.log(cancel);
     cancel.onclick = function() {
-      debugger;
       $("#mask").remove();
     }
   })
@@ -379,6 +299,228 @@ $(document).on('turbolinks:load', function(){
       `
       return html;
   }
+
+  //カテゴリー
+  $(function(){
+    // カテゴリーセレクトボックスのオプションを作成
+    function appendOption(category){
+      var html = `<option class="append_select" value="${category.id}" data-size-id="${category.size_type_id}">${category.name}</option>`;
+      return html;
+    }
+    // 子カテゴリーの表示作成
+    function appendChidrenBox(insertHTML){
+      var childSelectHtml = '';
+      childSelectHtml = `
+        <div class="select-wrap" id="children_wrapper">
+          <select class="select-default" id="child_category" name="children_category">
+            <option value="---">---</option>
+            ${insertHTML}
+          </select>
+          <i class='fas fa-angle-down'></i>
+        </div>`;
+      $(".category-box").append(childSelectHtml);
+    }
+    function appendGrandchidrenBox(insertHTML){
+      var grandchildSelectHtml = '';
+      grandchildSelectHtml = `
+        <div class="select-wrap" id="grandchildren_wrapper">
+          <select class="select-default" id="grandchild_category" name="grandchild_category">
+            <option value="---">---</option>
+            ${insertHTML}
+          </select>
+          <i class='fas fa-angle-down'></i>
+        </div>`;
+      $(".category-box").append(grandchildSelectHtml);
+    }
+    // 親カテゴリー選択後のイベント
+    $('#parent_category').on('change', function(){
+      var urlhost = "http://localhost:3000/";
+      var rurl = urlhost + "products/get_category_children"
+      var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
+      if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
+        $.ajax({
+          url: rurl,
+          type: 'get',
+          data: { parent_name: parentCategory},
+          dataType: 'json'
+        })
+        .done(function(children){
+          $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
+          $('#grandchildren_wrapper').remove();
+          $('#size_wrapper').remove();
+          $('#brand_wrapper').remove();
+          var insertHTML = '';
+          children.forEach(function(child){
+            insertHTML += appendOption(child);
+          });
+          appendChidrenBox(insertHTML);
+        })
+        .fail(function(){
+          alert('カテゴリー取得に失敗しました');
+        })
+      }else{
+        $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
+        $('#grandchildren_wrapper').remove();
+        $('#size_wrapper').remove();
+        $('#brand_wrapper').remove();
+      }
+    });
+
+    $(".category-box").on('change', '#child_category', function(){
+      var childId = $('#child_category').val(); //選択された子カテゴリーのidを取得
+      if (childId != "---"){ //子カテゴリーが初期値でないことを確認
+        var urlhost = "http://localhost:3000/";
+        var rurl = urlhost + "/products/get_category_grandchildren"
+        $.ajax({
+          url: rurl,
+          type: 'GET',
+          data: { child_id: childId },
+          dataType: 'json'
+        })
+        .done(function(grandchildren){
+          if (grandchildren.length != 0) {
+            $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除するする
+            $('#size_wrapper').remove();
+            $('#brand_wrapper').remove();
+            var insertHTML = '';
+            grandchildren.forEach(function(grandchild){
+              insertHTML += appendOption(grandchild);
+            });
+            appendGrandchidrenBox(insertHTML);
+          }
+        })
+        .fail(function(){
+          alert('カテゴリー取得に失敗しました');
+        })
+      }else{
+        $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
+        $('#size_wrapper').remove();
+        $('#brand_wrapper').remove();
+      }
+    });
+  });
+
+  //配送方法
+  function append_formGroup() {
+    var html = `
+      <div class="form-group">
+        <label for="shipping_area">
+        配送の方法
+          <span class="form-require">必須</span>
+        </label>
+        <div class="select-wrap">
+          <i class="fas fa-angle-down"></i>
+          <select id="shipping_method", name="product[shipping_method]", class="select-default">
+          </select>
+        </div>
+      </div>
+    `
+    return html;
+  };
+
+  function cash_on_delivery(selectId){
+    var arr = [
+      {val:"---", txt:"---"},
+      {val:"未定", txt:"未定"},
+      {val:"クロネコヤマト", txt:"クロネコヤマト"},
+      {val:"ゆうパック", txt:"ゆうパック"},
+      {val:"ゆうメール", txt:"ゆうメール"},
+      {val:"ゆうパケット", txt:"ゆうパケット"},
+      {val:"レターパック", txt:"レターパック"},
+      {val:"普通郵便(定形、定形外)", txt:"普通郵便(定形、定形外)"},
+      {val:"クリックポスト", txt:"クリックポスト"},
+      {val:"らくらくメルカリ便", txt:"らくらくメルカリ便"},
+    ];
+   
+    for(var i=0;i<arr.length;i++){
+      let op = document.createElement("option");
+      op.value = arr[i].val;
+      op.text = arr[i].txt;
+      selectId.appendChild(op);
+    }
+  };
+
+  function shipping_included(selectId){
+    var arr = [
+      {val:"---", txt:"---"},
+      {val:"未定", txt:"未定"},
+      {val:"クロネコヤマト", txt:"クロネコヤマト"},
+      {val:"ゆうパック", txt:"ゆうパック"},
+      {val:"ゆうメール", txt:"ゆうメール"},
+    ];
+
+    for(var i=0;i<arr.length;i++){
+      let op = document.createElement("option");
+      op.value = arr[i].val;
+      op.text = arr[i].txt;
+      selectId.appendChild(op);
+    }
+  };
+
+  const selectId = document.getElementById("product_shipping_charge")
+  $(selectId).change(function() {
+    if($(document.getElementById("shipping_method")).length) {
+      var shippingMethodId = document.getElementById("shipping_method");
+      var parent = shippingMethodId.closest(".form-group");
+      parent.remove();
+    }
+
+    if($(this).val() !== "---") {
+      var parent = $(this).closest(".form-group");
+      parent.after(append_formGroup());
+      var selectId = document.getElementById("shipping_method");
+      if($(this).val() == "着払い(購入者負担)") {
+        cash_on_delivery(selectId);
+      } else if($(this).val() == "送料込み(出品者負担)") {
+        shipping_included(selectId);
+      }
+    } 
+  });
+
+
+
+
+
+  $("#product_selling_price").on("keyup", function(){
+    var raw_price = $(this).val()
+    if(300 <= raw_price && 9999999 >= raw_price) {
+      var fee = raw_price * 0.1
+      var profit = raw_price - fee
+      $("#fee").text("¥" + Math.floor(fee))
+      $("#profit").text("¥" + Math.floor(profit))
+    } else if(raw_price < 300 || 9999999 < raw_price) {
+      var fee = "-"
+      var profit = "-"
+      $("#fee").text(fee)
+      $("#profit").text(profit)
+    }
+  })
+
+
+
+  // $(".sell-form").on('submit', function(e) {
+  //   e.preventDefault();
+  //   var formData = new FormData($(this).get(0));
+  //   var group_id = $('.group_id').attr('value');
+  //   var url = '/groups/' + group_id + '/messages.json'
+  //   $.ajax({
+  //     type: 'POST',
+  //     url: url,
+  //     data: formData,
+  //     processData: false,
+  //     contentType: false
+  //   })
+  //   .done(function(data) {
+  //     var html = buildHTML(data);
+  //     $('.chat-messages').append(html);
+  //     $('.input-area__text').val('');
+  //   })
+  //   .fail(function() {
+  //     alert('error');
+  //   });
+  // });
+
+
 })
 
 

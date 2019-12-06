@@ -28,8 +28,9 @@ $(document).on('turbolinks:load', function(){
     return html;
   }
   $(".category-box").on("change", "#child_category", function(){
-    var urlhost = "http://localhost:3000/";
-    var rurl = urlhost + "products/get_size"
+    debugger;
+    var urlhost = location.host
+    var rurl =  urlhost + "/products/get_size"
     var append_select = $(this).find(".append_select")
     var size_type_id = append_select.data("size-id")
     $.ajax({

@@ -30,7 +30,7 @@ $(document).on('turbolinks:load', function(){
   $(".category-box").on("change", "#child_category", function(){
     debugger;
     var urlhost = location.host
-    var rurl =  urlhost + "/products/get_size"
+    var rurl =  "http://" + urlhost + "/products/get_size"
     var append_select = $(this).find(".append_select")
     var size_type_id = append_select.data("size-id")
     $.ajax({
@@ -46,7 +46,7 @@ $(document).on('turbolinks:load', function(){
       }
       sizes.forEach(function(size){
         if(size.size_type_id != undefined) {
-          var size = $("#product_size").append(`<option value=${size.id}>${size.name}</option>`)
+          $("#product_size").append(`<option value=${size.id}>${size.name}</option>`)
         }
       })
     })

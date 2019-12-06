@@ -18,7 +18,7 @@
                     %ul
                 %label{class: "sell-upload__drop-box have-item-0"}
                   = f.fields_for @product_images do |i|
-                    = i.file_field :image, multiple: true, class: "sell-upload__drop-file", style: "display:none;", id: "input_files", name: 'product_images[image][]'
+                    = i.file_field :image, multiple: true, class: "sell-upload__drop-file", style: "display:none;", id: "input_files", name: 'product_images[image][]', accept: "image/png,image/jpeg,image/jpeg,image/gif"
                   %pre.visible-pc
                     :preserve
                       ドラッグアンドドロップ

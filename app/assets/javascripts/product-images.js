@@ -174,7 +174,7 @@ $(document).on('turbolinks:load', function(){
       scaling(scl)
     }
     img.onerror = function() {
-      console.log('画像の読み込み失敗');
+      alert('画像の読み込み失敗');
     };
 
     function scaling(_v) {        // スライダーが変った
@@ -477,10 +477,6 @@ $(document).on('turbolinks:load', function(){
     } 
   });
 
-
-
-
-
   $("#product_selling_price").on("keyup", function(){
     var raw_price = $(this).val()
     if(300 <= raw_price && 9999999 >= raw_price) {
@@ -496,39 +492,4 @@ $(document).on('turbolinks:load', function(){
     }
   })
 
-
-
-  // $(".sell-form").on('submit', function(e) {
-  //   e.preventDefault();
-  //   var formData = new FormData($(this).get(0));
-  //   var group_id = $('.group_id').attr('value');
-  //   var url = '/groups/' + group_id + '/messages.json'
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: url,
-  //     data: formData,
-  //     processData: false,
-  //     contentType: false
-  //   })
-  //   .done(function(data) {
-  //     var html = buildHTML(data);
-  //     $('.chat-messages').append(html);
-  //     $('.input-area__text').val('');
-  //   })
-  //   .fail(function() {
-  //     alert('error');
-  //   });
-  // });
-
-
 })
-
-
-
-
-// if (fileObject.type.match(/^image\/(jpeg|png)$/) === null) {
-// }
-  // jpegとpng以外の場合はクリアして終了
-
-
-

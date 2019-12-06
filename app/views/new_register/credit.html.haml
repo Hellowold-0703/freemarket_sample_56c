@@ -7,25 +7,28 @@
   %span 必須
   %form
     %br　カード番号
-    %textarea{placeholder: "半角数字のみ", class: "input-members"}
+    =f.text_field:card_number,{placeholder: "半角数字のみ", class: "input-members"}
 .credit-img
   =image_tag "credit.png", height: "30px", width: "200px;"
 .credit-input-line
   %span 必須
   %form
     %br　有効期限
-    %textarea{placeholder: "01", class: "input-name"}
+    =f.text_field:payment_card_expire,{placeholder: "01", class: "input-name"}
     %h1 月
-    %textarea{placeholder: "17", class: "input-name"}
+    =f.text_field:exp-month,{placeholder: "17", class: "input-name"}
     %h2 年
+     =f.text_field:exp-year,{placeholder: "", class: "input-name"}
 .credit-input-code
   %span 必須
   %form
     %br　セキュリティコード
-    %textarea{placeholder: "カード背面４桁もしくは３桁の番号", class: "input-members"}
+    =f.text_field:{placeholder: "カード背面４桁もしくは３桁の番号", class: "input-members"}
 .credit-explain
   = link_to 'カード裏面の番号とは？' , href: "#top"
 .credit-footer
-  .register-button 次へ進む
+  %button.register-button{type:"subumit"}
+
+      次へ進む
 = render 'devise/sessions/sign-up-footer'
 

@@ -16,6 +16,7 @@
             = @product.name
           %form.buy-form{action: "", method: "POST", novalidate: "novalidate"}
             %p.buy-price__ja.bold
+              %span ¥
               = @product.selling_prime
               %span.item-shipping-fee.f14.bold
                 = @product.shipping_charge
@@ -26,9 +27,9 @@
             %ul.buy-price__table
               %li.buy-price__row.buy-you__pay.bold
                 .buy-price__cell 支払い金額
-                .buy-price__cell
-                  %span
-                    = @product.selling_prime
+                .buy-price__cell 
+                  %span ¥
+                  = @product.selling_prime
             = link_to pay_product_url, method: :post do
               %button.btn-default.btn-red.bold 購入する
 
@@ -58,7 +59,7 @@
           %figure
             = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2806274400", alt: "visa", width: "49", height: "15"
             %p
-          = link_to "", class: "buy-user-info__fix" do
+          = link_to credit_card_path(@credit_card), class: "buy-user-info__fix" do
             %span 変更する
             = fa_icon "angle-right"
 

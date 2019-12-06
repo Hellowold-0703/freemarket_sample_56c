@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-   
+   @user = current_user
+  end
+
+  def logout
+
   end
 
   def edit
@@ -18,6 +22,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:family_name, :first_name, :family_furigana, :first_furigana, :birth_year, :email)
+    params.require(:user).permit(:family_name, :first_name, :family_furigana, :first_furigana, :birth_year, :email, :image)
   end
 end

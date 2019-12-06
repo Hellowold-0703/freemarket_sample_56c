@@ -146,49 +146,7 @@
     %li
       = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm36938855197%2F&amp;media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm36938855197_1.jpg%3F1572579695&amp;description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%82%A8%E3%82%A2%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B9%E3%80%80%E3%82%B4%E3%82%A2%E3%83%86%E3%83%83%E3%82%AF%E3%82%B9%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
         %i.fa.fa-pinterest
-.user-profile
-  %section.user-profile__box.clearfix
-    %h2.user-profile__box__head
-      = link_to do
-        = @seller.user.first_name
-        さんのその他の商品
-    .user-profile__box__content.clearfix
-    - @sellers.each do |seller|
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag seller.product.images[0].url
-          .products-box__body
-            %h3.products-box__body__name
-              = seller.product.name
-            .products-box__body__num
-              .products-box__body__num__price
-                = seller.product.selling_prime
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                %span
-                = seller.product.likes_count
-
-  %section.user-profile__box.clearfix
-    %h2.user-profile__box__head
-      = link_to do
-        = @product.brand.name 
-        その他の出品
-    .user-profile__box__content.clearfix
-    - @nike_products.each do |nike|
-      %section.products-box
-        = link_to do
-          %figure.products-box__photo
-            = image_tag nike.images[0].url
-          .products-box__body
-            %h3.products-box__body__name
-              = nike.name
-            .products-box__body__num
-              .products-box__body__num__price
-                = nike.selling_prime
-              .products-box__body__num__icon
-                %i.fa.fa-heart-o 
-                  = nike.likes_count
+= render 'products/other'
       
 .product-bottom
   %ul

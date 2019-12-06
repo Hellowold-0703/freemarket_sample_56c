@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   require 'payjp'
 
   before_action :set_product, only: [:show, :buy]
-  before_action :authenticate_user!, only: [:buy, :pay, :create, new]
+  before_action :authenticate_user!, only: [:buy, :pay, :create, :new]
   before_action :category_info_set, only: [:index]
   before_action :brand_info_set, only: [:index]
   before_action :authenticate_user!, except: [:index, :show]

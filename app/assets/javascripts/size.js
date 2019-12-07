@@ -28,7 +28,6 @@ $(document).on('turbolinks:load', function(){
     return html;
   }
   $(".category-box").on("change", "#child_category", function(){
-    debugger;
     var urlhost = location.host
     var rurl =  "http://" + urlhost + "/products/get_size"
     var append_select = $(this).find(".append_select")

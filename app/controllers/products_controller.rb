@@ -57,8 +57,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product_images = ProductImage.new
-    @category = Category.where(id: params[:grandchild_category])
-    @product[:category_id] = @category[0][:id]
+    @categories = Category.where(id: params[:grandchild_category])
+    @product[:category_id] = @categories[0][:id]
     respond_to do |format|
       if @product.save
         num = 0

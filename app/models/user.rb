@@ -19,9 +19,9 @@ class User < ApplicationRecord
 
 
   has_many :sellers
+  has_many :products, through: :sellers
   has_many :buyers
   has_many :likes, dependent: :destroy
   has_many :like_products, through: :likes, source: :product
   has_many :credit_cards
-  has_many :product
 end

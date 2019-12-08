@@ -67,7 +67,7 @@ class ProductsController < ApplicationController
           @product_images[:image] = image[num]
           @product_images[:name] = "#{@product.id}-#{num}"
           @product_images.save
-          File.binwrite("public/uploads/product/images/#{@product.id}-#{num}", image[num].read)
+          File.binwrite("public/uploads/tmp/#{@product.id}-#{num}", image[num].read)
           num += 1
         end
         @seller= Seller.create(user_id: current_user.id,product_id: @product.id)

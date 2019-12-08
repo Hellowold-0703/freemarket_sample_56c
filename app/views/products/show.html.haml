@@ -88,10 +88,13 @@
       = @product.selling_price
     %span.product-price__tax (税込)
     %span.product-price__sipping-fee 送料込み
-  = link_to '購入画面に進む', buy_product_path(@product), {class: 'product-buy-btn'}
-  .product-description
-    %p.product-description__content<
-      = @product.explanation
+  - if @product.display == 0
+    = link_to '購入画面に進む', buy_product_path(@product), {class: 'product-buy-btn'}
+    .product-description
+      %p.product-description__content<
+        = @product.explanation
+  - else
+    .product-sold_out 商品は売り切れました
 
   .product-button.clearfix
     .product-button__left

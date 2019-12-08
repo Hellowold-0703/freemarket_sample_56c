@@ -110,6 +110,7 @@ class ProductsController < ApplicationController
     currency: 'jpy',
     )
     redirect_to action: 'done'
+    product.update_attributes(display: 1)
   end
 
   def done

@@ -34,7 +34,6 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @seller = Seller.new
     @product_images = @product.product_images.build
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|

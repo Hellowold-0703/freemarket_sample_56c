@@ -9,13 +9,13 @@
       %section.products-box
         = link_to do
           %figure.products-box__photo
-            = image_tag seller.product.images[0].url
+            = image_tag seller.product.product_images[0].name
           .products-box__body
             %h3.products-box__body__name
               = seller.product.name
             .products-box__body__num
               .products-box__body__num__price
-                = seller.product.selling_prime
+                = seller.product.selling_price
               .products-box__body__num__icon
                 %i.fa.fa-heart-o 
                 %span

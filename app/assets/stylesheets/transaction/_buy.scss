@@ -177,6 +177,14 @@ button{
     transition: all ease-out .3s;
     cursor: pointer;
     text-align: center;
+    &--not {
+      margin: 8px 0 0;
+      background: gray;
+      color: #fff;
+      height: 50px;
+      line-height: 50px;
+      font-size: 20px;
+    }
   }
   &-red{
     margin: 8px 0 0;

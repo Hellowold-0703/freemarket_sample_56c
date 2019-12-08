@@ -12,9 +12,9 @@ class NewRegisterController < ApplicationController
     session[:first_name] = user_params[:first_name]
     session[:family_furigana] = user_params[:family_furigana]
     session[:first_furigana] = user_params[:first_furigana]
-    session[:birthdate_year] = user_params[:birthdate_year]
-    session[:birthdate_month] = user_params[:birthdate_month]
-    session[:birthdate_day]= user_params[:birthdate_day]
+    session[:birth_year] = user_params[:birth_year]
+    session[:birth_month] = user_params[:birth_month]
+    session[:birth_day]= user_params[:birth_day]
     @user = User.new
   end
 
@@ -46,9 +46,9 @@ class NewRegisterController < ApplicationController
     first_name:                  session[:first_name],
     family_furigana:              session[:family_furigana], 
     first_furigana:             session[:first_furigana],
-    birthdate_year:              session[:birthdate_year], 
-    birthdate_month:             session[:birthdate_month], 
-    birthdate_day:               session[:birthdate_day],
+    birth_year:              session[:birth_year], 
+    birth_month:             session[:birth_month], 
+    birth_day:               session[:birth_day],
     phone_number:                session[:phone_number],
     address_last_name:           session[:address_last_name], 
     address_first_name:          session[:address_first_name],
@@ -89,9 +89,9 @@ class NewRegisterController < ApplicationController
       :first_name,
       :family_furigana,
       :first_furigana,
-      :birthdate_year,
-      :birthdate_month,
-      :birthdate_day,
+      :birth_year,
+      :birth_month,
+      :birth_day,
       :phone_number,
       :address_first_name,
       :address_last_name,

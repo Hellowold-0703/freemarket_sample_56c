@@ -335,7 +335,7 @@ $(document).on('turbolinks:load', function(){
     // 親カテゴリー選択後のイベント
     $('#parent_category').on('change', function(){
       var urlhost = location.host
-      var rurl = "http://" + urlhost+ "products/get_category_children"
+      var rurl = "http://" + urlhost+ "/products/get_category_children"
       var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
       if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
         $.ajax({
@@ -370,7 +370,7 @@ $(document).on('turbolinks:load', function(){
       var childId = $('#child_category').val(); //選択された子カテゴリーのidを取得
       if (childId != "---"){ //子カテゴリーが初期値でないことを確認
         var urlhost = location.host
-        var rurl = "http://" + urlhost+ "products/get_category_grandchildren"
+        var rurl = "http://" + urlhost+ "/products/get_category_grandchildren"
         $.ajax({
           url: rurl,
           type: 'GET',

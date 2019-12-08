@@ -71,6 +71,7 @@ class ProductsController < ApplicationController
           File.binwrite("public/images/#{@product.id}-#{num}", image[num].read)
           num += 1
         end
+        @seller= Seller.create(user_id: current_user.id,product_id: @product.id)
         format.html{redirect_to root_path}
       else
         format.html{render action: 'new'}

@@ -24,7 +24,7 @@
   %section.user-profile__box.clearfix
     %h2.user-profile__box__head
       = link_to do
-        = @product.brand.name 
+        = @product.brand&.name 
         その他の出品
     .user-profile__box__content.clearfix
     - @nike_products.each do |nike|

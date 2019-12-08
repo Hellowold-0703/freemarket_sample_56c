@@ -7,21 +7,21 @@
       .owl-carousel.owl-loaded.owl-drag
         .owl-stage-outer
           .owl-stage
-            - @product.images.each do |image|
-              - if image.url.present?
+            - @product.product_images.each do |image|
+              - if image.name.present?
                 .owl-product
                   .owl-product-inner
-                    = image_tag image.url,{class: 'owl-lazy'}
+                    = image_tag image.name,{class: 'owl-lazy'}
 
         .owl-nav.disabled
           .owl-prev prev
           .owl-next next
         .owl-items.owl-thumbs
-          - @product.images.each do |image|
-            - if image.url.present?
+          - @product.product_images.each do |image|
+            - if image.name.present?
               .owl-item
                 .owl-item-inner
-                  = image_tag image.url, {class: 'is-higher-width'}
+                  = image_tag image.name, {class: 'is-higher-width'}
     %table.product__detail
       %tbody
         %tr
@@ -56,7 +56,7 @@
           %th ブランド
           %td 
             = link_to do
-              =@product.brand.name
+              =@product.brand&.name
         %tr
           %th 商品のサイズ
           %td 26㎝
@@ -85,7 +85,7 @@
   .product-price
     %span.product-price__total
       ¥
-      = @product.selling_prime
+      = @product.selling_price
     %span.product-price__tax (税込)
     %span.product-price__sipping-fee 送料込み
   = link_to '購入画面に進む', buy_product_path(@product), {class: 'product-buy-btn'}

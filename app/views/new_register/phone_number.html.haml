@@ -5,16 +5,14 @@
 .process-number  
 .phone-header 電話番号の確認
 .input-number-main
-  = form_for(@user, url: address_new_register_index_path) do |f|
+  = form_for @user, url: address_new_register_index_path, method: :get do |f|
     %br
     %h1 携帯電話の番号
     =f.text_field:phone_number,{placeholder: "携帯電話の番号を入力", class: "input-number"}
     %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-    .sms-button
-      = link_to address_new_register_index_path do
-        SMSを送信する
+    %button.sms-button{type:"subumit"}SMSを送信する
     %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-  .number-footer
+.number-footer
   = link_to '電話番号の確認が必要な理由>' , href: "#top"
 
 = render 'devise/sessions/sign-up-footer'

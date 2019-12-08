@@ -9,7 +9,7 @@
       %span.done-body--product__name
         = @product.name
       .done-body--product__image
-        = image_tag (@product.images[0].url), height: "300px", width: "300px"
+        = image_tag (@product.product_images[0].name), height: "300px", width: "300px"
         .done-body--product__image--sold
           %h2 SOLD OUT
       .done-body--foot

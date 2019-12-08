@@ -67,7 +67,7 @@ class ProductsController < ApplicationController
           @product_images[:image] = image[num]
           @product_images[:name] = "#{@product.id}-#{num}"
           @product_images.save
-          File.binwrite("uploads/product/images/#{@product.id}-#{num}", image[num].read)
+          File.binwrite("public/images/#{@product.id}-#{num}", image[num].read)
           num += 1
         end
         @seller= Seller.create(user_id: current_user.id,product_id: @product.id)
@@ -83,6 +83,7 @@ class ProductsController < ApplicationController
     @seller = Seller.find_by(product_id: @product.id)
     @sellers = Seller.where("user_id = ?", @seller.user_id).where.not("product_id = ?", @product.id).limit(6)
     @nike_products = Product.where("brand_id = ?", @product.brand_id).limit(6)
+    binding/
   end
 
   def buy
@@ -109,7 +110,6 @@ class ProductsController < ApplicationController
     currency: 'jpy',
     )
     redirect_to action: 'done'
-    product.update_attributes(display: 1)
   end
 
   def done

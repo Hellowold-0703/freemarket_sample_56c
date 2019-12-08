@@ -5,8 +5,20 @@
     .slider{
       text-align: center;
       background-color: #f5f5f5;
+      #slide{
+      
+      }
       .contents__banner{
         cursor: pointer;
+        .slick-track{
+          height: 390px;
+          width: 1000px;
+          box-sizing: border-box;
+          display: inline-block;
+          list-style-type: none;
+          margin: auto 0px;
+          vertical-align: top;
+        } 
       }
     }
 

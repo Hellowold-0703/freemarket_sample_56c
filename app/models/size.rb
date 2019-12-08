@@ -1,4 +1,4 @@
 class Size < ApplicationRecord
-  has_many :items
+  has_many :products
   belongs_to :size_type, optional: true
 end

@@ -43,15 +43,15 @@
           %th カテゴリー
           %td 
             = link_to do
+              = @product.category.parent.parent.name
+            = link_to do
+              .product-sub-category
+                %i.fa.fa-angle-right
+              = @product.category.parent.name
+            = link_to do
+              .product-sub-category
+                %i.fa.fa-angle-right
               = @product.category.name
-            = link_to do
-              .product-sub-category
-                %i.fa.fa-angle-right
-                靴
-            = link_to do
-              .product-sub-category
-                %i.fa.fa-angle-right
-                スニーカー
         %tr
           %th ブランド
           %td 
@@ -59,7 +59,8 @@
               =@product.brand&.name
         %tr
           %th 商品のサイズ
-          %td 26㎝
+          %td 
+            = @product.size.name
         %tr
           %th 商品の状態
           %td 

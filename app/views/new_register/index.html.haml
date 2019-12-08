@@ -4,11 +4,11 @@
   =image_tag "progress.png", height: "100px", width: "500px;"
 .input-header
   会員情報入力
-.members-input-form
-  = form_for(@user, url: phone_number_new_register_index_path) do |f|
+= form_for @user, url: phone_number_new_register_index_path,method: :get do |f|
+  .members-input-form
     %h2 必須
     %br　ニックネーム
-    = f.text_field:nickname,{placeholder: "例）メルカリ太郎", class: "input-members"}
+    =f.text_field:nickname,{placeholder: "例）メルカリ太郎", class: "input-members"}
     %h3 必須
     %br　メールアドレス
     =f.email_field:email,{placeholder: 'PC・携帯どちらでも可',class: "input-members"}
@@ -20,29 +20,24 @@
     =f.password_field:password_confimation,{placeholder: "7文字以上",class: "input-members"}
     %h1　本人確認
     %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-.input-footer-name
-  = form_for @user, url: phone_number_new_register_index_path,method: :get do |f|
+  .input-footer-name
     %h2 必須
     %br　お名前(全角)
-    =f.text_field:last_name,{placeholder: "例)山田", class: "input-name"}
+    =f.text_field:family_name,{placeholder: "例)山田", class: "input-name"}
     =f.text_field:first_name,{placeholder: "例)彩", class: "input-name"}
-.input-footer-kana
-  = form_for(@user, url: phone_number_new_register_index_path) do |f|
+  .input-footer-kana
     %h1 必須
     %br　お名前カナ(全角)
-    =f.text_field:last_name_kana,{placeholder: "例)ヤマダ", class: "input-name"}
-    =f.text_field:first_name_kana,{placeholder: "例)アヤ", class: "input-name"}
-.input-footer-birth
-  = form_for(@user, url: phone_number_new_register_index_path) do |f|
+    =f.text_field:family_furigana,{placeholder: "例)ヤマダ", class: "input-name"}
+    =f.text_field:first_furigana,{placeholder: "例)アヤ", class: "input-name"}
+  .input-footer-birth
     %h2 必須
     %br 
     %h1 生年月日
-    =f.text_field:birthdate_year,{placeholder: "--", class: "input-birth"}
-    =f.text_field:birthdate_month,{placeholder: "--", class: "input-birth"}
-    =f.text_field:birthdate_day,{placeholder: "--", class: "input-birth"}
+    =f.text_field:birth_year,{placeholder: "--", class: "input-birth"}
+    =f.text_field:birth_month,{placeholder: "--", class: "input-birth"}
+    =f.text_field:birth_day,{placeholder: "--", class: "input-birth"}
     %br
     %p 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-    .register-button
-    =f.submit'次へ進む'
+    %button.register-button{type:"subumit"}次へ進む
 = render 'devise/sessions/sign-up-footer'
-

@@ -7,17 +7,15 @@
       %section.buy-content.buy-item
         .buy-content__inner
           %h3.buy-item__image
-            - @product.images.each do |image|
-              - if image.url.present?
-                .owl-product
-                  .owl-product-inner
-                    = image_tag image.url,{class: 'owl-lazy'}
+            .owl-product
+              .owl-product-inner
+              = image_tag (@product.product_images[0].name),{class: 'owl-lazy'}
           %p.buy-item__name.bold
             = @product.name
           %form.buy-form{action: "", method: "POST", novalidate: "novalidate"}
             %p.buy-price__ja.bold
               %span ¥
-              = @product.selling_prime
+              = @product.selling_price
               %span.item-shipping-fee.f14.bold
                 = @product.shipping_charge
             %ul.accordion.not-have
@@ -29,7 +27,7 @@
                 .buy-price__cell 支払い金額
                 .buy-price__cell 
                   %span ¥
-                  = @product.selling_prime
+                  = @product.selling_price
             = link_to pay_product_url, method: :post do
               %button.btn-default.btn-red.bold 購入する
 

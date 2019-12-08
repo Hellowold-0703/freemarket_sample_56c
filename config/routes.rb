@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get "/transaction/sell", to: "products#new"
   post "/transaction/sell", to: "products#create"
   resources :sizes, only: [:index]
-  resources :creditcards, only: [:index]
   resources :confirm, only: [:index]
   resources :users, only: [:edit, :update, :index] do
     collection do
@@ -35,6 +34,7 @@ Rails.application.routes.draw do
       get 'index', 'phone_number','address','credit','complete'
     end
   end
+  post  '/new_register/complete',to:'new_register#create'
   post   '/like/:product_id' => 'likes#like',   as: 'like'
   delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
   resources :credit_card, only: [:new, :show, :index] do

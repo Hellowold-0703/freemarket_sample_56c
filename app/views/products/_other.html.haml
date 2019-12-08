@@ -9,7 +9,8 @@
       %section.products-box
         = link_to do
           %figure.products-box__photo
-            = image_tag seller.product.product_images[0].name
+            = link_to seller.product do
+              = image_tag seller.product.product_images[0].name
           .products-box__body
             %h3.products-box__body__name
               = seller.product.name

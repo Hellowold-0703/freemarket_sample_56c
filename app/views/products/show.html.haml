@@ -12,7 +12,9 @@
                 .owl-product
                   .owl-product-inner
                     = image_tag image.name,{class: 'owl-lazy'}
-
+                    - if @product.display == 1
+                      .owl-product-inner--sold SOLD OUT
+                      
         .owl-nav.disabled
           .owl-prev prev
           .owl-next next

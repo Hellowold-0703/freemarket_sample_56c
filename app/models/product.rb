@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :buyers
   belongs_to :category, optional: true
   belongs_to :brand, optional: true
+  belongs_to :size, optional: true
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
   has_many :product_images, dependent: :destroy

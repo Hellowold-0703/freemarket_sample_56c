@@ -34,7 +34,6 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @seller = Seller.new
     @product_images = @product.product_images.build
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
@@ -68,7 +67,7 @@ class ProductsController < ApplicationController
           @product_images[:image] = image[num]
           @product_images[:name] = "#{@product.id}-#{num}"
           @product_images.save
-          File.binwrite("public/images/#{@product.id}-#{num}", image[num].read)
+          File.binwrite("public/uploads/images/#{@product.id}-#{num}", image[num].read)
           num += 1
         end
         @seller= Seller.create(user_id: current_user.id,product_id: @product.id)

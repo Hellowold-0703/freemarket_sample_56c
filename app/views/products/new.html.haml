@@ -1,0 +1,127 @@
+.single-container
+  = render 'single-header'
+
+  %main
+    %section.sell-item-container
+      .sell-container
+        .sell-container__inner
+          %h2.head 商品の情報を入力
+          = form_for @product, html: {class: "sell-form"} do |f|
+            .sell-upload__box
+              %h3.sell-upload__head
+                出品画像
+                %span.form-require 必須
+              %p 最大10枚までアップロードできます
+              .sell-dropbox__container.clearfix.state-image-number-10
+                .sell-upload-items__container
+                  .sell-upload-items.have-item-0
+                    %ul
+                %label{class: "sell-upload__drop-box have-item-0"}
+                  = f.fields_for @product_images do |i|
+                    = i.file_field :image, multiple: true, class: "sell-upload__drop-file", style: "display:none;", id: "input_files", name: 'product_images[image][]', accept: "image/png,image/jpeg,image/jpeg,image/gif"
+                  %pre.visible-pc
+                    :preserve
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+                  %i.fas.fa-camera
+
+            .sell-content
+              .form-group
+                %label
+                  商品名
+                  %span.form-require 必須
+                = f.text_field :name,class: "input-default", placeholder: "商品名(必須 40文字まで)"
+              .form-group
+                %label
+                  商品の説明
+                  %span.form-require 必須
+                = f.text_area :explanation, class: "textarea-default", rows: 5, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+
+            .sell-content.clearfix
+              %h3.sell__sub-head 商品の詳細
+              .sell__form-box
+                .form-group
+                  = f.label "カテゴリー" 
+                  %span.form-require 必須
+                  .category-box
+                    .select-wrap
+                      = f.select :category, @category_parent_array, {}, {class: 'select-default', id: 'parent_category', name: 'parent_category'}
+                      %i.fas.fa-angle-down
+                 
+                .form-group
+                  = f.label :status do
+                    商品の状態
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.fas.fa-angle-down
+                    = f.select :status, Product.statuses.keys, {}, class: "select-default"
+
+            .sell-content.clearfix
+              %h3.sell__sub-head 配送について
+              %a.form-question{href: "https://www.mercari.com/jp/help_center/article/68/", target: "_blank"}?
+              .sell__form-box
+                .form-group
+                  = f.label :shipping_charge do
+                    配送料の負担
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.fas.fa-angle-down
+                    = f.select :shipping_charge, Product.shipping_charges.keys, {}, class: "select-default"
+                .form-group
+                  = f.label :shipping_area do
+                    発送元の地域
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.fas.fa-angle-down
+                    = f.select :shipping_area, Product.shipping_areas.keys, {}, class: "select-default"
+                .form-group
+                  = f.label :days_before_shipment do
+                    発送までの日数
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.fas.fa-angle-down
+                    = f.select :days_before_shipment, Product.days_before_shipments.keys, {}, class: "select-default"
+
+            .sell-content.clearfix
+              %h3.sell__sub-head 販売価格(300〜9,999,999)
+              %a.form-question{href: "https://www.mercari.com/jp/help_center/article/64/", target: "_blank"}?
+              .sell__form-box
+                %ul.sell-price
+                  %li.form-group
+                    .clearfix
+                      %label.l-left
+                        価格
+                        %span.form-require 必須
+                      .l-right.sell-price__input
+                        ¥
+                        %div
+                          = f.text_field :selling_price, class: "input-default", placeholder: "例)300"
+                  %li.clearfix
+                    .l-left 販売手数料 (10%)
+                    .l-right{id: "fee"} -
+                  %li.clearfix.bold
+                    .l-left 販売利益
+                    .l-right{id: "profit"} -
+
+            .sell-content.sell-btn-box
+              %div
+                %p
+                  %a{href: "", target: "_blank"} 禁止されている出品
+                  、
+                  %a{href: "", target: "_blank"} 行為
+                  を必ずご確認ください
+                %p
+                  またブランド品でシリアルナンバー等がある場合はご記載ください。
+                  %a{href: "", target: "_blank"} 偽ブランドの販売
+                  は犯罪であり処罰される可能性があります
+                %p
+                  また、出品をもちまして
+                  %a{href: ""} 加盟店規約
+                  に同意したことになります。
+              = f.button "出品する", class: "btn-default btn-red", type: "submit"
+              = link_to "もどる", root_path, class: "btn-default btn-gray"
+
+  = render 'single-footer'
+
+
+

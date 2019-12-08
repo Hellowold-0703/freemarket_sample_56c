@@ -71,14 +71,13 @@
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, foreign_key: true|
-|image|text|null: false, index: true|
 |name|text|null: false|
 |explanation|text|null: false|
 |status|string|null: false|
 |shipping_charge|string|null: false|
 |shipping_area|string|null: false|
 |days_before_shipment|string|null: false|
-|selling_prime|integer|null: false|
+|selling_price|integer|null: false|
 |shipping_method|string|null: false|
 
 ### Association
@@ -90,7 +89,18 @@
 - has_many :reviews
 - has_many :byers
 - has_many :sellers
+- has_many :product_images
 
+## product_imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|image|binary|null: false, index: true|
+|name|string|null: false|
+|product_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :product
 
 ## byersテーブル
 
@@ -126,39 +136,38 @@
 - has_many :products
 
 
-### categorysテーブル
+### categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
-|parent_id|references||
+|size_type_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :products
-- has_many :sizes, though: :sizes_categorys
-
+- belongs_to :size_type
 
 ## sizesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|value|string|null: false|
+|name|string|null: false|
+|size_type_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :categorys, though: :sizes_categorys
+- has_many :items
+- belongs_to :size_type
 
 
-## sizes_categorysテーブル
+## size_typesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string||
-|category_id|references|null: false, foreign_key: true|
-|size_id|references|null: false, foreign_key: true|
+|size_type|string|null: fals|
 
 ### Association
-- belongs_to :category
-- belongs_to :size
+- has_many :sizes
+- has_many :category_id
 
 
 ## commentsテーブル

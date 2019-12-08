@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20191208064314) do
 
+
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
@@ -76,8 +77,9 @@ ActiveRecord::Schema.define(version: 20191208064314) do
     t.integer  "likes_count"
     t.integer  "category_id"
     t.integer  "brand_id"
-    t.integer  "selling_price",                      null: false
+    t.integer  "selling_price",                                  null: false
     t.integer  "size_id"
+    t.integer  "display",                            default: 0
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["name"], name: "index_products_on_name", using: :btree

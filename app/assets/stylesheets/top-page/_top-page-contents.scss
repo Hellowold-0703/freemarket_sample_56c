@@ -143,6 +143,14 @@
                 left: 13px;
                 color: black;
               }
+              &--sold {
+                background-color: red;
+                color: white;
+                font-weight: bold;
+                position: relative;
+                bottom: 14px;
+                text-align: center;
+              }
             }
           }
         }

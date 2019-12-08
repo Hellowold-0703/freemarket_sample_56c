@@ -3,32 +3,27 @@
 .progress-information
   =image_tag "progress4.png", height: "100px", width: "500px;"
 .credit-header 支払い方法
-.credit-input-form
-  %span 必須
-  %form
+= form_for @user, url: complete_new_register_index_path,method: :post do |f|
+  .credit-input-form
+    %span 必須
     %br　カード番号
     =f.text_field:card_number,{placeholder: "半角数字のみ", class: "input-members"}
-.credit-img
-  =image_tag "credit.png", height: "30px", width: "200px;"
-.credit-input-line
-  %span 必須
-  %form
+  .credit-img
+    =image_tag "credit.png", height: "30px", width: "200px;"
+  .credit-input-line
+    %span 必須
     %br　有効期限
-    =f.text_field:payment_card_expire,{placeholder: "01", class: "input-name"}
+    =f.text_field:payment_carc_expire,{placeholder: "01", class: "input-name"}
     %h1 月
-    =f.text_field:exp-month,{placeholder: "17", class: "input-name"}
+    =f.text_field:exp_month,{placeholder: "17", class: "input-name"}
     %h2 年
-     =f.text_field:exp-year,{placeholder: "", class: "input-name"}
-.credit-input-code
-  %span 必須
-  %form
+    =f.text_field:exp_year,{placeholder: "17", class: "input-name"}
+  .credit-input-code
+    %span 必須
     %br　セキュリティコード
-    =f.text_field:{placeholder: "カード背面４桁もしくは３桁の番号", class: "input-members"}
-.credit-explain
-  = link_to 'カード裏面の番号とは？' , href: "#top"
-.credit-footer
-  %button.register-button{type:"subumit"}
-
-      次へ進む
+    =f.text_field:payment_card_security_code,{placeholder: "カード背面４桁もしくは３桁の番号", class: "input-members"}
+  .credit-explain
+    = link_to 'カード裏面の番号とは？' , href: "#top"
+  .credit-footer
+    %button.register-button{type:"subumit"}次へ進む
 = render 'devise/sessions/sign-up-footer'
-

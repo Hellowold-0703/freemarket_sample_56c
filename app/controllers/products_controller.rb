@@ -120,6 +120,10 @@ class ProductsController < ApplicationController
     @nike_products = Product.where("brand_id = ?", @product.brand_id).limit(6)
   end
 
+  def search
+    
+  end
+
   private
 
   def product_params

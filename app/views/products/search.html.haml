@@ -1,0 +1,44 @@
+.top-page-pc-header
+  = render "top/header"
+
+.detailed-search
+  %span 詳細検索
+  .detailed-search--content
+    %span キーワードを追加する
+    %br
+    .detailed-search--content--form--keyword
+      %input
+  .detailed-search--content
+    %span カテゴリーを選択する
+    %br
+    .detailed-search--content--form--category
+      %input
+  .detailed-search--content
+    %span ブランド名から探す
+    %br
+    .detailed-search--content--form--brand
+      %input
+  .detailed-search--content
+    %span サイズを指定する
+    %br
+    .detailed-search--content--form--size
+      %input
+  .detailed-search--content
+    %span 価格
+    %br
+    .detailed-search--content--form--price
+      %input
+  .detailed-search--content
+    %span 商品の状態
+    %br
+  .detailed-search--content
+    %span 配送料の負担
+  .detailed-search--content
+    %span 販売状況
+  .detailed-search--content--btn
+    %button クリア
+    %button 完了
+    
+
+= render "top/transaction-btn"
+= render "top/footer"

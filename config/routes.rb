@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
   get "/transaction/sell", to: "products#new"
-  post "/transaction/sell", to: "products#create"
+  post "/transaction/sell", to: "products#create", defaults: { format: 'json' }
   resources :sizes, only: [:index]
   resources :confirm, only: [:index]
   resources :users, only: [:edit, :update, :index] do

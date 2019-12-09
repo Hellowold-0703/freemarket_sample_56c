@@ -116,7 +116,7 @@ $(document).on('turbolinks:load', function(){
   function append_uploadbox() {
     var html = `
       <div class="sell-upload-items have-item-0">
-        <ul id="imageList2" class="number">
+        <ul id="imageList2">
         </ul>
       </div>
     `

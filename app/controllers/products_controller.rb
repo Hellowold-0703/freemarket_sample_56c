@@ -123,7 +123,8 @@ class ProductsController < ApplicationController
   end
 
   def search
-    
+    @search = Product.ransack(params[:q])
+    @products = @search.result
   end
 
   private

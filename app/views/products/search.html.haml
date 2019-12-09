@@ -1,5 +1,11 @@
 .top-page-pc-header
   = render "top/header"
+
+.detailed-search
+  = search_form_for @search do |f|
+    %span 詳細検索
+    .detailed-search--content
+      = fa_icon "plus"
 .products-search
   .detailed-search
     %span 詳細検索
@@ -9,21 +15,29 @@
       .detailed-search--content--form--keyword
         %input
     .detailed-search--content
+      = fa_icon "list-ul"
+
       %span カテゴリーを選択する
       %br
       .detailed-search--content--form--category
         %input
     .detailed-search--content
+      = fa_icon "tag"
+
       %span ブランド名から探す
       %br
       .detailed-search--content--form--brand
         %input
     .detailed-search--content
+      = fa_icon "expand"
+
       %span サイズを指定する
       %br
       .detailed-search--content--form--size
         %input
     .detailed-search--content
+      = fa_icon ""
+
       %span 価格
       %br
       .detailed-search--content--form--price
@@ -34,10 +48,21 @@
     .detailed-search--content
       %span 配送料の負担
     .detailed-search--content
-      %span 販売状況
+      .detailed-search--content--display
+        %span 販売状況
+        %br
+        = f.radio_button :display_eq, '', {checked: true}
+        %span すべて
+        = f.radio_button :display_eq, 0
+        %span 販売中
+        %br
+        = f.radio_button :display_eq, 1
+        %span 売り切れ
     .detailed-search--content--btn
-      %button クリア
-      %button 完了
+      .detailed-search--content--btn--clear 
+        = f.submit "クリア"
+      .detailed-search--content--btn--complete
+        = f.submit "検索"
       
   .search-result
     .result-header
@@ -70,6 +95,6 @@
   .product-bottom__nav
     %span 
     = @search.name_has_every_term
-  
+
 = render "top/transaction-btn"
 = render "top/footer"

@@ -1,3 +1,49 @@
+.detailed-search {
+  width: 280px;
+  height: 1315px;
+  background-color: white;
+  margin-top: 40px;
+  padding: 16px;
+  &--content {
+    margin-top: 40px;
+    span {
+      font-weight: bold;
+    }
+    &--btn {
+      margin-top: 40px;
+      &--clear {
+        display: inline-block;
+        input {
+          height: 50px;
+          width: 112px;
+          background-color: gray;
+          color: white;
+          text-align: center;
+        }
+      }
+      &--complete {
+        display: inline-block;
+        input {
+          height: 50px;
+          width: 112px;
+          background-color: red;
+          color: white;
+          text-align: center;
+        }
+      }
+    }
+    &--display {
+      input {
+        height: 18px;
+        width: 16px;
+      }
+    }
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
 .products-search{
   margin: 40px 210px 0 ;
   width: 1020px;
@@ -100,6 +146,3 @@
     padding-left: 5px;
   }
 }
-
-
-

@@ -3,12 +3,14 @@ class ProductsController < ApplicationController
   require 'payjp'
 
   before_action :set_product, only: [:show, :buy]
+  before_action :set_search
   before_action :authenticate_user!, only: [:buy, :pay, :create, :new]
   before_action :category_info_set, only: [:index]
   before_action :brand_info_set, only: [:index]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+      
   end
   
   def category_info_set
@@ -79,6 +81,7 @@ class ProductsController < ApplicationController
     @seller = Seller.find_by(product_id: @product.id)
     @sellers = Seller.where("user_id = ?", @seller.user_id).where.not("product_id = ?", @product.id).limit(6)
     @nike_products = Product.where("brand_id = ?", @product.brand_id).limit(6)
+    
   end
 
   def buy
@@ -105,6 +108,7 @@ class ProductsController < ApplicationController
     currency: 'jpy',
     )
     redirect_to action: 'done'
+    product.update_attributes(display: 1)
   end
 
   def done
@@ -112,6 +116,11 @@ class ProductsController < ApplicationController
     @seller = Seller.find_by(product_id: @product.id)
     @sellers = Seller.where("user_id = ?", @seller.user_id).where.not("product_id = ?", @product.id).limit(6)
     @nike_products = Product.where("brand_id = ?", @product.brand_id).limit(6)
+  end
+
+  def search
+    @search = Product.ransack(params[:q])
+    @products = @search.result
   end
 
   private
@@ -130,5 +139,14 @@ class ProductsController < ApplicationController
 
   def set_card
     CreditCard.where(user_id: current_user.id).first
+  end
+
+  def set_search
+    @search = Product.ransack(params[:q])
+    @products = @search.result(distinct: true)
+  end
+
+  def search_params
+    params.require(:q).permit(:name_cont)
   end
 end

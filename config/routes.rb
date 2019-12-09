@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers:{ omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers:{ 
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root 'products#index'
   resources :mypage, only: [:index]
@@ -14,6 +17,7 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
+      get 'search', to: 'products#search'
     end
   end
   get "/transaction/sell", to: "products#new"

@@ -28,8 +28,11 @@
                 .buy-price__cell 
                   %span ¥
                   = @product.selling_price
-            = link_to pay_product_url, method: :post do
-              %button.btn-default.btn-red.bold 購入する
+            - if @product.display == 0
+              = link_to pay_product_url, method: :post do
+                %button.btn-default.btn-red.bold 購入する
+            - else
+              .btn-default--not.bold 現在販売していません
 
       %section.buy-content.buy-user-info
         .buy-content__inner

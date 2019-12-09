@@ -3,14 +3,14 @@ class ProductsController < ApplicationController
   require 'payjp'
 
   before_action :set_product, only: [:show, :buy]
+  before_action :set_search
   before_action :authenticate_user!, only: [:buy, :pay, :create, :new]
   before_action :category_info_set, only: [:index]
   before_action :brand_info_set, only: [:index]
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-      @search = Product.ransack(params[:q])
-      @products = @search.result
+      
   end
   
   def category_info_set
@@ -143,5 +143,14 @@ class ProductsController < ApplicationController
 
   def set_card
     CreditCard.where(user_id: current_user.id).first
+  end
+
+  def set_search
+    @search = Product.ransack(params[:q])
+    @products = @search.result(distinct: true)
+  end
+
+  def search_params
+    params.require(:q).permit(:name_cont)
   end
 end

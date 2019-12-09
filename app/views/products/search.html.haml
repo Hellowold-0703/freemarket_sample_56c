@@ -6,30 +6,38 @@
     %span 詳細検索
     .detailed-search--content
       = fa_icon "plus"
+.products-search
+  .detailed-search
+    %span 詳細検索
+    .detailed-search--content
       %span キーワードを追加する
       %br
       .detailed-search--content--form--keyword
         %input
     .detailed-search--content
       = fa_icon "list-ul"
+
       %span カテゴリーを選択する
       %br
       .detailed-search--content--form--category
         %input
     .detailed-search--content
       = fa_icon "tag"
+
       %span ブランド名から探す
       %br
       .detailed-search--content--form--brand
         %input
     .detailed-search--content
       = fa_icon "expand"
+
       %span サイズを指定する
       %br
       .detailed-search--content--form--size
         %input
     .detailed-search--content
       = fa_icon ""
+
       %span 価格
       %br
       .detailed-search--content--form--price
@@ -55,6 +63,38 @@
         = f.submit "クリア"
       .detailed-search--content--btn--complete
         = f.submit "検索"
+      
+  .search-result
+    .result-header
+      - if @search.name_has_every_term.present?
+        = @search.name_has_every_term
+        の検索結果
+      - else
+        新着商品
+    
+    .result-number
+      1-5件の表示
+    .result-products-box
+      - @products.each do |product|
+        .result__product
+          =link_to product_path(product.id),method: :get do
+            .result__product__image
+              = image_tag ("/uploads/product/images/#{product.id}/#{product.product_images[0].name}"), height: "160px", width: "160px"
+              - if product.display == 1
+                .result__product__name-box--sold SOLDOUT
+              %p
+                ¥
+                = product.selling_price
+              %span 
+                = product.name
+.product-search-bottom
+  .product-bottom__nav
+    = link_to root_path do
+      メルカリ
+    %i.fa.fa-angle-right
+  .product-bottom__nav
+    %span 
+    = @search.name_has_every_term
 
 = render "top/transaction-btn"
 = render "top/footer"

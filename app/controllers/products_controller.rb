@@ -9,6 +9,8 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
+      @search = Product.ransack(params[:q])
+      @products = @search.result
   end
   
   def category_info_set

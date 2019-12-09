@@ -1,0 +1,105 @@
+.products-search{
+  margin: 40px 210px 0 ;
+  width: 1020px;
+  display: inline-block;
+  
+  .detailed-search{
+  float: left;
+  height: 100%;
+  width: 30%;
+  }
+  
+  .search-result{
+    float: left;
+    height: 100%;
+    width: 70%;
+    
+    .result-header{
+      margin: 0 0 16px;
+      font-size: 22px;
+      padding-left: 5px;
+
+    }
+    .result-number{
+      margin: 16px 0;
+      padding-left: 5px;
+
+    }
+    .result-products-box{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+       
+      .result__product{
+        &__image{
+          position: relative;
+          margin-bottom: 15px;
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          height: 218px;
+          background-color: #fff;
+          cursor: pointer;
+          a{
+            width: 160px;
+            height: 218px;
+          }
+          p{
+            position: absolute;
+            bottom: 76px;
+            left: 0px;
+            font-size: 17px;
+            height: 28px;
+            line-height: 28px;
+            padding: 0 12px;
+            border-radius: 0 14px 14px 0;
+            background: rgba(0,0,0,.4);
+            color: white;
+          }
+          span{
+            word-break: break-word;
+            white-space: normal;
+            line-height: 1.4em;
+            height: 2.8em;
+            overflow: hidden;
+            position: absolute;
+            bottom: 13px;
+            left: 13px;
+            color: black;
+          }
+          &--sold {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            bottom: 14px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+.product-search-bottom{
+  height:49px;
+  margin-top: 25px;
+  margin-left: 210px;
+  border-top: 1px solid #eee;
+  line-height: 49px;
+   
+  .product-bottom__nav{
+  display: inline-block;
+  }
+  a{
+    color: black;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  }
+  i{
+    padding-left: 5px;
+
+  }
+  span{
+    padding-left: 5px;
+  }
+}
+
+
+

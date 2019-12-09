@@ -7,11 +7,12 @@ Rails.application.routes.draw do
 
   root 'products#index'
   resources :mypage, only: [:index]
-  resources :products, only: [:index, :show, :new, :buy, :done, :create] do
+  resources :products, only: [:index, :show, :new, :buy, :done, :create, :edit, :update, :destroy] do
     member do
       get 'buy'
       post 'pay'
       get 'done'
+      get 'selling_product'
     end
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :index] do
     collection do
       get 'logout'
+      get 'selling_products'
     end
   end
   namespace :transaction do

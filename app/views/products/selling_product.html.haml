@@ -1,0 +1,127 @@
+= render 'top/header'
+
+= render 'mypage/pankuzu'
+
+%main.l-container.clearfix
+  .l-container-box
+    .l-content
+      %section.product
+        %h1.product__name 
+          = @product.name
+        .product__content.clearfix
+          .product__photo
+            .owl-carousel.owl-loaded.owl-drag
+              .owl-stage-outer
+                .owl-stage
+                  - @product.product_images.each do |image|
+                    - if image.name.present?
+                      .owl-product
+                        .owl-product-inner
+                          = image_tag image.name,{class: 'owl-lazy'}
+                          - if @product.display == 1
+                            .owl-product-inner--sold SOLD OUT
+                            
+              .owl-nav.disabled
+                .owl-prev prev
+                .owl-next next
+              .owl-items.owl-thumbs
+                - @product.product_images.each do |image|
+                  - if image.name.present?
+                    .owl-item
+                      .owl-item-inner
+                        = image_tag image.name, {class: 'is-higher-width'}
+          %table.product__detail
+            %tbody
+              %tr
+                %th 出品者
+                %td 
+                  = link_to do
+                    = @seller.user.first_name
+                  .ratings
+                    .user-ratings
+                      %i.fa.fa-smile-o
+                      %span 1200
+                    .user-ratings
+                      %i.fa.fa-meh-o
+                      %span 300
+                    .user-ratings
+                      %i.fa.fa-frown-o
+                      %span 10
+              %tr
+                %th カテゴリー
+                %td 
+                  = link_to do
+                    = @product.category.parent.parent.name
+                  = link_to do
+                    .product-sub-category
+                      %i.fa.fa-angle-right
+                    = @product.category.parent.name
+                  = link_to do
+                    .product-sub-category
+                      %i.fa.fa-angle-right
+                    = @product.category.name
+              %tr
+                %th ブランド
+                %td 
+                  = link_to do
+                    =@product.brand&.name
+              %tr
+                %th 商品のサイズ
+                %td 
+                  = @product.size.name
+              %tr
+                %th 商品の状態
+                %td 
+                  = @product.status
+              %tr
+                %th 配送料の負担
+                %td 
+                  = @product.shipping_charge
+              %tr
+                %th 配送の方法
+                %td 
+                  = @product.shipping_method
+              %tr
+                %th 配送元地域
+                %td
+                  = link_to do
+                    = @product.shipping_area
+              %tr
+                %th 発送日の目安
+                %td 
+                  = @product.days_before_shipment
+
+        .product-price
+          %span.product-price__total
+            ¥
+            = @product.selling_price
+          %span.product-price__tax (税込)
+          %span.product-price__sipping-fee
+            = @product.shipping_charge
+          .product-description{style:"text-align: left"}
+            %p.product-description__content<
+              = @product.explanation
+
+      .listing__product__change__box
+        %button
+          = link_to edit_product_path(@product), class: 'btn-default btn-red' do
+            商品の編集
+        %p.text__center
+          or
+        %button
+          = link_to @product, class: 'btn-default btn-gray' do
+            出品を一旦停止する
+        %button
+          = link_to product_path, method: :delete, class: 'btn-default btn-gray' do
+            この商品を削除する
+        
+      .product-message
+        .product-message__container
+          .product-message__content
+            %form.message-form
+              %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              %textarea.textarea-default
+              %button.message-submit-btn
+                %span コメントする
+
+= render 'top/footer'

@@ -3,9 +3,9 @@
     .header-top
       = link_to root_path do
         = image_tag "mercari.png", class:"header-top__logo"
-      %form
-        %textarea{placeholder: "何かお探しですか？"}
-      %i.fa.fa-search 
+      = search_form_for @search do |f|
+        = f.search_field :name_cont_any, placeholder: "何かお探しですか？"
+        %i.fa.fa-search{type:"subumit", class: "actions"} 
     .header-bottom
       .header-bottom__search-menu
         .header-bottom__search-menu__category

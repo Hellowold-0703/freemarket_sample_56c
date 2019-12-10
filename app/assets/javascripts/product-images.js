@@ -62,52 +62,61 @@ $(document).on('turbolinks:load', function(){
     }
   }
 
-  $("#input_files").on("change", function(){
-    imagesPreview(this);
+  $("#input_files").on("change", function(e){
+    if (typeof fileList === 'undefined') {
+      fileList = [];
+    } 
+    var results = e.target.files;
+    var filesAmount = e.target.files.length; 
+    for (k = 0; k < filesAmount; k++) {
+      fileList.push(results[k]);
+    }
+    imagesPreview(fileList, filesAmount);
   });
 
-  var imagesPreview = function(input) {
-    if (input.files) {
-      var filesAmount = input.files.length;
-      var files = input.files;
-      for (i = 0; i < filesAmount; i++) {
-        (function() {
-          var j = i;
-          var file = files[j]; 
-          var reader = new FileReader();
-          reader.onload = function(e) {
-            var src = e.target.result;
-            var name = files[j].name;
-            var upload_image = {name: name, image: src};
-            insert_image = append_productimages(src, box_count2);
-            if($(".sell-upload-items").next().length) {
-              $(".sell-upload-items:last").children("ul").append(insert_image);
-              change_class_to_increment(name)
-              if(box_count == 5){
-                $(".sell-upload__drop-box").prop('style', "display:none;")
-              }
-            } else {
-              $(".sell-upload-items").children("ul").append(insert_image);
-              change_class_to_increment(name)
-              if(box_count == 5){
-                $(".sell-upload__drop-box").removeClass("have-item-" + box_count.toString(10))
-                var insert_box = append_uploadbox()
-                var append_box = $(".sell-upload-items__container").append(insert_box)
-                box_count = 0
-                $(".sell-upload__drop-box").addClass("have-item-" + box_count.toString(10))
-              }
+  function imagesPreview(input, filesAmount) {
+    if (filesAmount != 0) {
+      var count1 = $("#imageList1").children().length;
+      var count2 = $("#imageList2").children().length;
+      var imageCount = count1 + count2
+      var i = imageCount; 
+      loadImage(i, input);
+      function loadImage(i, input) {
+        var reader = new FileReader();
+        reader.readAsDataURL(input[i]);
+        reader.onload = function(e) {
+          var src = e.target.result;
+          var name = input[i].name;
+          insert_image = append_productimages(src, box_count2);
+          if($(".sell-upload-items").next().length) {
+            $(".sell-upload-items:last").children("ul").append(insert_image);
+            change_class_to_increment(name)
+            if(box_count == 5){
+              $(".sell-upload__drop-box").prop('style', "display:none;")
             }
-          };
-          reader.readAsDataURL(file);
-        })();
-      }
+          } else {
+            $(".sell-upload-items").children("ul").append(insert_image);
+            change_class_to_increment(name)
+            if(box_count == 5){
+              $(".sell-upload__drop-box").removeClass("have-item-" + box_count.toString(10))
+              var insert_box = append_uploadbox()
+              var append_box = $(".sell-upload-items__container").append(insert_box)
+              box_count = 0
+              $(".sell-upload__drop-box").addClass("have-item-" + box_count.toString(10))
+            }
+          }
+          if (i + 1 < imageCount + filesAmount) {
+            loadImage(i + 1, input);
+          }
+        };
+      };
     }
   };
 
   function append_uploadbox() {
     var html = `
       <div class="sell-upload-items have-item-0">
-        <ul>
+        <ul id="imageList2">
         </ul>
       </div>
     `
@@ -116,10 +125,9 @@ $(document).on('turbolinks:load', function(){
 
   $(".sell-dropbox__container").on("click", "#upload-item__delete", function(){
     var delete_target = $(this).parents(".sell-upload__item")
-    var target_tag = delete_target.children("figure")
-    var target_tag2 = target_tag.children("img")
-    var target_id = target_tag2.attr("id")
-    var file_list = document.getElementsByTagName("img")
+    var index = $("li.sell-upload__item").index(delete_target);
+    debugger;
+    fileList.splice(index, 1);
     change_class_to_decrement(delete_target)
     delete_target.remove();
   })
@@ -336,6 +344,7 @@ $(document).on('turbolinks:load', function(){
     $('#parent_category').on('change', function(){
       var urlhost = location.host
       var rurl = "http://" + urlhost+ "/products/get_category_children"
+
       var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
       if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
         $.ajax({
@@ -371,6 +380,7 @@ $(document).on('turbolinks:load', function(){
       if (childId != "---"){ //子カテゴリーが初期値でないことを確認
         var urlhost = location.host
         var rurl = "http://" + urlhost+ "/products/get_category_grandchildren"
+
         $.ajax({
           url: rurl,
           type: 'GET',
@@ -489,6 +499,34 @@ $(document).on('turbolinks:load', function(){
       var profit = "-"
       $("#fee").text(fee)
       $("#profit").text(profit)
+    }
+  })
+
+
+  $("#form").on("submit", function(e) {
+    e.preventDefault();
+    var fd = new FormData(this);
+    var filecheck = fd.get("product_images[image][]")
+    if (filecheck.name != "") {
+      fd.delete("product_images[image][]")
+      for (i = 0; i < fileList.length; i++) {
+        fd.append("product_images[image][]",fileList[i])
+      }
+      var url = location.href
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: fd,
+        dataType: 'json',
+        processData: false,
+        contentType: false
+      })
+      .done(function(data){
+        location.href = "http://" + location.host;
+      })
+      .fail(function(){
+        alert('error')
+      })
     }
   })
 

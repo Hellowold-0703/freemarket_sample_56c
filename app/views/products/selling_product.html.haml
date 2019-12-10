@@ -24,7 +24,7 @@
               .owl-nav.disabled
                 .owl-prev prev
                 .owl-next next
-              .owl-items.owl-thumbs
+              .owl-items.owl-thumbs{style:"text-align: left"} 
                 - @product.product_images.each do |image|
                   - if image.name.present?
                     .owl-item{style:"text-align: left"}

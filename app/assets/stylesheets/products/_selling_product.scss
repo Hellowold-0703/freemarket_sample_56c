@@ -1,0 +1,84 @@
+.listing__product__change__box {
+  margin: 24px 0 24px 0;
+  background: #fff;
+  padding: 8px 16px 8px 16px;
+  text-align: center;
+  .btn-default {
+    margin: 16px 0 16px 0;
+    display: block;
+    width: 650px;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn-red {
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+  }
+  #overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    display: none;
+    z-index: 1;
+  }
+  #modalWindow {
+    width: 600px;
+    height: 250px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    font-size: 14px;
+    z-index: 2;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .modal-message-box {
+    width: 100%;
+    height: calc(100% - 60px);
+    padding: 64px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .message-head {
+    font-size: 16px;
+    font-weight: bold;
+    }
+  }
+  #modal-close-btn {
+    width: 50%;
+    height: 60px;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+  }
+  #delete-comformation-btn {
+    width: 50%;
+    height: 60px;
+    border: 1px solid #ccc;
+    color: #0099e8;
+    font-size: 14px;
+  }
+  .product-delete-btn {
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  #modal-open-btn a {
+    display: none;
+  }
+}

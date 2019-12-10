@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def selling_products
+    @sellers = Seller.where("user_id = ?", current_user.id)
+  end
+
   private
 
   def user_params

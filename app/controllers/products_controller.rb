@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   require 'payjp'
 
-  before_action :set_product, only: [:show, :buy]
+  before_action :set_product, only: [:show, :buy, :selling_product, :edit, :destroy]
   before_action :set_search
   before_action :authenticate_user!, only: [:buy, :pay, :create, :new]
   before_action :category_info_set, only: [:index]
@@ -76,6 +76,9 @@ class ProductsController < ApplicationController
     end
   end
   
+  def edit
+  end
+
   def show
     @product = set_product
     @seller = Seller.find_by(product_id: @product.id)
@@ -83,6 +86,14 @@ class ProductsController < ApplicationController
     @nike_products = Product.where("brand_id = ?", @product.brand_id).limit(6)
     
   end
+
+  def destroy
+    if @product.destroy
+      redirect_to selling_products_users_path
+    else
+      render :selling_product_product_path
+    end
+  end 
 
   def buy
     @credit_card = current_user.id
@@ -123,6 +134,10 @@ class ProductsController < ApplicationController
     @products = @search.result
   end
 
+  def selling_product
+    @seller = Seller.find_by(user_id: current_user.id)
+  end
+
   private
 
   def product_params
@@ -134,7 +149,7 @@ class ProductsController < ApplicationController
   end
 
   def set_product
-    Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def set_card

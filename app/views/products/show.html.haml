@@ -90,7 +90,8 @@
       ¥
       = @product.selling_price
     %span.product-price__tax (税込)
-    %span.product-price__sipping-fee 送料込み
+    %span.product-price__sipping-fee
+      = @product.shipping_charge
   - if @product.display == 0
     = link_to '購入画面に進む', buy_product_path(@product), class: 'product-buy-btn', data:{"turbolinks" => false}
     .product-description

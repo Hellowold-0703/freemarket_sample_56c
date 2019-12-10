@@ -26,39 +26,39 @@
                 = link_to data: {toggle: "tab"} do
                   売却済み
 
-          - @sellers.each do |seller|
-            - if seller.user_id == current_user.id && seller.product.display == 0
-              %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane
-                %li
-                  = link_to selling_product_product_path(seller.product_id), {class: 'mypage-item-link'} do
-                    %figure
-                      .is-higher-height.lazyloaded
-                        = image_tag seller.product.product_images[0].name
-                    .mypage-item-body.show-stock-item
-                      .mypage-item-text
-                        = seller.product.name
-                      %div
-                      %span.listing-item-count
-                        %i.fa.fa-heart-o
-                        - if seller.product.likes_count.present?
-                          %span
-                            = seller.product.likes_count
-                        - else
-                          %span 0
-                      %span.listing-item-count
-                        %i.fa.fa-envelope
-                        %span 0
-                      .mypage-item-status
-                        出品中
-                        
-                    %i.fa.fa-angle-right
-            - else
-              .tab-content
-                .tab-content-img
+          - if @sellers.present?
+            - @sellers.each do |seller|
+              -if seller.product.display == 0
                 %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane
-                  .treading_nothing 取引中の商品がありません
-              -#  %ul#mypage-tab-transaction-old.maypage-itemlist.tabpane
-              -#    %li.mypage-item-not-found.bold 過去に取引した商品はありません
+                  %li
+                    = link_to selling_product_product_path(seller.product_id), {class: 'mypage-item-link'} do
+                      %figure
+                        .is-higher-height.lazyloaded
+                          = image_tag seller.product.product_images[0].name
+                      .mypage-item-body.show-stock-item
+                        .mypage-item-text
+                          = seller.product.name
+                        %div
+                        %span.listing-item-count
+                          %i.fa.fa-heart-o
+                          - if seller.product.likes_count.present?
+                            %span
+                              = seller.product.likes_count
+                          - else
+                            %span 0
+                        %span.listing-item-count
+                          %i.fa.fa-envelope
+                          %span 0
+                        .mypage-item-status
+                          出品中
+                      %i.fa.fa-angle-right
+          - else
+            .tab-content
+              .tab-content-img
+              %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane
+                .treading_nothing 出品中の商品がありません
+            -#  %ul#mypage-tab-transaction-old.maypage-itemlist.tabpane
+            -#    %li.mypage-item-not-found.bold 過去に取引した商品はありません
 
         %ul.maypage-history.pager
           %li.pager-prev.pager-cell

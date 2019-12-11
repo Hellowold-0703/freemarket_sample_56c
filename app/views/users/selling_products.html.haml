@@ -1,6 +1,8 @@
 = render 'top/header'
 
-= render 'mypage/pankuzu'
+.bread-crumbs
+  - breadcrumb :exhibit
+  = render "layouts/breadcrumbs"
 
 = render 'top/transaction-btn'
 

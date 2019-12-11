@@ -57,25 +57,19 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product_images = ProductImage.new
+    @seller = Seller.new
     @categories = Category.where(id: params[:grandchild_category])
     @product[:category_id] = @categories[0][:id]
-    respond_to do |format|
-      if @product.save
-        num = 0
-        image = params[:product_images][:image]
-        while num < image.length() do
-          @product_images = @product.product_images.build
-          @product_images[:image] = image[num]
-          @product_images[:name] = "#{@product.id}-#{num}"
-          @product_images.save
-          File.binwrite("public/images/#{@product.id}-#{num}", image[num].read)
-          num += 1
-        end
-        @seller= Seller.create(user_id: current_user.id,product_id: @product.id)
-        format.html{redirect_to root_path}
-      else
-        format.html{render action: 'new'}
+    if (@product.save || params[:product_images] != nil)
+      num = 0
+      image = params[:product_images][:image]
+      while num < image.length() do
+        @product_images = @product.product_images.build
+        @product_images[:image] = image[num]
+        @product_images[:name] = "#{@product.id}-#{num}.jpg"
+        @product_images.save
+        File.binwrite("public/images/#{@product_images[:name]}", image[num].read)
+        num += 1
       end
     end
   end

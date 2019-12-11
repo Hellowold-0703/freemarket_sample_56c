@@ -4,62 +4,56 @@
 
 .products-search
   .detailed-search
-    = search_form_for @search do |f|
+    = search_form_for @search, url: search_products_path, method: :get do |f|
       %span 詳細検索
       .detailed-search--content
         = fa_icon "plus"
-    
         %span キーワードを追加する
         %br
         .detailed-search--content--form--keyword
-          %input
+          = f.search_field :name_has_every_term
       .detailed-search--content
         = fa_icon "list-ul"
-  
         %span カテゴリーを選択する
         %br
         .detailed-search--content--form--category
           %input
       .detailed-search--content
         = fa_icon "tag"
-  
         %span ブランド名から探す
         %br
         .detailed-search--content--form--brand
           %input
       .detailed-search--content
         = fa_icon "expand"
-  
         %span サイズを指定する
         %br
         .detailed-search--content--form--size
           %input
       .detailed-search--content
-        = fa_icon ""
-  
-        %span 価格
-        %br
         .detailed-search--content--form--price
-          %input
+          = fa_icon "jpy"
+          = f.label :selling_price, '価格'
+          %br
+          = f.number_field :selling_price_gteq
+          = f.number_field :selling_price_lteq
       .detailed-search--content
+        = fa_icon "star"
         %span 商品の状態
         %br
       .detailed-search--content
+        = fa_icon "truck"
         %span 配送料の負担
       .detailed-search--content
         .detailed-search--content--display
-          %span 販売状況
-          %br
-          = f.radio_button :display_eq, '', {checked: true}
-          %span すべて
+          = f.label :display, '販売状況'
+          = f.radio_button :display_eq, ''
           = f.radio_button :display_eq, 0
-          %span 販売中
-          %br
           = f.radio_button :display_eq, 1
-          %span 売り切れ
+        
       .detailed-search--content--btn
         .detailed-search--content--btn--clear 
-          = f.submit "クリア"
+          = f.submit "クリア", type: :reset
         .detailed-search--content--btn--complete
           = f.submit "検索"
         

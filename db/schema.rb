@@ -126,7 +126,8 @@ ActiveRecord::Schema.define(version: 20191208064314) do
     t.string   "phone_number"
     t.string   "provider"
     t.string   "uid"
-    t.string   "nickname"
+    t.string   "nickname",                                              null: false
+    t.string   "last_name",                                             null: false
     t.integer  "birth_month"
     t.integer  "birth_day"
     t.string   "address_last_name"

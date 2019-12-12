@@ -57,7 +57,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @seller = Seller.new
     @categories = Category.where(id: params[:grandchild_category])
     @product[:category_id] = @categories[0][:id]
     if (@product.save || params[:product_images] != nil)
@@ -71,6 +70,7 @@ class ProductsController < ApplicationController
         File.binwrite("public/images/#{@product_images[:name]}", image[num].read)
         num += 1
       end
+      @seller= Seller.create(user_id: current_user.id,product_id: @product.id)
     end
   end
   

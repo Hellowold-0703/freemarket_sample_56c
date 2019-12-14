@@ -4,10 +4,12 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.production?
-    storage :fog
-  else
+  if Rails.env.development?
     storage :file
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
   end
 
   # Override the directory where uploaded files will be stored.
@@ -44,7 +46,7 @@ class ProductImageUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    "#{secure_token}.#{file.extension}" if original_filename.present?
+ end
 end

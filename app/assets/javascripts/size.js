@@ -20,9 +20,7 @@ $(document).on('turbolinks:load', function(){
         ブランド
           <span class="form-arbitrary">任意</span>
         </label>
-        <div class="select-wrap">
-          <input placeholder="例) シャネル" default="default" class="input-default brand" type="text" id="product_brand_id">
-          <input name="product[brand_id]" type="hidden" class="hidden-default brand_hidden">
+        <input placeholder="例) シャネル" name="product[brand_id]" class="input-default brand" type="text" id="product_brand_id">
         </div>
       </div>`
     return html;

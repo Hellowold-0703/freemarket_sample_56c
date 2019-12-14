@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get 'search', to: 'products#search'
     end
   end
+  get "products/:id/edit", to: "products#edit", defaults: { format: 'json' }
   get "/transaction/sell", to: "products#new"
   post "/transaction/sell", to: "products#create", defaults: { format: 'json' }
   resources :sizes, only: [:index]
@@ -33,7 +34,6 @@ Rails.application.routes.draw do
   end
   namespace :transaction do
     resources :buy, only: [:index]
-    resources :sell, only: [:index]
   end
   resources :new_register do
     collection do

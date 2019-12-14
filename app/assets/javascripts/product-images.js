@@ -1,6 +1,31 @@
 $(document).on('turbolinks:load', function(){
-  var box_count = 0;
-  var box_count2 = 0;
+  var List = gon.product_images;
+  product_id = gon.product_id
+  sell_path = "/transaction/sell"
+  edit_path = "/products/" + product_id + "/edit"
+  if(window.location.pathname == sell_path){
+    var box_count = 0;
+    var box_count2 = 0;
+  }
+  else if(window.location.pathname == edit_path) {
+    fileList = [];
+    nameList = [];
+    List.forEach(function(img){
+      fileList.push(img.image.url);
+      nameList.push(img.name);
+    });
+    // console.log(imageList);
+    // console.log(fileList);
+    // console.log(nameList);    
+    if (fileList.length < 5) {
+      var box_count = fileList.length;
+      var box_count2 = 0;  
+    } else {
+      var box_count = fileList.length - 5;
+      var box_count2 = fileList.length;
+    }
+  }
+  console.log(box_count);
 
   function append_productimages(image, box_count2) {
     var html = `
@@ -44,13 +69,11 @@ $(document).on('turbolinks:load', function(){
       }
       if(box_count == 0) {
         $(".sell-upload__item:last").remove();
+        box_count += 5
       }
     } else {
       var reduce_box = delete_target.parent()
       $(".sell-upload__drop-box").removeClass("have-item-" + box_count.toString(10))
-      if(box_count == 0) {
-        box_count += 5
-      }
       reduce_box.removeClass("have-item-" + box_count.toString(10))
       box_count -= 1
       box_count2 -= 1
@@ -76,9 +99,7 @@ $(document).on('turbolinks:load', function(){
 
   function imagesPreview(input, filesAmount) {
     if (filesAmount != 0) {
-      var count1 = $("#imageList1").children().length;
-      var count2 = $("#imageList2").children().length;
-      var imageCount = count1 + count2
+      var imageCount = $(".imageList").children().length;
       var i = imageCount; 
       loadImage(i, input);
       function loadImage(i, input) {
@@ -116,7 +137,7 @@ $(document).on('turbolinks:load', function(){
   function append_uploadbox() {
     var html = `
       <div class="sell-upload-items have-item-0">
-        <ul id="imageList2">
+        <ul id="imageList2" class="imageList">
         </ul>
       </div>
     `
@@ -126,7 +147,6 @@ $(document).on('turbolinks:load', function(){
   $(".sell-dropbox__container").on("click", "#upload-item__delete", function(){
     var delete_target = $(this).parents(".sell-upload__item")
     var index = $("li.sell-upload__item").index(delete_target);
-    debugger;
     fileList.splice(index, 1);
     change_class_to_decrement(delete_target)
     delete_target.remove();
@@ -320,7 +340,7 @@ $(document).on('turbolinks:load', function(){
       var childSelectHtml = '';
       childSelectHtml = `
         <div class="select-wrap" id="children_wrapper">
-          <select class="select-default" id="child_category" name="children_category">
+          <select class="select-default" id="child_category" name="child_category">
             <option value="---">---</option>
             ${insertHTML}
           </select>
@@ -332,7 +352,7 @@ $(document).on('turbolinks:load', function(){
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `
         <div class="select-wrap" id="grandchildren_wrapper">
-          <select class="select-default" id="grandchild_category" name="grandchild_category">
+          <select class="select-default" id="category_id" name="category_id">
             <option value="---">---</option>
             ${insertHTML}
           </select>
@@ -487,8 +507,7 @@ $(document).on('turbolinks:load', function(){
     } 
   });
 
-  $("#product_selling_price").on("keyup", function(){
-    var raw_price = $(this).val()
+  function priceCalc(raw_price) {
     if(300 <= raw_price && 9999999 >= raw_price) {
       var fee = raw_price * 0.1
       var profit = raw_price - fee
@@ -500,7 +519,17 @@ $(document).on('turbolinks:load', function(){
       $("#fee").text(fee)
       $("#profit").text(profit)
     }
+  }
+
+  $("#product_selling_price").on("keyup", function(){
+    var raw_price = $(this).val()
+    priceCalc(raw_price);
   })
+
+  window.onload = function(){
+    var raw_price = $("#product_selling_price").val()
+    priceCalc(raw_price);
+  };
 
 
   $("#form").on("submit", function(e) {
@@ -509,9 +538,14 @@ $(document).on('turbolinks:load', function(){
     var filecheck = fd.get("product_images[image][]")
     if (filecheck.name != "") {
       fd.delete("product_images[image][]")
-      for (i = 0; i < fileList.length; i++) {
-        fd.append("product_images[image][]",fileList[i])
-      }
+    }
+    for (i = 0; i < fileList.length; i++) {
+      fd.append("product_images[image][]",fileList[i])
+    }
+    for (let value of fd.entries()) { 
+      console.log(value); 
+    }
+    if(window.location.pathname == sell_path){
       var url = location.href
       $.ajax({
         url: url,
@@ -521,7 +555,24 @@ $(document).on('turbolinks:load', function(){
         processData: false,
         contentType: false
       })
-      .done(function(data){
+      .done(function(){
+        location.href = "http://" + location.host;
+      })
+      .fail(function(){
+        alert('error')
+      })
+    }
+    else if(window.location.pathname == edit_path) {
+      var url = "http://" + location.host + "/products/" + product_id
+      $.ajax({
+        url: url,
+        type: "PUT",
+        data: fd,
+        dataType: 'json',
+        processData: false,
+        contentType: false
+      })
+      .done(function(){
         location.href = "http://" + location.host;
       })
       .fail(function(){
@@ -529,5 +580,4 @@ $(document).on('turbolinks:load', function(){
       })
     }
   })
-
 })

@@ -1,6 +1,8 @@
 = render 'top/header'
 
-= render 'mypage/pankuzu'
+.bread-crumbs
+  - breadcrumb :exhibit
+  = render "layouts/breadcrumbs"
 
 %main.l-container.clearfix
   .l-container-box
@@ -123,7 +125,7 @@
               %br
               %div 削除すると二度と復活できません。
               %br
-              %div 削除する代わりに停止することもできます.
+              %div 削除する代わりに停止することもできます。
               %br
               %br
               %div 本当に削除しますか?

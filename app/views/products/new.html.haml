@@ -15,9 +15,9 @@
               .sell-dropbox__container.clearfix.state-image-number-10
                 .sell-upload-items__container
                   .sell-upload-items.have-item-0
-                    %ul{id: "imageList1"}
+                    %ul{id: "imageList1", class: "imageList" }
                 %label{class: "sell-upload__drop-box have-item-0"}
-                  = f.fields_for @product_images do |i|
+                  = f.fields_for :product_images do |i|
                     = i.file_field :image, multiple: true, class: "sell-upload__drop-file", style: "display:none;", id: "input_files", name: 'product_images[image][]', accept: "image/png,image/jpeg,image/jpeg,image/gif"
                   %pre.visible-pc
                     :preserve

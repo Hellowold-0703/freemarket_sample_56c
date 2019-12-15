@@ -26,6 +26,11 @@ crumb :profile do
   link "プロフィール", users_path
   parent :mypage
 end
+
+crumb :exhibit do
+  link "出品した商品-出品中", users_path
+  parent :mypage
+end
 # crumb :issue do |issue|
 #   link issue.title, issue_path(issue)
 #   parent :project_issues, issue.project

@@ -1,0 +1,73 @@
+= render 'top/header'
+
+.bread-crumbs
+  - breadcrumb :exhibit
+  = render "layouts/breadcrumbs"
+
+= render 'top/transaction-btn'
+
+
+%main.l-container.clearfix
+  .l-container-box
+    .l-content
+      .selling__products
+        %section.selling__products__container
+          %h2.selling__products__tab__head
+            出品した商品
+          %ul.selling__products__tabs
+            %li.active
+              %h3
+                = link_to data: {toggle: "tab"} do
+                  出品中
+            %li
+              %h3
+                = link_to data: {toggle: "tab"} do
+                  取引中
+            %li
+              %h3
+                = link_to data: {toggle: "tab"} do
+                  売却済み
+
+          - if @sellers.present?
+            - @sellers.each do |seller|
+              -if seller.product.display == 0
+                %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane
+                  %li
+                    = link_to selling_product_product_path(seller.product_id), {class: 'mypage-item-link'} do
+                      %figure
+                        .is-higher-height.lazyloaded
+                          = image_tag seller.product.product_images[0].name
+                      .mypage-item-body.show-stock-item
+                        .mypage-item-text
+                          = seller.product.name
+                        %div
+                        %span.listing-item-count
+                          %i.fa.fa-heart-o
+                          - if seller.product.likes_count.present?
+                            %span
+                              = seller.product.likes_count
+                          - else
+                            %span 0
+                        %span.listing-item-count
+                          %i.fa.fa-envelope
+                          %span 0
+                        .mypage-item-status
+                          出品中
+                      %i.fa.fa-angle-right
+          - else
+            .tab-content
+              .tab-content-img
+              %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane
+                .treading_nothing 出品中の商品がありません
+
+        %ul.maypage-history.pager
+          %li.pager-prev.pager-cell
+            = link_to '' do
+              %i.fa.fa-angle-left
+          %li.pager-next.pager-cell
+            = link_to '' do
+              %i.fa.fa-angle-right
+
+    = render 'mypage/side'
+
+= render 'top/footer'

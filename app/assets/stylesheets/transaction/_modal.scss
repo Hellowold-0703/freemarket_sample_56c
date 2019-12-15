@@ -1,0 +1,179 @@
+#mask {
+  background: #555;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 3000;
+  opacity: 1;
+  transform: translate(0, 0);
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#modal {
+  width: 95%;
+  margin: 24px auto;
+  padding: 0 0 40px;
+  background: #fff;
+}
+
+#mask.hidden {
+  display: none;
+}
+
+#modal.hidden {
+  transform: translate(0, -500px);
+}
+
+#new_img.hidden {
+  display: none;
+}
+
+.modal__header {
+  padding: 16px;
+  h3 {
+    margin: 8px 0 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  a {
+    display: block;
+    padding: 8px 12px;
+    background: #eee;
+    color: #888;
+    span {
+      color: #888 !important;
+    }
+    .fa-camera{
+      vertical-align: middle;
+      margin: 0 8px 0 0;
+    }
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.modal__editor {
+  width: 95%;
+  margin: 0 auto;
+  canvas {
+    cursor: move;
+    width: 100%;
+    vertical-align: middle;
+  }
+}
+
+.modal__range {
+  position: relative;
+  width: 85%;
+  margin: 16px auto 0;
+  padding: 8px 0 4px;
+  .fa-camera:first-child {
+    left: 0;
+    font-size: 12px;
+  }
+  .fa-camera:last-child {
+    right: 0;
+    font-size: 20px;
+  }
+  .fa-camera {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+  input {
+    width: 100%;
+    padding: 0 5px;
+    margin-left: 6%;
+  }
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  background: #eee;
+  height: 20px;
+  width: 85%;
+  border-radius: 10px;
+  //WEBKIT
+  &::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid #000;
+  }
+  &::-ms-tooltip{
+    display: none;
+  }
+  &::-moz-range-track{
+    height: 0;
+  }
+  &::-moz-range-thumb{
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50%;
+  }
+}
+
+
+.input-range-default {
+  cursor: pointer;
+}
+
+.modal__errors {
+  width: 95%;
+  margin: 10px auto;
+}
+
+.modal__btn {
+  max-width: 380px;
+  margin: 24px auto 0;
+  padding: 0 16px;
+  .btn-default {
+    width: 45%;
+  }
+  .btn-red {
+    margin: 0 !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #modal {
+    width: 600px;
+  }
+  .modal__header {
+    h3 {
+    margin: 12px 0 0;
+    font-size: 18px;
+    }
+    a {
+      padding: 12px 16px;
+    }
+  }
+  .modal__editor {
+    width: 380px;
+    canvas {
+      width: 380px;
+      height: 380px;
+    }
+  }
+  .modal__range {
+    width: 300px;
+  }
+  .modal__errors {
+    width: 380px;
+  }
+}

@@ -7,11 +7,12 @@ Rails.application.routes.draw do
 
   root 'products#index'
   resources :mypage, only: [:index]
-  resources :products, only: [:index, :show, :new, :buy, :done, :create] do
+  resources :products, only: [:index, :show, :new, :buy, :done, :create, :edit, :update, :destroy] do
     member do
       get 'buy'
       post 'pay'
       get 'done'
+      get 'selling_product'
     end
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -20,18 +21,19 @@ Rails.application.routes.draw do
       get 'search', to: 'products#search'
     end
   end
+  get "products/:id/edit", to: "products#edit", defaults: { format: 'json' }
   get "/transaction/sell", to: "products#new"
-  post "/transaction/sell", to: "products#create"
+  post "/transaction/sell", to: "products#create", defaults: { format: 'json' }
   resources :sizes, only: [:index]
   resources :confirm, only: [:index]
   resources :users, only: [:edit, :update, :index] do
     collection do
       get 'logout'
+      get 'selling_products'
     end
   end
   namespace :transaction do
     resources :buy, only: [:index]
-    resources :sell, only: [:index]
   end
   resources :new_register do
     collection do

@@ -6,7 +6,7 @@
       .sell-container
         .sell-container__inner
           %h2.head 商品の情報を入力
-          = form_for @product, html: {class: "sell-form", id: "form"} do |f|
+          = form_for :product, html: {class: "sell-form", id: "form"} do |f|
             .sell-upload__box
               %h3.sell-upload__head
                 出品画像
@@ -14,11 +14,20 @@
               %p 最大10枚までアップロードできます
               .sell-dropbox__container.clearfix.state-image-number-10
                 .sell-upload-items__container
-                  .sell-upload-items.have-item-0
-                    %ul{id: "imageList1", class: "imageList" }
-                %label{class: "sell-upload__drop-box have-item-0"}
-                  = f.fields_for :product_images do |i|
+                  - @product_images.each_slice(5) do |image|
+                    %div{class: "sell-upload-items have-item-#{image.length}"}
+                      %ul{class: "imageList"}
+                        - image.each do |i|
+                          %li.sell-upload__item
+                            %figure.sell-upload__figure.portrait
+                              = image_tag "#{i.name}",class:"product_image"
+                            .sell-upload__button
+                              %a{id: "upload-item__edit"} 編集
+                              %a{id: "upload-item__delete", data: {id: "#{i.id}"}} 削除
+                %label{class: "sell-upload__drop-box have-item-#{@images_length}"}
+                  = f.fields_for @product_images do |i|
                     = i.file_field :image, multiple: true, class: "sell-upload__drop-file", style: "display:none;", id: "input_files", name: 'product_images[image][]', accept: "image/png,image/jpeg,image/jpeg,image/gif"
+              
                   %pre.visible-pc
                     :preserve
                       ドラッグアンドドロップ
@@ -41,13 +50,32 @@
               %h3.sell__sub-head 商品の詳細
               .sell__form-box
                 .form-group
-                  = f.label "カテゴリー" 
+                  = f.label :category_id, "カテゴリー" 
                   %span.form-require 必須
                   .category-box
                     .select-wrap
-                      = f.select :category, @category_parent_array, {}, {class: 'select-default', id: 'parent_category', name: 'parent_category'}
+                      = f.collection_select :parent_category, @parent_categories, :id, :name, {include_blank: "---", selected: "#{@parent_category.id}"}, {id: "parent_category", class: "select-default"}
                       %i.fas.fa-angle-down
-                 
+                    .select-wrap{id: "children_wrapper"}
+                      = f.collection_select :child_category, @child_categories, :id, :name, {include_blank: "---", selected: "#{@child_category.id}"}, {id: "child_category", class: "select-default"}
+                      %i.fas.fa-angle-down
+                    .select-wrap{id: "grandchildren_wrapper"}
+                      = f.collection_select :category_id, @grandchild_categories, :id, :name, {include_blank: "---", selected: "#{@grandchild_category.id}"}, {id: "grandchild_category", class: "select-default"}
+                      %i.fas.fa-angle-down
+
+                .form-group.size{id: "size_wrapper"}
+                  = f.label :size_id, "サイズ"
+                  %span.form-require 必須
+                  .select-wrap
+                    = f.collection_select(:size_id, @size_list, :id, :name, {include_blank: "---"}, {id: "size", class: "select-default"})
+                    %i.fas.fa-angle-down
+                .form-group{id: "brand_wrapper"}
+                  .select-wrap
+                    = f.label :brand_id, "ブランド"
+                    %span.form-arbitrary 任意
+                    .sell__about__right__wrap-box
+                      = f.text_field :brand_id, placeholder: "例）シャネル", class: "input-default brand", type: "text", id: "product_brand_id", name: "product[brand_id]"
+
                 .form-group
                   = f.label :status do
                     商品の状態
@@ -58,7 +86,7 @@
 
             .sell-content.clearfix
               %h3.sell__sub-head 配送について
-              %a.form-question{href: "https://www.mercari.com/jp/help_center/article/68/", target: "_blank"}?
+              %a.form-question{href: "", target: "_blank"}?
               .sell__form-box
                 .form-group
                   = f.label :shipping_charge do
@@ -67,6 +95,13 @@
                   .select-wrap
                     %i.fas.fa-angle-down
                     = f.select :shipping_charge, Product.shipping_charges.keys, {}, class: "select-default"
+                .form-group
+                  = f.label :shipping_area do
+                    配送の方法
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.fas.fa-angle-down
+                    = f.select :shipping_method, Product.shipping_methods.keys, {}, class: "select-default", id: "shipping_method"
                 .form-group
                   = f.label :shipping_area do
                     発送元の地域
@@ -84,7 +119,7 @@
 
             .sell-content.clearfix
               %h3.sell__sub-head 販売価格(300〜9,999,999)
-              %a.form-question{href: "https://www.mercari.com/jp/help_center/article/64/", target: "_blank"}?
+              %a.form-question{href: "", target: "_blank"}?
               .sell__form-box
                 %ul.sell-price
                   %li.form-group
@@ -118,7 +153,7 @@
                   また、出品をもちまして
                   %a{href: ""} 加盟店規約
                   に同意したことになります。
-              = f.button "出品する", class: "btn-default btn-red", id: "submit-btn"
+              = f.button "編集する", class: "btn-default btn-red", id: "edit-btn"
               = link_to "もどる", root_path, class: "btn-default btn-gray"
 
   = render 'single-footer'

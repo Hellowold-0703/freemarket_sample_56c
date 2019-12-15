@@ -8,12 +8,10 @@
         .owl-stage-outer
           .owl-stage
             - @product.images.each do |image|
-
               - if image.url.present?
                 .owl-product
                   .owl-product-inner
                     = image_tag image.url,{class: 'owl-lazy'}
-
                     - if @product.display == 1
                       .owl-product-inner--sold SOLD OUT
                       

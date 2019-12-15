@@ -74,7 +74,7 @@
             .result__product__image
               = image_tag product.images[0], height: "160px", width: "160px"
               - if product.display == 1
-                .result__product__name-box--sold SOLDOUT
+                .result__product__image--sold SOLDOUT
               %p
                 ¥
                 = product.selling_price

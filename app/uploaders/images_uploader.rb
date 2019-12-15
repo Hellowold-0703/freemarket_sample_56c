@@ -1,4 +1,4 @@
-class ProductImageUploader < CarrierWave::Uploader::Base
+class ImagesUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -35,7 +35,7 @@ class ProductImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   # version :thumb do
-    # process resize_to_fit: [400, 400]
+  #   process resize_to_fit: [50, 50]
   # end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -47,18 +47,17 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
 
-  def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
+  # def filename
+  #   "#{secure_token}.#{file.extension}" if original_filename.present?
+  # end
+
+  protected
+  def secure_token
+    var = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
   end
 
-#   def filename
-#     "#{secure_token}.png" if original_filename.present?
-#   end
-  
-#   protected
-#   def secure_token
-#     var = :"@#{mounted_as}_secure_token"
-#     model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
-#   end
-
+  # def filename
+  #   "something.jpg" if original_filename
+  # end
 end

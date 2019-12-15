@@ -11,4 +11,4 @@ json.likes_count @product.likes_count
 json.category_id @product.category_id
 json.brand_id @product.brand_id
 json.size_id @product.size_id
-json.image @product_images.image
+json.images @product.images

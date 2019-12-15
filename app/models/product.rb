@@ -6,8 +6,6 @@ class Product < ApplicationRecord
   belongs_to :size, optional: true
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
-  has_many :product_images, dependent: :destroy
-  accepts_nested_attributes_for :product_images, allow_destroy: true
   validates :name, presence: true
   validates :explanation, presence: true
   validates :status, presence: true
@@ -17,6 +15,9 @@ class Product < ApplicationRecord
   validates :selling_price, presence: true
   validates :shipping_method, presence: true
   validates :category_id, presence: true
+  validates :images, presence: true
+  mount_uploaders :images, ImagesUploader
+  serialize :images, JSON
 
   enum status: {
     "---": "",

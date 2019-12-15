@@ -35,7 +35,6 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product_images = @product.product_images.build
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -56,24 +55,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product_images = ProductImage.new
     @categories = Category.where(id: params[:category_id])
-
     @product[:category_id] = @categories[0][:id]
-    if (@product.save || params[:product_images] != nil)
-      @seller= Seller.create(user_id: current_user.id,product_id: @product.id)
-      num = 0
-      image = params[:product_images][:image]
-      while num < image.length() do
-        @product_images = @product.product_images.build
-        @product_images[:image] = image[num]
-        ext = File.extname(image[num].original_filename)
-        @product_images[:name] = "#{@product.id}-#{num}#{ext}"
-
-        @product_images.save
-        File.binwrite("public/images/#{@product_images[:name]}", image[num].read)
-        num += 1
-      end
+    if (params[:product][:images] != nil)
+      @product.save
       @seller= Seller.create(user_id: current_user.id,product_id: @product.id)
     end
   end
@@ -81,14 +66,15 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     gon.product_id = @product[:id]
-    @product_images = @product.product_images
+    @product_images = @product[:images]
     gon.product_images = @product_images
     @size = Size.find(@product.size_id)
     @size_list = Size.where('size_type_id = ?', "#{@size.size_type_id}")
-    if @product.product_images.length < 5
-      @images_length = @product.product_images.length
+    @length = @product.images.length % 5
+    if @product.images.length < 5
+      @images_length = @product.images.length
     else
-      @images_length = @product.product_images.length - 5
+      @images_length = @product.images.length - 5
     end
     @grandchild_category = @product.category
     @child_category = @grandchild_category.parent
@@ -102,17 +88,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @product.sellers[0].user_id == current_user.id
       @product.update(product_params)
-      # num = 0
-      # image = params[:product_images][:image]
-      # while num < image.length() do
-      #   @product_images = @product.product_images.build
-      #   @product_images[:image] = image[num]
-      #   ext = File.extname(image[num].original_filename)
-      #   @product_images[:name] = "#{@product.id}-#{num}#{ext}"
-      #   @product_images.update
-      #   File.binwrite("public/images/#{@product_images[:name]}", image[num].read)
-      #   num += 1
-      # end
     end
   end
 
@@ -177,7 +152,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_price, :shipping_method, :likes_count, :category_id, :brand_id, :size_id, product_images_attributes: [:image])
+    params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_price, :shipping_method, :likes_count, :category_id, :brand_id, :size_id, {images: []})
   end
 
   def set_payjp_private_key

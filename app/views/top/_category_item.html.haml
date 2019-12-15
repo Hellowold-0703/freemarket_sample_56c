@@ -1,6 +1,6 @@
 = link_to product_path(product), class: "pickup__item__bottom__box" do
   .pickup__item__bottom__box__image
-    = image_tag product.product_images[0].name, height: "188px", width: "188px"
+    = image_tag product.images_urls[0], height: "188px", width: "188px"
     - if product.display == 1
       .pickup__item__bottom__box__image--sold SOLD OUT
     %p

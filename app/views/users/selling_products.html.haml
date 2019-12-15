@@ -36,7 +36,7 @@
                     = link_to selling_product_product_path(seller.product_id), {class: 'mypage-item-link'} do
                       %figure
                         .is-higher-height.lazyloaded
-                          = image_tag seller.product.product_images[0].name
+                          = image_tag seller.product.images[0]
                       .mypage-item-body.show-stock-item
                         .mypage-item-text
                           = seller.product.name

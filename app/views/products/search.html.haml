@@ -72,7 +72,7 @@
         .result__product
           =link_to product_path(product.id),method: :get do
             .result__product__image
-              = image_tag product.product_images[0].name, height: "160px", width: "160px"
+              = image_tag product.images[0], height: "160px", width: "160px"
               - if product.display == 1
                 .result__product__name-box--sold SOLDOUT
               %p

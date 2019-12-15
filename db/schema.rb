@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20191215040057) do
+ActiveRecord::Schema.define(version: 20191215053121) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -66,9 +65,9 @@ ActiveRecord::Schema.define(version: 20191215040057) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
     t.integer  "likes_count"
+    t.integer  "category_id"
     t.integer  "brand_id"
     t.integer  "selling_price",                                  null: false
-    t.integer  "category_id"
     t.integer  "size_id"
     t.integer  "display",                            default: 0
     t.string   "images",                                         null: false
@@ -148,6 +147,7 @@ ActiveRecord::Schema.define(version: 20191215040057) do
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "products", "brands"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "sizes"
   add_foreign_key "sellers", "products"
   add_foreign_key "sellers", "users"

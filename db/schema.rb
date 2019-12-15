@@ -99,10 +99,10 @@ ActiveRecord::Schema.define(version: 20191201063225) do
     t.string   "phone_number"
     t.string   "provider"
     t.string   "uid"
-    t.string   "nickname",                                               null: false
-    t.string   "last_name",                                              null: false
-    t.string   "last_name_kana",                                         null: false
-    t.string   "first_name_kana",                                        null: false
+    t.string   "nickname",                                 default: "",  null: false
+    t.string   "last_name",                                default: ""
+    t.string   "last_name_kana",                           default: ""
+    t.string   "first_name_kana",                          default: ""
     t.integer  "birthdate_year",                                         null: false
     t.integer  "birthdate_month",                                        null: false
     t.integer  "birthdate_day",                                          null: false

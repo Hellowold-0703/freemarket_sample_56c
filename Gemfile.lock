@@ -388,8 +388,8 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.7, >= 5.0.7.2)
   rails-controller-testing
-  ransack
   rails-i18n
+  ransack
   recaptcha
   rspec-rails
   sass-rails (~> 5.0)

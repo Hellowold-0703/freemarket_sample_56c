@@ -94,9 +94,9 @@ class NewRegisterController < ApplicationController
   first_name:            user_params[:first_name],
   family_furigana:       user_params[:family_furigana],
   first_furigana:        user_params[:first_furigana],
-  birthdate_year:        user_params[:birthdate_year],
-  birthdate_month:       user_params[:birthdate_month],
-  birthdate_day:         user_params[:birthdate_day],
+  birth_year:        user_params[:birth_year],
+  birth_month:       user_params[:birth_month],
+  birth_day:         user_params[:birth_day],
   )
   render 'new_register/index' unless @user.valid?
   end

@@ -10,7 +10,7 @@
         = link_to do
           %figure.products-box__photo
             = link_to seller.product do
-              = image_tag seller.product.product_images[0].name
+              = image_tag seller.product.images[0].url
           .products-box__body
             %h3.products-box__body__name
               = seller.product.name
@@ -33,7 +33,7 @@
       %section.products-box
         = link_to do
           %figure.products-box__photo
-            = image_tag nike.product_images[0].name
+            = image_tag nike.images[0].url
           .products-box__body
             %h3.products-box__body__name
               = nike.name

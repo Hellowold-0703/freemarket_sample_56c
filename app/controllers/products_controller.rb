@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:buy, :pay, :create, :new]
   before_action :category_info_set, only: [:index]
   before_action :brand_info_set, only: [:index]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   
   def index
   end
@@ -167,7 +167,7 @@ class ProductsController < ApplicationController
 
   def search
     @search = Product.ransack(params[:q])
-    @products = @search.result
+    @products = @search.result.order("id DESC")
   end
 
   def selling_product

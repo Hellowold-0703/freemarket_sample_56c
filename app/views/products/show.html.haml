@@ -8,10 +8,12 @@
         .owl-stage-outer
           .owl-stage
             - @product.images.each do |image|
-              - if image.present?
+
+              - if image.url.present?
                 .owl-product
                   .owl-product-inner
-                    = image_tag image,{class: 'owl-lazy'}
+                    = image_tag image.url,{class: 'owl-lazy'}
+
                     - if @product.display == 1
                       .owl-product-inner--sold SOLD OUT
                       
@@ -20,10 +22,12 @@
           .owl-next next
         .owl-items.owl-thumbs
           - @product.images.each do |image|
-            - if image.present?
+
+            - if image.url.present?
               .owl-item
                 .owl-item-inner
-                  = image_tag image, {class: 'is-higher-width'}
+                  = image_tag image.url, {class: 'is-higher-width'}
+
     %table.product__detail
       %tbody
         %tr

@@ -9,7 +9,7 @@
           %h3.buy-item__image
             .owl-product
               .owl-product-inner
-              = image_tag (@product.product_images[0].name),{class: 'owl-lazy'}
+              = image_tag (@product.images[0].url),{class: 'owl-lazy'}
           %p.buy-item__name.bold
             = @product.name
           %form.buy-form{action: "", method: "POST", novalidate: "novalidate"}

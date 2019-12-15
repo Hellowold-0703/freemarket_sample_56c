@@ -14,9 +14,7 @@ $(document).on('turbolinks:load', function(){
       fileList.push(img.image.url);
       nameList.push(img.name);
     });
-    // console.log(imageList);
-    // console.log(fileList);
-    // console.log(nameList);    
+
     if (fileList.length < 5) {
       var box_count = fileList.length;
       var box_count2 = 0;  
@@ -25,7 +23,6 @@ $(document).on('turbolinks:load', function(){
       var box_count2 = fileList.length;
     }
   }
-  console.log(box_count);
 
   function append_productimages(image, box_count2) {
     var html = `
@@ -541,9 +538,6 @@ $(document).on('turbolinks:load', function(){
     }
     for (i = 0; i < fileList.length; i++) {
       fd.append("product_images[image][]",fileList[i])
-    }
-    for (let value of fd.entries()) { 
-      console.log(value); 
     }
     if(window.location.pathname == sell_path){
       var url = location.href

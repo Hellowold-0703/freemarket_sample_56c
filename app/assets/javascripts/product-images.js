@@ -11,12 +11,9 @@ $(document).on('turbolinks:load', function(){
     fileList = [];
     nameList = [];
     List.forEach(function(img){
-      fileList.push(img.image.url);
+      fileList.push(img.url);
       nameList.push(img.name);
     });
-    // console.log(imageList);
-    // console.log(fileList);
-    // console.log(nameList);    
     if (fileList.length < 5) {
       var box_count = fileList.length;
       var box_count2 = 0;  
@@ -25,7 +22,6 @@ $(document).on('turbolinks:load', function(){
       var box_count2 = fileList.length;
     }
   }
-  console.log(box_count);
 
   function append_productimages(image, box_count2) {
     var html = `
@@ -535,16 +531,17 @@ $(document).on('turbolinks:load', function(){
   $("#form").on("submit", function(e) {
     e.preventDefault();
     var fd = new FormData(this);
-    var filecheck = fd.get("product_images[image][]")
+    var filecheck = fd.get("product[images][]")
     if (filecheck.name != "") {
-      fd.delete("product_images[image][]")
+      fd.delete("product[images][]")
     }
     for (i = 0; i < fileList.length; i++) {
-      fd.append("product_images[image][]",fileList[i])
+      fd.append("product[images][]",fileList[i])
     }
     for (let value of fd.entries()) { 
       console.log(value); 
     }
+    debugger;
     if(window.location.pathname == sell_path){
       var url = location.href
       $.ajax({

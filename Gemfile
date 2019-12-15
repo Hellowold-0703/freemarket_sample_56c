@@ -60,7 +60,6 @@ group :development do
 end
 
 group :production do
-  gem 'dotenv-rails'
   gem 'unicorn', '5.4.1'
 end
 

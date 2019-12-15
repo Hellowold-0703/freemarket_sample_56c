@@ -14,6 +14,7 @@ $(document).on('turbolinks:load', function(){
       fileList.push(img.url);
       nameList.push(img.name);
     });
+
     if (fileList.length < 5) {
       var box_count = fileList.length;
       var box_count2 = 0;  
@@ -538,10 +539,6 @@ $(document).on('turbolinks:load', function(){
     for (i = 0; i < fileList.length; i++) {
       fd.append("product[images][]",fileList[i])
     }
-    for (let value of fd.entries()) { 
-      console.log(value); 
-    }
-    debugger;
     if(window.location.pathname == sell_path){
       var url = location.href
       $.ajax({

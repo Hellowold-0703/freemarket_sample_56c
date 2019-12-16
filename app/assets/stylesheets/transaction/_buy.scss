@@ -17,6 +17,16 @@ main{
     &__inner{
       max-width: 320px;
       margin: 0 auto;
+      font-size: 12px;
+      h4 {
+        margin-top: 8px;
+      }
+      h5 {
+        font-size: 11px;
+      }
+      figure {
+        margin-top: 8px;
+      }
     }
   }
   &-item{
@@ -113,9 +123,13 @@ main{
         font-size: 14px;
         line-height: 1.4;
         width: 100%;
+        
         a{
           color: #0099e8;
           text-decoration: none;
+        }
+        span {
+          font-size: 14px;
         }
       }
       &__fix {

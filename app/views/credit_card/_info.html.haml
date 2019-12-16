@@ -5,6 +5,8 @@
     .credit-info--body--name 登録クレジットカード情報
     %br
     .credit-info--body--content
+      %figure
+        = image_tag "credit_card/#{@default_card_information.brand}", width: '30', height: '20', alt: @default_card_information.brand, id: "card_image"
       .credit-info--body--content--number
         = "**** **** **** " + @default_card_information.last4
         %br

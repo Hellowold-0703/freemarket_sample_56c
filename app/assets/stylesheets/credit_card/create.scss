@@ -21,13 +21,38 @@
       height: 98px;
       margin-left: auto;
       margin-right: auto;
-      & input {
+      & .number {
+        margin-top: 8px;
+      }
+      &--exp {
+        margin-top: 8px;
+      }
+      input {
         width: 100%;
         height: 46px;
       }
-      & select {
+      select {
         width: 40%;
         height: 46px;
+      }
+      & .cvc {
+        margin-top: 8px;
+      }
+      &--back {
+        color: #0099e8;
+        text-align: right;
+        margin-top: 15px;
+        cursor : pointer;
+      }
+      &--button {
+        background-color: #ea352d;
+        color: white;
+        border-color: #ea352d;
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+        margin-top: 32px;
+        cursor : pointer;
       }
     }
   }

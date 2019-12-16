@@ -54,6 +54,21 @@ class CreditCardController < ApplicationController
       Payjp.api_key = set_payjp_private_key
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
+      @card_brand = @default_card_information.brand      
+      case @card_brand
+      when "Visa"
+        @card_src = "Visa.png"
+      when "JCB"
+        @card_src = "JCB.png"
+      when "MasterCard"
+        @card_src = "MasterCard.png"
+      when "American Express"
+        @card_src = "AmericanExpress.png"
+      when "Diners Club"
+        @card_src = "Dinersclub.png"
+      when "Discover"
+        @card_src = "Discover.png"
+      end
     end
   end
 

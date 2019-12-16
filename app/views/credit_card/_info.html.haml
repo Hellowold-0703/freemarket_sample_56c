@@ -6,7 +6,7 @@
     %br
     .credit-info--body--content
       %figure
-        = image_tag "credit_card/#{asset_path @default_card_information.brand}", width: '30', height: '20', alt: @default_card_information.brand, id: "card_image"
+        = image_tag "#{@card_src}", width: '30', height: '20', alt: @card_brand, id: "card_image"
       .credit-info--body--content--number
         = "**** **** **** " + @default_card_information.last4
         %br

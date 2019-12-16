@@ -60,7 +60,7 @@
             - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
           %figure
-            = image_tag "credit_card/#{@default_card_information.brand}", alt: @default_card_information.brand, width: "40", height: "15"
+            = image_tag "credit_card/#{asset_path @default_card_information.brand}", width: '40', height: '15', alt: @default_card_information.brand, id: "card_image"
             %p
           = link_to credit_card_path(@credit_card), class: "buy-user-info__fix" do
             %span 変更する

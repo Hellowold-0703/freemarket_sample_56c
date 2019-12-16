@@ -50,7 +50,7 @@
             - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
           %figure
-            = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2806274400", alt: "visa", width: "49", height: "15"
+            = image_tag "credit_card/#{@default_card_information.brand}", alt: @default_card_information.brand, width: "49", height: "15"
             %p
           = link_to "", class: "buy-user-info__fix" do
             %span 変更する

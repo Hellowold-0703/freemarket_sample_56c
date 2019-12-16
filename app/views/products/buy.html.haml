@@ -51,14 +51,16 @@
       %section.buy-content.buy-user-info
         .buy-content__inner
           %h3 支払い方法
-          %p.buy-user-info__text
+          %h4 クレジットカード
+          %h5.buy-user-info__text
             = "**** **** **** " + @default_card_information.last4
             %br
+            %span 有効期限
             - exp_month = @default_card_information.exp_month.to_s
             - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
           %figure
-            = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2806274400", alt: "visa", width: "49", height: "15"
+            = image_tag "credit_card/#{@default_card_information.brand}", alt: @default_card_information.brand, width: "40", height: "15"
             %p
           = link_to credit_card_path(@credit_card), class: "buy-user-info__fix" do
             %span 変更する

@@ -82,7 +82,8 @@
                     = f.label :brand_id, "ブランド"
                     %span.form-arbitrary 任意
                     .sell__about__right__wrap-box
-                      = f.text_field :brand_id, placeholder: "例）シャネル", class: "input-default brand", type: "text", id: "product_brand_id", name: "product[brand_id]"
+                      = f.select :brand_id, Brand.all.collect { |p| [ p.name, p.id ] }, { prompt: '---' }, {class: 'select-default'}
+                      %i.fas.fa-angle-down
 
                 .form-group
                   = f.label :status do

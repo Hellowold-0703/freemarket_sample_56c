@@ -16,9 +16,9 @@
       .a2 
         %a メンズ
       .a3
-        %a 家電・スマホ・カメラ
+        %a ベビー・キッズ
       .a4
-        %a おもちゃ・ホビー・グッズ
+        %a 家電・スマホ・カメラ
     .pickup__item
       .pickup__item__header
         .pickup__item__header__category-title  レディース新着アイテム
@@ -42,6 +42,7 @@
         .pickup__item__header__category-title 家電・スマホ・カメラ新着アイテム
         .pickup__item__header__see-more もっと見る 》
       .pickup__item__bottom
+        = render partial: "top/category_item", collection: @category_no40, as: "product"
         
   .pickup
     %h2.pickup__header 

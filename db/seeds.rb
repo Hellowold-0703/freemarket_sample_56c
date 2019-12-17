@@ -143,14 +143,24 @@ pants.children.create!([{name: "デニム/ジーンズ"}, {name: " ワークパ�
 
 baby_kids = Category.create!(name: "ベビー・キッズ")
 
-baby_girl = baby_kids.children.create!(name: "ベビー服(女の子用) ~95cm", size_type_id: 3)
-baby_boy = baby_kids.children.create!(name: "ベビー服(男の子用) ~95cm", size_type_id: 3)
-baby_unisex = baby_kids.children.create!(name: "ベビー服(男女兼用) ~95cm", size_type_id: 3)
+baby_girl = baby_kids.children.create!(name: "ベビー服(女の子用) ~95cm", size_type_id: 1)
+baby_boy = baby_kids.children.create!(name: "ベビー服(男の子用) ~95cm", size_type_id: 1)
+baby_unisex = baby_kids.children.create!(name: "ベビー服(男女兼用) ~95cm", size_type_id: 1)
 
 baby_girl.children.create!([{name: "トップス"}, {name: "アウター"}, {name: "パンツ"}])
 baby_boy.children.create!([{name: "トップス"}, {name: "アウター"}, {name: "パンツ"}])
 baby_unisex.children.create!([{name: "トップス"}, {name: "アウター"}, {name: "パンツ"}])
 
+
+phone_camera = Category.create!(name: "家電・スマホ・カメラ")
+
+smart_phone = phone_camera.children.create!(name: "スマートフォン/携帯電話")
+pc_tablet = phone_camera.children.create!(name: "PC/タブレット")
+camera = phone_camera.children.create!(name: "カメラ")
+
+smart_phone.children.create!([{name: "スマートフォン本体"}, {name: "バッテリー/充電器"}, {name: "携帯電話本体"}])
+pc_tablet.children.create!([{name: "タブレット"}, {name: "ノートPC"}, {name: "ディスプレイ"}])
+camera.children.create!([{name: "デジタルカメラ"}, {name: "ビデオカメラ"}, {name: "フィルムカメラ"}])
 
 
 chanel = Brand.create!(name: "シャネル")

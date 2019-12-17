@@ -13,15 +13,6 @@ $(document).on('turbolinks:load', function(){
             <option id="size_select">---</option>
           </select>
         </div>
-      </div>
-
-      <div class="form-group" id="brand_wrapper">
-        <label for="product_brand_id">
-        ブランド
-          <span class="form-arbitrary">任意</span>
-        </label>
-        <input placeholder="例) シャネル" name="product[brand_id]" class="input-default brand" type="text" id="product_brand_id">
-        </div>
       </div>`
     return html;
   }

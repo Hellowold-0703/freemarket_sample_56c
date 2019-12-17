@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
   
   def category_info_set
-    array = [1, 14, 27]
+    array = [1, 14, 27, 40]
     for num in array do
       search_anc = Category.where('ancestry LIKE(?)', "#{num}/%")
       ids = []
@@ -36,9 +36,9 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
   end
 
   def get_category_children
@@ -56,6 +56,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @categories = Category.where(id: params[:category_id])
+   
     @product[:category_id] = @categories[0][:id]
     if (params[:product][:images] != nil)
       @product.save

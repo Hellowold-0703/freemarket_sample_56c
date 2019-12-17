@@ -66,12 +66,6 @@ $(document).on('turbolinks:load', function(){
   return false;
   })
 
-
-
-
-  var y = window.pageYOffset ;
-  console.log(y);
-
 });
 
 

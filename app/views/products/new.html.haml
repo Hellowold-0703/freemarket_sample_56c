@@ -46,6 +46,14 @@
                     .select-wrap
                       = f.select :category, @category_parent_array, {}, {class: 'select-default', id: 'parent_category', name: 'parent_category'}
                       %i.fas.fa-angle-down
+
+                .form-group 
+                  = f.label "ブランド"
+                  %span.form-arbitrary 任意
+                  .select-wrap
+                    = f.select :brand_id, Brand.all.collect { |p| [ p.name, p.id ] }, { prompt: '---' }, {class: 'select-default'}
+                    %i.fas.fa-angle-down
+        
                  
                 .form-group
                   = f.label :status do

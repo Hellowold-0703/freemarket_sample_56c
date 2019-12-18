@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
       get 'search', to: 'products#search'
+      post 'remove_image_at_index', defaults: { format: 'json' }
     end
   end
   get "products/:id/edit", to: "products#edit", defaults: { format: 'json' }

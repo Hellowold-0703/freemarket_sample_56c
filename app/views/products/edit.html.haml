@@ -15,32 +15,52 @@
               .sell-dropbox__container.clearfix.state-image-number-10
                 .sell-upload-items__container
                   - @product.images.each_slice(5).with_index do |image, index|
-                    %div{class: "sell-upload-items have-item-#{image.length}"}
-                      %ul{class: "imageList"}
-                        - if index == 0
-                          - image.each_with_index do |img, i|
-                            %li.sell-upload__item
-                              %figure.sell-upload__figure.portrait
-                                = image_tag "#{img}",class:"product_image"
-                              .sell-upload__button
-                                %a{id: "upload-item__edit"} 編集
-                                %a{id: "upload-item__delete", data: {id: "#{i}"}} 削除
-                        -else
-                          - image.each.with_index(5) do |img, i|
-                            %li.sell-upload__item
-                              %figure.sell-upload__figure.portrait
-                                = image_tag "#{img}",class:"product_image"
-                              .sell-upload__button
-                                %a{id: "upload-item__edit"} 編集
-                                %a{id: "upload-item__delete", data: {id: "#{i}"}} 削除
-                %label{class: "sell-upload__drop-box have-item-#{@images_length}"}
-                  = f.file_field :images, multiple: true, class: "sell-upload__drop-file", style: "display:none;", id: "input_files", accept: "image/png,image/jpeg,image/jpeg,image/gif"
-              
-                  %pre.visible-pc
-                    :preserve
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード
-                  %i.fas.fa-camera
+                    - if @product.images.length == 5
+                      %div{class: "sell-upload-items have-item-#{image.length}"}
+                        %ul{class: "imageList"}
+                          - if index == 0
+                            - image.each_with_index do |img, i|
+                              %li.sell-upload__item
+                                %figure.sell-upload__figure.portrait
+                                  = image_tag "#{img}",class:"product_image"
+                                .sell-upload__button
+                                  %a{id: "upload-item__edit"} 編集
+                                  %a{id: "upload-item__delete", data: {id: "#{i}"}} 削除
+                      %div{class: "sell-upload-items have-item-0"}
+                        %ul{class: "imageList"}
+                    - else
+                      %div{class: "sell-upload-items have-item-#{image.length}"}
+                        %ul{class: "imageList"}
+                          - if index == 0
+                            - image.each_with_index do |img, i|
+                              %li.sell-upload__item
+                                %figure.sell-upload__figure.portrait
+                                  = image_tag "#{img}",class:"product_image"
+                                .sell-upload__button
+                                  %a{id: "upload-item__edit"} 編集
+                                  %a{id: "upload-item__delete", data: {id: "#{i}"}} 削除
+                          - else
+                            - image.each.with_index(5) do |img, i|
+                              %li.sell-upload__item
+                                %figure.sell-upload__figure.portrait
+                                  = image_tag "#{img}",class:"product_image"
+                                .sell-upload__button
+                                  %a{id: "upload-item__edit"} 編集
+                                  %a{id: "upload-item__delete", data: {id: "#{i}"}} 削除
+                - if @product.images.length < 5
+                  %label{class: "sell-upload__drop-box have-item-#{@product.images.length}"}
+                    = f.file_field :images, multiple: true, class: "sell-upload__drop-file", style: "display:none;", id: "input_files", accept: "image/png,image/jpeg,image/jpeg,image/gif"
+                    %pre.visible-pc
+                      :preserve
+                        クリックしてファイルをアップロード
+                    %i.fas.fa-camera
+                - else @product.images.length < 10
+                  %label{class: "sell-upload__drop-box have-item-#{@product.images.length-5}"}
+                    = f.file_field :images, multiple: true, class: "sell-upload__drop-file", style: "display:none;", id: "input_files", accept: "image/png,image/jpeg,image/jpeg,image/gif"
+                    %pre.visible-pc
+                      :preserve
+                        クリックしてファイルをアップロード
+                    %i.fas.fa-camera
 
             .sell-content
               .form-group

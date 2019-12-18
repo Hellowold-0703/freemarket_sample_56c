@@ -67,16 +67,10 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     gon.product_id = @product[:id]
-    @product_images = @product[:images]
+    @product_images = @product.images
     gon.product_images = @product_images
     @size = Size.find(@product.size_id)
     @size_list = Size.where('size_type_id = ?', "#{@size.size_type_id}")
-    @length = @product.images.length % 5
-    if @product.images.length < 5
-      @images_length = @product.images.length
-    else
-      @images_length = @product.images.length - 5
-    end
     @grandchild_category = @product.category
     @child_category = @grandchild_category.parent
     @parent_category = @child_category.parent
@@ -88,7 +82,13 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.sellers[0].user_id == current_user.id
-      @product.update(product_params)
+      @product.update(update_params)
+      # if(image_params[:images] != nil)
+      #   original_images = @product.images
+      #   images = original_images.concat(image_params[:images])
+      #   @product.images = images
+      #   @product.save!
+      # end
     end
   end
 
@@ -165,10 +165,27 @@ class ProductsController < ApplicationController
     @seller = Seller.find_by(user_id: current_user.id)
   end
 
+  def remove_image_at_index
+    @product = Product.find(params[:id])
+    index = params[:index].to_i
+    original_images = @product.images
+    remained_images = original_images.delete_at(index)
+    remained_images.try(:remove!)
+    @product.update(images: remained_images)
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_price, :shipping_method, :likes_count, :category_id, :brand_id, :size_id, {images: []})
+  end
+
+  def update_params
+    params.require(:product).permit(:name, :explanation, :status, :shipping_charge, :shipping_area, :days_before_shipment, :selling_price, :shipping_method, :likes_count, :category_id, :brand_id, :size_id)
+  end
+
+  def image_params
+    params.require(:product).permit(images: [])
   end
 
   def set_payjp_private_key
@@ -191,5 +208,4 @@ class ProductsController < ApplicationController
   def search_params
     params.require(:q).permit(:name_cont)
   end
-
 end

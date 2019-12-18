@@ -3,6 +3,7 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
+  config.remove_previously_stored_files_after_update = false
   if Rails.env.production?
     config.storage = :fog
     config.fog_provider = 'fog/aws'

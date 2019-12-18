@@ -16,6 +16,7 @@ class Product < ApplicationRecord
   validates :shipping_method, presence: true
   validates :category_id, presence: true
   validates :images, presence: true
+  validates :size_id, presence: true
   mount_uploaders :images, ImagesUploader
   serialize :images, JSON
 

@@ -47,6 +47,9 @@ $(document).on('turbolinks:load', function(){
 
   function change_class_to_decrement(delete_target) {
     var reduce_box = delete_target.parent().parent()
+    debugger;
+    var sfsg = reduce_box.parent().children().length
+    var asd = reduce_box.parent().length
     if(($(".sell-upload-items").next().children().length > 0)) {
       if(box_count == 0) {
         reduce_box.removeClass("have-item-" + box_count2.toString(10))
@@ -62,7 +65,9 @@ $(document).on('turbolinks:load', function(){
       $(".sell-upload__drop-box").addClass("have-item-" + box_count.toString(10))
       if(box_count == 4) {
         $(".sell-upload__drop-box").prop('style', "display:block;")
-        $(".sell-upload-items:last").remove();
+        if(box_count2 == 4){
+          $(".sell-upload-items:last").remove();
+        }
       }
     } else {
       $(".sell-upload__drop-box").removeClass("have-item-" + box_count.toString(10))

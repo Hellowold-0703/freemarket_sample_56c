@@ -56,7 +56,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @categories = Category.where(id: params[:category_id])
-   
     @product[:category_id] = @categories[0][:id]
     if (params[:product][:images] != nil)
       @product.save

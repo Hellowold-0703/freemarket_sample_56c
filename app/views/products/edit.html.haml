@@ -54,8 +54,15 @@
                       :preserve
                         クリックしてファイルをアップロード
                     %i.fas.fa-camera
-                - else @product.images.length < 10
+                - elsif @product.images.length < 10
                   %label{class: "sell-upload__drop-box have-item-#{@product.images.length-5}"}
+                    = f.file_field :images, multiple: true, class: "sell-upload__drop-file", style: "display:none;", id: "input_files", accept: "image/png,image/jpeg,image/jpeg,image/gif"
+                    %pre.visible-pc
+                      :preserve
+                        クリックしてファイルをアップロード
+                    %i.fas.fa-camera
+                - else 
+                  %label{class: "sell-upload__drop-box have-item-#{@product.images.length-5}", style: "display:none;"}
                     = f.file_field :images, multiple: true, class: "sell-upload__drop-file", style: "display:none;", id: "input_files", accept: "image/png,image/jpeg,image/jpeg,image/gif"
                     %pre.visible-pc
                       :preserve

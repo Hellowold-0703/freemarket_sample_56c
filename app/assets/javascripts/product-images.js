@@ -33,23 +33,21 @@ $(document).on('turbolinks:load', function(){
   }
 
   function change_class_to_increment(name) {
-    if($(".sell-upload-items") && box_count < 6){
-      box_count += 1
-      box_count2 += 1
-      var add_box = $("have-item-" + box_count.toString(10));
-      var remove_box = $("have-item-" + (box_count - 1).toString(10));
-      if($(".sell-upload-items").next().length){
-        $(".sell-upload-items:last").removeClass(remove_box.selector).addClass(add_box.selector);
-      } else {
-        $(".sell-upload-items").removeClass(remove_box.selector).addClass(add_box.selector);
-      }
-      $(".sell-upload__drop-box").removeClass(remove_box.selector).addClass(add_box.selector);
+    box_count += 1
+    box_count2 += 1
+    var add_box = $("have-item-" + box_count.toString(10));
+    var remove_box = $("have-item-" + (box_count - 1).toString(10));
+    if($(".sell-upload-items").next().length){
+      $(".sell-upload-items:last").removeClass(remove_box.selector).addClass(add_box.selector);
+    } else {
+      $(".sell-upload-items").removeClass(remove_box.selector).addClass(add_box.selector);
     }
+    $(".sell-upload__drop-box").removeClass(remove_box.selector).addClass(add_box.selector);
   }
 
   function change_class_to_decrement(delete_target) {
+    var reduce_box = delete_target.parent().parent()
     if(($(".sell-upload-items").next().children().length > 0)) {
-      var reduce_box = delete_target.parent().parent()
       if(box_count == 0) {
         reduce_box.removeClass("have-item-" + box_count2.toString(10))
         $(".sell-upload__drop-box").removeClass("have-item-" + box_count.toString(10))
@@ -64,22 +62,15 @@ $(document).on('turbolinks:load', function(){
       $(".sell-upload__drop-box").addClass("have-item-" + box_count.toString(10))
       if(box_count == 4) {
         $(".sell-upload__drop-box").prop('style', "display:block;")
-        $(".sell-upload-items").next().remove()
-      }
-      if(box_count == 0) {
-        $(".sell-upload__item:last").remove();
+        $(".sell-upload-items:last").remove();
       }
     } else {
-      var reduce_box = delete_target.parent().parent()
       $(".sell-upload__drop-box").removeClass("have-item-" + box_count.toString(10))
       reduce_box.removeClass("have-item-" + box_count.toString(10))
       box_count -= 1
       box_count2 -= 1
       reduce_box.addClass("have-item-" + box_count.toString(10))
       $(".sell-upload__drop-box").addClass("have-item-" + box_count.toString(10))
-      if(box_count == 4) {
-        $(".sell-upload-items:last").remove();
-      }
     }
   }
 
@@ -152,6 +143,9 @@ $(document).on('turbolinks:load', function(){
   $(".sell-dropbox__container").on("click", "#upload-item__delete", function(){
     var delete_target = $(this).parents(".sell-upload__item")
     var index = $("li.sell-upload__item").index(delete_target);
+    fileList.splice(index, 1);
+    change_class_to_decrement(delete_target)
+    delete_target.remove();
     if(window.location.pathname == edit_path) {
       if(index < olen) {
         original_files.splice(index, 1);
@@ -174,9 +168,6 @@ $(document).on('turbolinks:load', function(){
         new_files.splice(index - olen, 1);
       }
     }
-    fileList.splice(index, 1);
-    change_class_to_decrement(delete_target)
-    delete_target.remove();
   })
 
   $(".sell-dropbox__container").on("click", "#upload-item__edit", function(){
@@ -558,7 +549,6 @@ $(document).on('turbolinks:load', function(){
     priceCalc(raw_price);
   };
 
-
   $("#form").on("submit", function(e) {
     e.preventDefault();
     var fd = new FormData(this);
@@ -567,8 +557,8 @@ $(document).on('turbolinks:load', function(){
       var url = location.href
       var type = "POST"
       var send_url = "http://" + location.host;
-      for (i = 0; i < fileList.length; i++) {
-        fd.append("product[images][]",fileList[i])
+      for (i = 0; i < fileList[0].length; i++) {
+        fd.append("product[images][]",fileList[0][i])
       }
     } else if(window.location.pathname == edit_path) {
       var filecheck = fd.get("product[images][]")
